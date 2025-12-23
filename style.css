@@ -1,0 +1,348 @@
+/* =========================================
+   1. FUENTES (Carga Local)
+   ========================================= */
+   @font-face {
+    font-family: 'Outfit';
+    src: url('fonts/Outfit-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Outfit';
+    src: url('fonts/Outfit-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Outfit';
+    src: url('fonts/Outfit-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* =========================================
+   2. VARIABLES (Tus colores)
+   ========================================= */
+:root {
+    --primary-color: #ff3366; /* Rosa EneDigital */
+    --primary-light: #fff0f3; /* Fondo suave */
+    --accent-color: #20D5D2;  /* Turquesa Precios */
+    --text-dark: #2d2d2d;
+    --text-gray: #666;
+    --white: #ffffff;
+    --radius: 16px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================================
+   3. ESTILOS BASE (MOBILE FIRST 📱)
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(135deg, #fff0f3 0%, #ffeef2 50%, #fff0f3 100%);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 20px 15px;
+}
+
+.container {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- HEADER --- */
+.profile-header {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.profile-image-container {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 15px;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    border: 4px solid var(--white);
+    overflow: hidden;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.verified-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: var(--accent-color);
+    color: var(--white);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--white);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.bio {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    line-height: 1.5;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/* --- BOTONES Y LINKS --- */
+a { text-decoration: none; }
+
+.cta-tiktok {
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 12px 15px;
+    color: var(--text-dark);
+    gap: 15px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+.tiktok-icon-box {
+    background: #000;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.link-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid #fff;
+    border-radius: var(--radius);
+    padding: 16px;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.link-card.primary {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+}
+.link-card.primary .link-desc { color: rgba(255,255,255, 0.9); }
+
+.link-card.calendly {
+    background: var(--white);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+.link-card.calendly .link-desc { color: var(--primary-color); }
+
+.link-icon { font-size: 22px; }
+.link-title { font-weight: 700; font-size: 1rem; display: block; }
+.link-desc { font-size: 0.8rem; margin-top: 2px; }
+
+/* --- GRID DE SERVICIOS (Estilo Lista Vertical para Móvil) --- */
+h3 {
+    text-align: center;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-gray);
+    margin: 10px 0;
+    font-weight: 800;
+}
+
+.services-grid {
+    display: flex;             /* Lista vertical */
+    flex-direction: column;
+    gap: 12px;
+}
+
+.service-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 15px;
+    box-shadow: var(--shadow);
+    display: flex;             /* Icono al lado del texto */
+    align-items: center;
+    text-align: left;
+    gap: 15px;
+}
+
+.service-icon { 
+    font-size: 24px; 
+    margin-bottom: 0;          /* Sin margen inferior en móvil */
+    display: block; 
+}
+
+.service-title { 
+    font-weight: 700; 
+    font-size: 0.95rem; 
+    margin-bottom: 0; 
+    flex-grow: 1;              /* Empuja el precio a la derecha */
+    color: var(--text-dark);
+}
+
+.service-price {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    background: var(--primary-light);
+    padding: 5px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+
+/* --- FOOTER --- */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--text-dark);
+    box-shadow: var(--shadow);
+}
+
+footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    margin-top: 20px;
+    opacity: 0.8;
+}
+
+/* =========================================
+   4. MEDIA QUERIES (DESKTOP & TABLET 💻)
+   ========================================= */
+@media (min-width: 768px) {
+    
+    .container {
+        max-width: 580px; 
+    }
+
+    h1 { font-size: 2.2rem; }
+    .bio { font-size: 1.1rem; }
+
+    /* --- TRANSFORMACIÓN A GRID (Solo en PC) --- */
+    .services-grid {
+        display: grid;  /* Cambiamos de Flex a Grid */
+        grid-template-columns: repeat(2, 1fr); /* 2 Columnas perfectas */
+        gap: 20px;
+    }
+
+    .service-card {
+        flex-direction: column;     /* Icono arriba, texto abajo */
+        justify-content: center;    /* Centrado vertical */
+        text-align: center;         /* Texto centrado */
+        height: 100%;
+        padding: 25px 15px;
+    }
+
+    .service-title {
+        flex-grow: 0;               /* Ya no empuja nada */
+        margin-bottom: 8px;
+        font-size: 1rem;
+    }
+
+    .service-icon {
+        margin-bottom: 10px;
+        font-size: 32px;            /* Icono más grande */
+    }
+
+    /* --- ANIMACIONES HOVER (Solo PC) --- */
+    .link-card, .cta-tiktok, .service-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+    }
+
+    .link-card:hover {
+        transform: translateY(-3px) scale(1.01);
+        box-shadow: 0 10px 25px rgba(255, 51, 102, 0.15);
+        border-color: var(--primary-color);
+    }
+
+    .cta-tiktok:hover {
+        transform: translateY(-3px);
+        border-color: var(--accent-color);
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    }
+
+    .social-icon {
+        transition: transform 0.2s ease, color 0.2s, background-color 0.2s;
+    }
+    .social-icon:hover {
+        transform: scale(1.15) rotate(10deg);
+        color: var(--primary-color);
+        background-color: var(--primary-light);
+    }
+}
