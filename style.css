@@ -17,15 +17,6 @@
         --neon-glow: none;         /* Sin brillo neón en modo claro */
         --profile-border: 3px solid white;
     }
-    /* LEAGUE SPARTAN (Solo Bold 700 para títulos) */
-@font-face {
-    font-family: 'League Spartan';
-    src: url('fonts/LeagueSpartan-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap; /* Carga rápida */
-}
-
 /* OUTFIT (Light 300) */
 @font-face {
     font-family: 'Outfit';
