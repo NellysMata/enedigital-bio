@@ -1,24 +1,65 @@
 
-    // Configuración de tu correo (para no repetir)
-    const usuario = "nellysmata.dev";
-    const dominio = "gmail.com";
-    const emailCompleto = usuario + "@" + dominio;
+// --- 1. Lógica del Modo Oscuro ---
+const toggleBtn = document.getElementById('theme-toggle');
+const body = document.body;
 
-    // 1. Función para el botón grande "COTIZAR"
-    function enviarCotizacion(e) {
-        e.preventDefault();
-        // Asunto automático para que sepas que es un cliente
-        const asunto = "🚀 Solicitud de Presupuesto Web";
-        const cuerpo = "Hola EneDigital, vi tu perfil y me gustaría cotizar un proyecto...";
-        
-        // Abre el correo con todo relleno
-        window.location.href = "mailto:" + emailCompleto + 
-                               "?subject=" + encodeURIComponent(asunto) + 
-                               "&body=" + encodeURIComponent(cuerpo);
-    }
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme === 'dark') {
+    body.classList.add('dark-mode');
+    toggleBtn.textContent = '☀️'; 
+}
 
-    // 2. Función para el icono pequeño del footer
-    function abrirCorreo(e) {
-        e.preventDefault();
-        window.location.href = "mailto:" + emailCompleto;
+toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+        toggleBtn.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+    } else {
+        toggleBtn.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
     }
+});
+
+// --- 2. Lógica del Botón COMPARTIR (NUEVO) ---
+const shareBtn = document.getElementById('share-btn');
+
+shareBtn.addEventListener('click', async () => {
+    // Intenta compartir nativamente (Móvil)
+    if (navigator.share) {
+        try {
+            await navigator.share({
+                title: 'EneDigital | Diseño Web',
+                text: 'Mira esta diseñadora web ⚡',
+                url: window.location.href
+            });
+        } catch (err) {
+            console.log('Error al compartir', err);
+        }
+    } else {
+        // Si no se puede compartir, copia al portapapeles (PC)
+        try {
+            await navigator.clipboard.writeText(window.location.href);
+            // Cambia el icono temporalmente para avisar
+            const originalText = shareBtn.textContent;
+            shareBtn.textContent = '✅';
+            setTimeout(() => {
+                shareBtn.textContent = originalText;
+            }, 2000);
+        } catch (err) {
+            console.error('Error al copiar', err);
+        }
+    }
+});
+
+// --- 3. Tu Script Original para el Correo ---
+function enviarCotizacion(e) {
+    e.preventDefault();
+    const subject = "Cotización de Proyecto Web - EneDigital";
+    const body = "Hola EneDigital, me gustaría cotizar un proyecto. Mi idea es...";
+    window.location.href = `mailto:enedigitalweb@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function abrirCorreo(e) {
+    e.preventDefault();
+    window.location.href = "mailto:enedigitalweb@gmail.com";
+}

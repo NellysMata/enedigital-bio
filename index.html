@@ -3,55 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <title>EneDigital | Diseño Web ⚡</title>
+    <meta name="description" content="Diseño Web y Estrategia Digital. Transformo ideas en webs minimalistas y rápidas que venden. ⚡ Descarga la Auto-Auditoría Web Express por solo 2,99€.">
     <link rel="shortcut icon" href="img/logo-mini.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <title>EneDigital | Diseño Web 🌸</title>
-    <style>
-       
-        body { font-family: 'Outfit', sans-serif; } 
-        
-        .price-tag {
-            background-color: #20D5D2; 
-            color: white;
-            padding: 3px 8px;
-            border-radius: 6px;
-            font-size: 11px;
-            font-weight: 800;
-            margin-left: 8px;
-            vertical-align: middle;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .social-icon { cursor: pointer; }
-    </style>
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+
+    <main class="container">
+        
+        <button id="share-btn" class="control-btn" aria-label="Compartir perfil">
+            🔗
+        </button>
+
+        <button id="theme-toggle" class="control-btn" aria-label="Cambiar tema">
+            🌙
+        </button>
+
         <div class="profile-header">
             <div class="profile-image-container">
-                <div class="profile-image"><img src="img/logo-mini.png" alt="mini-logo" width="100%"></div> 
+                <div class="profile-image"><img src="img/logo-mini.png" alt="EneDigital"></div> 
                 <div class="verified-badge">✓</div>
             </div>
-            
             <h1>EneDigital</h1>
             <p class="subtitle">Nueva Web. Nuevo Nivel. 🚀</p>
-            <p class="bio">Diseñadora Web & Estratega Digital. Transformo ideas en webs rápidas y minimalistas que venden.</p>
+            <p class="bio">Diseñadora Web & Estratega Digital.<br>Transformo ideas en webs rápidas y minimalistas.</p>
         </div>
 
         <a href="https://www.tiktok.com/@ene.digitalweb" target="_blank" class="cta-tiktok">
             <div class="tiktok-icon-box">🎵</div>
             <div>
-                <h2 style="font-size: 16px; font-weight: 700;">Sígueme en TikTok</h2>
-                <p style="font-size: 13px; color: #666;">Tips diarios para mejorar tu negocio</p>
+                <h2 style="font-size: 1rem; font-weight: 700; color: white;">Sígueme en TikTok</h2>
+                <p style="font-size: 0.8rem; color: #aaa;">Tips diarios para tu negocio</p>
             </div>
         </a>
 
         <div class="links-container">
-            <a href="#" class="link-card primary" onclick="enviarCotizacion(event)">
+            <a href="https://buy.stripe.com/dRm7sM5kKbUj0REcSz5kk00" target="_blank" class="link-card pulse-effect" style="border: 2px solid var(--primary-pink);">
+                <div class="link-icon">⚡</div>
+                <div class="link-content">
+                    <span class="link-title" style="color: var(--primary-pink);">
+                        Auto-Auditoría Web <span class="price-tag">2,99€</span>
+                    </span>
+                    <div class="link-desc">Descubre en 5 min por qué tu web no vende</div>
+                </div>
+            </a>
+
+            <a href="#" class="link-card" onclick="enviarCotizacion(event)">
                 <div class="link-icon">💬</div>
                 <div class="link-content">
                     <span class="link-title">Cotizar mi Proyecto</span>
@@ -59,26 +58,16 @@
                 </div>
             </a>
 
-            <a href="https://buy.stripe.com/dRm7sM5kKbUj0REcSz5kk00" target="_blank" class="link-card" style="border: 2px solid #ff3366;">
-                <div class="link-icon">⚡</div>
-                <div class="link-content">
-                    <span class="link-title">
-                        Auto-Auditoría Web <span class="price-tag">2,99€</span>
-                    </span>
-                    <div class="link-desc">Descubre en 5 min por qué tu web no vende</div>
-                </div>
-            </a>
-
             <a href="https://nellysmata.github.io" target="_blank" class="link-card">
                 <div class="link-icon">💼</div>
                 <div class="link-content">
-                    <span class="link-title">Ver portfolio</span>
+                    <span class="link-title">Ver Portfolio</span>
                     <div class="link-desc">Ejemplos reales de mis trabajos</div>
                 </div>
             </a>
         </div>
 
-        <h3>⚡Mis Servicios⚡</h3>
+        <h3>⚡ Mis Servicios ⚡</h3>
         <div class="services-grid">
             <div class="service-card">
                 <span class="service-icon">✨</span>
@@ -102,15 +91,13 @@
             </div>
         </div>
 
-        <a href="https://calendly.com/nellysmata-dev/30min" target="_blank" class="link-card calendly">
+        <a href="https://calendly.com/nellysmata-dev/30min" target="_blank" class="link-card" style="margin-top: 20px;">
             <div class="link-icon">📅</div>
             <div class="link-content">
                 <span class="link-title">¿Dudas? Tengamos una cita</span>
                 <div class="link-desc">Videollamada gratuita de 30 min</div>
             </div>
         </a>
-        
-        <br>
         
         <div class="social-links">
             <a href="#" class="social-icon">📷</a> 
@@ -119,9 +106,9 @@
         </div>
 
         <footer>
-            <p>Hecho con 💜 por <strong>EneDigital</strong> © 2025</p>
+            <p>Hecho con ⚡ por <strong>EneDigital</strong> © 2025</p>
         </footer>
-    </div>
-    <script src="script.js"></script>
+    </main>
+    <script src="script.js" defer></script>
 </body>
 </html>
