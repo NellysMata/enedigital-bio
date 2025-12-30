@@ -56,10 +56,12 @@ function enviarCotizacion(e) {
     e.preventDefault();
     const subject = "Cotización de Proyecto Web - EneDigital";
     const body = "Hola EneDigital, me gustaría cotizar un proyecto. Mi idea es...";
-    window.location.href = `mailto:nellysmata.dev@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = `mailto:hola@enedigital.es?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 function abrirCorreo(e) {
     e.preventDefault();
-    window.location.href = "mailto:nellysmata.dev@gmail.com";
+
+    window.location.href = "mailto:hola@enedigital.es";
 }
