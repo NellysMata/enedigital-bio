@@ -21,11 +21,18 @@ body.dark-mode {
     --bg-body: #0a0a0a;
     --bg-card: #141414;
     --bg-nav: rgba(10, 10, 10, 0.96);
-    --text-main: #f0f0f0;
-    --text-secondary: #a0a0a0;
+    --text-main: #ffffff;      /* Pure white for max contrast */
+    --text-secondary: #d0d0d0; /* Lightened from #a0a0a0 for better readability */
     --border-color: #333333;
     --shadow: 0 20px 50px rgba(0,0,0,0.5);
     --faq-bg: #1a1a1a;
+    --text-highlight: #ff66a3; /* Lighter pink for dark backgrounds (A11y) */
+}
+
+/* Light Mode Highlight (Default) */
+:root {
+    /* ... previous variables ... */
+    --text-highlight: var(--magenta-dark); /* Darker pink for light backgrounds */
 }
 
 /* --- RESET & ACCESSIBILITY --- */
@@ -75,6 +82,10 @@ img, svg {
     max-width: 1100px; 
     margin: 0 auto; 
     padding: 0 1.5rem; 
+}
+
+.text-highlight {
+    color: var(--text-highlight) !important;
 }
 
 /* Buttons */
@@ -142,7 +153,7 @@ nav {
 .logo { 
     font-size: 1.5rem; 
     font-weight: 900; 
-    color: var(--magenta); 
+    color: var(--text-highlight); 
     text-decoration: none; 
 }
 
@@ -184,8 +195,8 @@ body.dark-mode .theme-toggle:hover {
     border-radius: 50px;
 }
 body.dark-mode .btn-nav { 
-    border-color: var(--magenta); 
-    color: var(--magenta); 
+    border-color: var(--text-highlight); 
+    color: var(--text-highlight); 
 }
 
 /* --- HERO --- */
@@ -310,7 +321,6 @@ body.dark-mode .project-img {
         width: 100%;
         min-height: 220px;
     }
-    }
 }
 
 .tag { 
@@ -430,7 +440,7 @@ body.dark-mode .price-maintenance {
 }
 
 .faq-question i {
-    color: var(--magenta);
+    color: var(--text-highlight);
     transition: transform 0.3s;
 }
 
@@ -718,7 +728,7 @@ body.dark-mode .bubble-header {
 }
 
 .bio-subtitle {
-    color: var(--magenta); font-weight: 700; margin-bottom: 10px;
+    color: var(--text-highlight); font-weight: 700; margin-bottom: 10px;
     text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;
 }
 .bio-desc { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 30px; line-height: 1.5; }
@@ -817,3 +827,105 @@ body.dark-mode .bubble-header {
 .social-links { margin: 30px 0; display: flex; justify-content: center; gap: 20px; }
 .social-icon { font-size: 1.5rem; text-decoration: none; opacity: 0.7; transition: opacity 0.3s; color: var(--text-main); }
 .social-icon:hover { opacity: 1; transform: scale(1.1); color: var(--magenta); }
+/* --- MOBILE OPTIMIZATIONS (FIXES) --- */
+@media (max-width: 768px) {
+    
+    /* Typography Adjustments */
+    html {
+        font-size: 14px; /* Slightly smaller base font for mobile */
+    }
+
+    /* Layout Spacing */
+    .hero {
+        padding: 6rem 1rem 3rem; /* Reduced top padding */
+    }
+
+    .hero h1 {
+        font-size: 2.2rem; /* Fix huge text */
+        line-height: 1.2;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Section Padding Reduction */
+    .about, .logros, .pricing, .faq-section, .services {
+        padding: 4rem 1rem !important;
+    }
+
+    /* Pricing Box Mobile */
+    .price-box {
+        margin: 2rem auto;
+        width: 100%;
+    }
+
+    .price-header {
+        padding: 2rem 1.5rem 1.5rem;
+    }
+
+    .price-num {
+        font-size: 3.5rem;
+    }
+
+    .price-maintenance {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    /* Project Cards Mobile */
+    .project-card {
+        flex-direction: column !important;
+    }
+
+    .project-img {
+        min-height: 200px;
+    }
+
+    /* Navigation Mobile */
+    nav {
+        padding: 0.8rem 0;
+    }
+
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
+    .nav-actions {
+        gap: 10px;
+    }
+
+    .btn-nav {
+        font-size: 0.75rem;
+        padding: 0.4rem 1rem;
+    }
+
+    /* Floating WhatsApp Fix */
+    .floating-container {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-bubble {
+        width: 220px; /* Smaller bubble for mobile */
+        right: 0;
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 380px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .btn-mega {
+        width: 100%; /* Full width buttons for ease of tap */
+        padding: 1rem;
+    }
+
+    .nav-actions .btn-nav {
+        display: none; /* Hide 'HABLEMOS' on tiny screens if crowded, or keep small icon */
+    }
+}
