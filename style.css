@@ -830,18 +830,34 @@ body.dark-mode .bubble-header {
 /* --- MOBILE OPTIMIZATIONS (FIXES) --- */
 @media (max-width: 768px) {
     
-    /* Typography Adjustments */
-    html {
-        font-size: 14px; /* Slightly smaller base font for mobile */
+    /* FORCE RESET: Layout & Container Widths */
+    html, body {
+        overflow-x: hidden; /* Prevent horizontal scroll from elements sticking out */
+        width: 100%;
+        position: relative;
     }
 
-    /* Layout Spacing */
+    /* Main Containers Mobile Reset */
+    .container, .hero, .about, .logros, .pricing, .faq-section, .services {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box;
+    }
+
+    /* Typography Adjustments */
+    html {
+        font-size: 14px; 
+    }
+
+    /* Hero Fixes */
     .hero {
-        padding: 6rem 1rem 3rem; /* Reduced top padding */
+        padding: 5rem 1.5rem 3rem !important; /* Reduced top/bottom padding */
     }
 
     .hero h1 {
-        font-size: 2.2rem; /* Fix huge text */
+        font-size: 2.2rem;
         line-height: 1.2;
     }
 
@@ -850,15 +866,34 @@ body.dark-mode .bubble-header {
         margin-bottom: 2rem;
     }
 
-    /* Section Padding Reduction */
+    /* Drastic Padding Reduction for Sections */
     .about, .logros, .pricing, .faq-section, .services {
-        padding: 4rem 1rem !important;
+        padding: 3rem 1.5rem !important; /* Standardized mobile padding */
+    }
+
+    /* About Section Specifics */
+    .about {
+        border-radius: 0; /* Remove rounded corners on mobile for edge-to-edge feel */
+        margin-top: 0;
+    }
+    
+    .about-flex {
+        gap: 2rem;
+    }
+
+    /* Marquee Fix: Remove rotation */
+    .marquee-wrapper {
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 2rem 0;
     }
 
     /* Pricing Box Mobile */
     .price-box {
         margin: 2rem auto;
         width: 100%;
+        border-radius: 30px; /* Slightly less rounded */
     }
 
     .price-header {
@@ -878,19 +913,24 @@ body.dark-mode .bubble-header {
     /* Project Cards Mobile */
     .project-card {
         flex-direction: column !important;
+        margin-bottom: 2rem;
     }
 
     .project-img {
         min-height: 200px;
+    }
+    
+    .project-info {
+        padding: 1.5rem; /* Less padding inside cards */
     }
 
     /* Navigation Mobile */
     nav {
         padding: 0.8rem 0;
     }
-
+    
     .nav-container {
-        padding: 0 1rem;
+        padding: 0 1.5rem; /* Consistent alignment with body content */
     }
     
     .nav-actions {
@@ -909,8 +949,9 @@ body.dark-mode .bubble-header {
     }
     
     .whatsapp-bubble {
-        width: 220px; /* Smaller bubble for mobile */
+        width: 220px; 
         right: 0;
+        margin-bottom: 15px;
     }
 }
 
