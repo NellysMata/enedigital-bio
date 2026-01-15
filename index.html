@@ -293,22 +293,63 @@
 
         <section class="apps-lab" style="padding-bottom: 4rem; opacity: 0.8; margin-top: 4rem;">
             <div class="container">
-                <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">Zona Técnica (Developers)</h2>
+                <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 2rem;">Proyectos Personales</h2>
                 
-                <article class="project-card" style="background: linear-gradient(135deg, #0d1117, #161b22); border-color: #30363d; min-height: auto;">
-                    <div class="project-img" style="background: rgba(255,255,255,0.05); color: white; min-height: 150px; font-size: 3rem;">
-                        <i class="fa-brands fa-github"></i>
-                    </div>
-                    <div class="project-info" style="padding: 2rem;">
-                        <span class="tag" style="background: #21262d; color: #c9d1d9; border: 1px solid #30363d; font-size: 0.7rem;">OPEN SOURCE</span>
-                        <h3 style="font-size: 1.5rem; margin: 0.5rem 0; color: #c9d1d9;">Repositorio GitHub</h3>
-                        <p style="color: #8b949e; margin-bottom: 1rem; font-size: 0.95rem;">Colección de experimentos de código y arquitecturas.</p>
-                        
-                        <a href="https://github.com/NellysMata/nellysmata.github.io" target="_blank" rel="noopener noreferrer" class="btn-mega" style="background: #238636; box-shadow: none; padding: 0.6rem 1.2rem; font-size: 0.8rem;">
-                            <i class="fa-brands fa-github" style="margin-right:8px;"></i> EXPLORAR CÓDIGO
-                        </a>
-                    </div>
-                </article>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                    
+                    <!-- App 1: Calculadora -->
+                    <article class="project-card" style="flex-direction: column; min-height: auto;">
+                        <div class="project-img" style="background: #E3F2FD; color: #1565C0; min-height: 140px; font-size: 3rem; display: flex; align-items: center; justify-content: center;">
+                            <i class="fa-solid fa-calculator" style="font-size: 4rem;"></i>
+                        </div>
+                        <div class="project-info" style="padding: 1.5rem;">
+                            <h3 style="font-size: 1.4rem; margin: 0.5rem 0;">Calculadora</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.2rem;">Cálculos rápidos y precisos.</p>
+                            <a href="./apps/Sakura Calculadora/index.html" target="_blank" class="btn-app">ABRIR APP</a>
+                        </div>
+                    </article>
+
+                    <!-- App 2: Gestor Tareas -->
+                    <article class="project-card" style="flex-direction: column; min-height: auto;">
+                        <div class="project-img" style="background: #E8F5E9; color: #2E7D32; min-height: 140px; font-size: 3rem; display: flex; align-items: center; justify-content: center;">
+                            <i class="fa-solid fa-list-check" style="font-size: 4rem;"></i>
+                        </div>
+                        <div class="project-info" style="padding: 1.5rem;">
+                            <h3 style="font-size: 1.4rem; margin: 0.5rem 0;">Mis Tareas</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.2rem;">Organiza tu día a día.</p>
+                            <a href="./apps/SakuraTasks/sakuratasks.html" target="_blank" class="btn-app">ABRIR APP</a>
+                        </div>
+                    </article>
+
+                    <!-- App 3: Clima -->
+                    <article class="project-card" style="flex-direction: column; min-height: auto;">
+                        <div class="project-img" style="background: #FFF3E0; color: #EF6C00; min-height: 140px; font-size: 3rem; display: flex; align-items: center; justify-content: center;">
+                            <i class="fa-solid fa-cloud-sun" style="font-size: 4rem;"></i>
+                        </div>
+                        <div class="project-info" style="padding: 1.5rem;">
+                            <h3 style="font-size: 1.4rem; margin: 0.5rem 0;">App Clima</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.2rem;">El tiempo en directo.</p>
+                            <a href="./apps/Sakuraclima/index.html" target="_blank" class="btn-app">ABRIR APP</a>
+                        </div>
+                    </article>
+
+                    <!-- App 4: Horóscopo -->
+                    <article class="project-card" style="flex-direction: column; min-height: auto;">
+                        <div class="project-img" style="background: #F3E5F5; color: #8E24AA; min-height: 140px; font-size: 3rem; display: flex; align-items: center; justify-content: center;">
+                            <i class="fa-solid fa-crystal-ball" style="font-size: 4rem;"></i>
+                        </div>
+                        <div class="project-info" style="padding: 1.5rem;">
+                            <h3 style="font-size: 1.4rem; margin: 0.5rem 0;">Horóscopo</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.2rem;">Tu predicción diaria.</p>
+                            <a href="./apps/Sakura Horoscopo/index.html" target="_blank" class="btn-app">ABRIR APP</a>
+                        </div>
+                    </article>
+
+                </div>
+                
+                <div style="text-align:center; margin-top:2rem;">
+                    <a href="https://github.com/NellysMata/nellysmata.github.io" target="_blank" style="color: var(--text-secondary); font-size: 0.9rem; text-decoration: none; border-bottom: 1px solid var(--text-secondary);">Ver código fuente en GitHub</a>
+                </div>
             </div>
         </section>
     </main>
