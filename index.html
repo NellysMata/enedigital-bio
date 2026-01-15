@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EneDigital | Diseño Web Estratégico en Vitoria-Gasteiz</title>
+    <meta name="description" content="Diseño Web en Vitoria-Gasteiz. Desarrollo web y automatización para negocios de belleza. Convierte visitas en citas con EneDigital.">
+    
+    <!-- Open Graph / SEO -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://enedigital.com/">
+    <meta property="og:title" content="EneDigital | Diseño Web Estratégico en Vitoria-Gasteiz">
+    <meta property="og:description" content="Diseño Web en Vitoria-Gasteiz. Automatización para negocios de belleza.">
+    <meta property="og:image" content=""> <!-- Add actual image URL if available -->
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">EneDigital</a>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <a href="https://wa.me/34687356467" class="btn-nav">HABLEMOS</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Tu negocio en Vitoria necesita una web que <span style="color:var(--magenta)">traiga clientes</span></h1>
+        <p>Me llamo Nellys. No solo escribo código, creo sistemas de reservas que funcionan mientras tú descansas.</p>
+        <a href="#tarifas" class="btn-mega">QUIERO MI WEB</a>
+    </header>
+
+    <div class="share-bar">
+        <button class="share-btn" onclick="sharePage('whatsapp')" aria-label="Compartir en Whatsapp"><i class="fa-brands fa-whatsapp"></i></button>
+        <button class="share-btn" onclick="sharePage('copy')" aria-label="Copiar enlace"><i class="fa-solid fa-link"></i></button>
+        <button class="share-btn" onclick="sharePage('linkedin')" aria-label="Compartir en LinkedIn"><i class="fa-brands fa-linkedin-in"></i></button>
+    </div>
+
+    <main>
+        <section class="about" id="sobre-mi">
+            <div class="container about-flex">
+                <div style="flex: 1.2; min-width: 320px;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; letter-spacing: -1px;">Ingeniería + Ventas 🛠️</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.2rem;">Soy <strong>Nellys Mata</strong>. Mi formación técnica me da la precisión, pero mis años en ventas me han enseñado lo más importante: <strong>las personas compran a personas.</strong></p>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.2rem;">En EneDigital no hay palabras raras. Te escucho, entiendo tu negocio y te entrego una herramienta que te haga la vida más fácil.</p>
+                </div>
+                <div class="profile-card">
+                    <span style="font-size: 5rem; display: block; margin-bottom: 1rem;">👩💻</span>
+                    <h3 style="font-size: 1.5rem;">Nellys Mata</h3>
+                    <p style="color:var(--magenta); font-weight:800; text-transform:uppercase; font-size:0.8rem;">Fundadora EneDigital</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" style="padding: 4rem 1.5rem; background: var(--bg-body);">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                    
+                    <!-- Card 1: Seguridad -->
+                    <div style="background: var(--bg-card); padding: 2rem; border-radius: 30px; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🛡️</div>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">SOS Webs Hackeadas</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">¿Tu web ha sido infectada? No entres en pánico. Limpio malware, recupero accesos y blindo tu sitio para que no vuelva a pasar.</p>
+                    </div>
+
+                    <!-- Card 2: Branding -->
+                    <div style="background: var(--bg-card); padding: 2rem; border-radius: 30px; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎨</div>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Branding & Diseño</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Desde <strong>Canva</strong> hasta <strong>GIMP</strong>. Creo una identidad visual coherente para tu marca. Logos, paletas de color y posts para LinkedIn.</p>
+                    </div>
+
+                    <!-- Card 3: Mantenimiento -->
+                    <div style="background: var(--bg-card); padding: 2rem; border-radius: 30px; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔧</div>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Mantenimiento Web</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Una web es como un coche, necesita revisiones. Me encargo de actualizaciones y copias de seguridad para que tú solo vendas.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee Infinite Carousel (Tools) -->
+        <div class="marquee-wrapper">
+            <div class="marquee-content">
+                <span class="marquee-item">CANVA <i class="fa-solid fa-paintbrush"></i></span>
+                <span class="marquee-item">GIMP <i class="fa-solid fa-image"></i></span>
+                <span class="marquee-item">LINKEDIN <i class="fa-brands fa-linkedin"></i></span>
+                <span class="marquee-item">ESTRATEGIA <i class="fa-solid fa-chess"></i></span>
+                <span class="marquee-item">SEGURIDAD WEB <i class="fa-solid fa-shield-halved"></i></span>
+                <span class="marquee-item">BRANDING <i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                <!-- Repetir -->
+                <span class="marquee-item">CANVA <i class="fa-solid fa-paintbrush"></i></span>
+                <span class="marquee-item">GIMP <i class="fa-solid fa-image"></i></span>
+                <span class="marquee-item">LINKEDIN <i class="fa-brands fa-linkedin"></i></span>
+                <span class="marquee-item">ESTRATEGIA <i class="fa-solid fa-chess"></i></span>
+            </div>
+        </div>
+
+        <section class="logros" id="logros">
+            <div class="container">
+                <h2 class="section-title">Maquetas y Proyectos</h2>
+                
+                <!-- Project 1: Sian -->
+                <article class="project-card">
+                    <div class="project-img">💆‍♀️</div>
+                    <div class="project-info">
+                        <span class="tag">CASO DE ÉXITO</span>
+                        <h3 style="font-size: 2rem; margin: 0.5rem 0;">Sian Estética</h3>
+                        <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">Web completa para salón de belleza. Diseño limpio y elegante que transmite confianza y profesionalidad.</p>
+                        <a href="https://estetica-sian.vercel.app/" target="_blank" rel="noopener noreferrer" style="color:var(--magenta); font-weight:800; text-decoration:none;">VER WEB EN VIVO →</a>
+                    </div>
+                </article>
+
+                <!-- Project 2: CroquiPan -->
+                <article class="project-card">
+                    <div class="project-img" style="background: #FFF8E1; font-size: 5rem;">🥐</div>
+                    <div class="project-info">
+                        <span class="tag" style="background: #FFF8E1; color: #D4A017;">ECOMMERCE</span>
+                        <h3 style="font-size: 2rem; margin: 0.5rem 0;">CroquiPan</h3>
+                        <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">Tienda online para panadería artesanal. Un diseño crujiente que despierta el apetito al instante.</p>
+                        <a href="https://croquipan.vercel.app/" target="_blank" rel="noopener noreferrer" style="color:var(--magenta); font-weight:800; text-decoration:none;">VER WEB EN VIVO →</a>
+                    </div>
+                </article>
+
+                <!-- Project 3: EneSushi -->
+                <article class="project-card">
+                    <div class="project-img" style="background: #1a1a1a; font-size: 5rem;">🍣</div>
+                    <div class="project-info">
+                        <span class="tag" style="background: #FFE5E5; color: #D32F2F;">RESTAURANTE</span>
+                        <h3 style="font-size: 2rem; margin: 0.5rem 0;">EneSushi</h3>
+                        <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">Experiencia inmersiva para restaurante japonés. Carta digital moderna y fluida.</p>
+                        <a href="https://enesushi.vercel.app/" target="_blank" rel="noopener noreferrer" style="color:var(--magenta); font-weight:800; text-decoration:none;">VER WEB EN VIVO →</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+
+        <section class="socials" style="padding-bottom: 4rem;">
+            <div class="container">
+                <h2 class="section-title">Contenido & Estrategia</h2>
+                
+                <article class="project-card" style="background: white; border: 1px solid var(--border-color);">
+                    <!-- Visual side with gradients representing Insta/TikTok -->
+                    <div class="project-img" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white;">
+                        <div style="text-align:center;">
+                            <i class="fa-solid fa-camera-retro" style="font-size: 3.5rem; margin-bottom: 1rem; display:block;"></i>
+                            <span style="font-size: 1rem; font-weight: 700; opacity: 0.9;">GRABACIÓN + EDICIÓN</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-info">
+                        <span class="tag" style="background: var(--magenta); color: white;">CREACIÓN DE MARCA ENEDIGITAL</span>
+                        <h3 style="font-size: 2rem; margin: 0.5rem 0;">Storytelling Visual</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                            No es solo subir vídeos. Es conectar. Yo misma <strong>grabo, edito y gestiono</strong> toda la estrategia de contenidos. Humanizo la tecnología para acercarla a las personas.
+                        </p>
+                        
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <a href="https://www.tiktok.com/@ene.digitalweb" target="_blank" rel="noopener noreferrer" class="btn-mega" style="background: #000; box-shadow: none; padding: 0.8rem 1.5rem; font-size: 0.9rem; flex: 1; text-align: center;">
+                                <i class="fa-brands fa-tiktok" style="margin-right:8px;"></i> Tik Tok
+                            </a>
+                            
+                            <a href="https://www.instagram.com/ene.digitalweb/" target="_blank" rel="noopener noreferrer" class="btn-mega" style="background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); box-shadow: none; padding: 0.8rem 1.5rem; font-size: 0.9rem; flex: 1; text-align: center;">
+                                <i class="fa-brands fa-instagram" style="margin-right:8px;"></i> Instagram
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="pricing" id="tarifas">
+            <div class="container">
+                <h2 class="section-title">Transparencia total</h2>
+                <div class="price-box">
+                    <div class="price-header">
+                        <div style="margin-bottom: 0.8rem;">
+                            <span style="background: var(--magenta); color: white; padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 15px var(--magenta-glow);">
+                                🚀 Precio Lanzamiento
+                            </span>
+                        </div>
+                        <span style="font-weight: 700; color: var(--text-secondary); text-transform: uppercase; font-size: 0.85rem;">Pack Escaparate Pro</span>
+                        <div class="price-num">
+                            290€ <span style="font-size: 0.3em; font-weight: 500; color: var(--text-secondary); vertical-align: middle;">+ IVA</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-maintenance">
+                        <div style="font-size: 2.5rem;">♻️</div>
+                        <div>
+                            <div style="font-weight: 800; font-size: 1.2rem; color: var(--text-main);">+ 90€ / año</div>
+                            <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.3;">Mantenimiento, Hosting y Dominio incluido</div>
+                        </div>
+                    </div>
+
+                    <div style="padding: 2rem;">
+                        <ul class="features">
+                            <li><i class="fa-solid fa-check"></i> Diseño Premium Personalizado</li>
+                            <li><i class="fa-solid fa-check"></i> SEO Local (Vitoria-Gasteiz)</li>
+                            <li><i class="fa-solid fa-check"></i> Enlaces de pago/reserva</li>
+                            <li><i class="fa-solid fa-check"></i> Entrega en 7 días</li>
+                        </ul>
+                        <a href="https://wa.me/34687356467" class="btn-mega" style="width:100%; display:block;">RESERVAR AHORA</a>
+                        <p style="margin-top: 1.5rem; font-weight: 700; color: var(--magenta); font-size: 0.8rem;">⚠️ Solo 2 plazas este mes</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <h2 class="section-title" style="margin-bottom: 2rem;">Preguntas frecuentes</h2>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Qué incluye el mantenimiento de 90€? <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Todo lo técnico. Incluye la renovación anual de tu dominio (.com o .es), el hosting de alta velocidad, certificado de seguridad SSL (el candado verde), copias de seguridad semanales y soporte técnico por si algo falla.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿La web será 100% mía? <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Por supuesto. A diferencia de otras agencias que te "alquilan" la web, en EneDigital tú eres el dueño absoluto de tu dominio y tus archivos desde el primer día.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Tengo que pagar algo más? <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No hay sorpresas. Solo pagas los 290€ + IVA una sola vez por el diseño, y luego la cuota de mantenimiento de 90€ una vez al año (el primer año ya está incluido o prorrateado según oferta). Sin mensualidades ocultas.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Ya tengo dominio, ¿me sirve? <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>¡Claro! Si ya tienes un dominio comprado, lo redirigimos a nuestros servidores. Si no lo tienes, nosotros nos encargamos de todo el papeleo por ti.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="apps-lab" style="padding-bottom: 4rem; opacity: 0.8; margin-top: 4rem;">
+            <div class="container">
+                <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">Zona Técnica (Developers)</h2>
+                
+                <article class="project-card" style="background: linear-gradient(135deg, #0d1117, #161b22); border-color: #30363d; min-height: auto;">
+                    <div class="project-img" style="background: rgba(255,255,255,0.05); color: white; min-height: 150px; font-size: 3rem;">
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                    <div class="project-info" style="padding: 2rem;">
+                        <span class="tag" style="background: #21262d; color: #c9d1d9; border: 1px solid #30363d; font-size: 0.7rem;">OPEN SOURCE</span>
+                        <h3 style="font-size: 1.5rem; margin: 0.5rem 0; color: #c9d1d9;">Repositorio GitHub</h3>
+                        <p style="color: #8b949e; margin-bottom: 1rem; font-size: 0.95rem;">Colección de experimentos de código y arquitecturas.</p>
+                        
+                        <a href="https://github.com/NellysMata/nellysmata.github.io" target="_blank" rel="noopener noreferrer" class="btn-mega" style="background: #238636; box-shadow: none; padding: 0.6rem 1.2rem; font-size: 0.8rem;">
+                            <i class="fa-brands fa-github" style="margin-right:8px;"></i> EXPLORAR CÓDIGO
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <div class="floating-container">
+        <div class="whatsapp-bubble" id="whatsapp-bot">
+            <div class="bubble-header">
+                <span style="font-weight: 800;">Nellys (EneDigital)</span>
+                <button onclick="closeBot()" style="background:none; border:none; color:#666; cursor:pointer;">✕</button>
+            </div>
+            <div class="bubble-body">
+                ¡Hola! 👋<br>¿Quieres que veamos cómo impulsar tu negocio hoy?
+            </div>
+            <div class="bubble-arrow"></div>
+        </div>
+        <a href="https://wa.me/34687356467" class="btn-float btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat en WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <footer>
+        <p>© 2026 EneDigital · Nellys Mata · Vitoria-Gasteiz</p>
+    </footer>
+
+    <script>
+        // --- LÓGICA MODO OSCURO ---
+        const toggleBtn = document.getElementById('theme-toggle');
+        const icon = toggleBtn.querySelector('i');
+        const body = document.body;
+
+        // Comprobar preferencia guardada
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // --- LÓGICA FAQ (ACORDEÓN) ---
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const wasActive = question.classList.contains('active');
+                
+                // Cerrar todos
+                faqQuestions.forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.style.maxHeight = null;
+                });
+
+                // Abrir si no estaba activo
+                if (!wasActive) {
+                    question.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+
+        // --- LÓGICA COMPARTIR ---
+        function sharePage(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("¡Mira esta web para digitalizar tu negocio en Vitoria! 🚀");
+            const linkedinUrl = "https://www.linkedin.com/sharing/share-offsite/?url=" + url;
+
+            if (platform === 'whatsapp') {
+                window.open("https://wa.me/?text=" + text + "%20" + url, '_blank');
+            } else if (platform === 'linkedin') {
+                window.open(linkedinUrl, '_blank');
+            } else if (platform === 'copy') {
+                navigator.clipboard.writeText(window.location.href);
+                alert("¡Enlace copiado al portapapeles!");
+            }
+        }
+
+        // --- BOT WHATSAPP SIMULADO ---
+        const botBubble = document.getElementById('whatsapp-bot');
+        
+        // Mostrar bot a los 4 segundos
+        setTimeout(() => {
+            botBubble.classList.add('show');
+            // Sonido de notificación opcional
+            // const audio = new Audio('notification.mp3'); audio.play(); 
+        }, 4000);
+
+        function closeBot() {
+            botBubble.classList.remove('show');
+        }
+    </script>
+</body>
+</html>
