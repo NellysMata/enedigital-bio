@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño Web Vitoria-Gasteiz | EneDigital</title>
+    <meta name="description"
+        content="Agencia Digital en Vitoria-Gasteiz especializada en conversión de clientes. Desarrollo web, optimización WPO y estrategia digital para hacer crecer tu negocio.">
+
+    <!-- Open Graph / SEO -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://enedigital.com/">
+    <meta property="og:title" content="Diseño Web Vitoria-Gasteiz | EneDigital">
+    <meta property="og:description"
+        content="Agencia Digital en Vitoria-Gasteiz. Convertimos visitas en clientes con tecnología y estrategia.">
+    <meta property="og:image" content=""> <!-- Add actual image URL if available -->
+
+    <!-- Fonts with optimized loading for Safari -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- font-display=swap prevents FOIT (Flash of Invisible Text) in Safari -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous">
+
+    <!-- Custom CSS with cache busting version -->
+    <link rel="stylesheet" href="style.css?v=2.3.0">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">EneDigital</a>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <a href="https://wa.me/34687356467" class="btn-nav">HABLEMOS</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Tu negocio necesita una web que <span class="text-highlight">convierta visitas en clientes</span></h1>
+        <p>Me llamo Nellys. No solo escribo código, creo sistemas que automatizan tu negocio y multiplican tus ventas
+            mientras tú descansas.</p>
+        <a href="https://wa.me/34687356467" class="btn-mega">HABLEMOS DE TU PROYECTO</a>
+    </header>
+
+    <div class="share-bar">
+        <button class="share-btn" onclick="sharePage('whatsapp')" aria-label="Compartir en Whatsapp"><i
+                class="fa-brands fa-whatsapp"></i></button>
+        <button class="share-btn" onclick="sharePage('copy')" aria-label="Copiar enlace"><i
+                class="fa-solid fa-link"></i></button>
+        <button class="share-btn" onclick="sharePage('linkedin')" aria-label="Compartir en LinkedIn"><i
+                class="fa-brands fa-linkedin-in"></i></button>
+    </div>
+
+    <main>
+        <section class="about" id="sobre-mi">
+            <div class="container about-flex">
+                <div style="flex: 1.2; min-width: 320px;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; letter-spacing: -1px;">Ingeniería + Ventas 🛠️
+                    </h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.2rem;">Soy <strong>Nellys Mata</strong>. Mi formación
+                        técnica me da la precisión, pero mis años en ventas me han enseñado lo más importante:
+                        <strong>las personas compran a personas.</strong>
+                    </p>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.2rem;">En EneDigital no hay palabras raras. Te
+                        escucho, entiendo tu negocio y te entrego una herramienta que te haga la vida más fácil.</p>
+                </div>
+                <div class="profile-card">
+                    <span style="font-size: 5rem; display: block; margin-bottom: 1rem;">👩💻</span>
+                    <h3 style="font-size: 1.5rem;">Nellys Mata</h3>
+                    <p class="text-highlight" style="font-weight:800; text-transform:uppercase; font-size:0.8rem;">
+                        Fundadora EneDigital</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" style="padding: 4rem 1.5rem; background: var(--bg-body);">
+            <div class="container">
+                <!-- Grid optimizado: 2x2 en desktop, 1 columna en mobile -->
+                <div class="services-grid-optimized">
+
+                    <!-- Card 1: Seguridad (Webs Hackeadas) -->
+                    <div class="service-card-optimized">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🛡️</div>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Ciberseguridad & Rescate</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;"><strong>¿Web Hackeada?</strong>
+                            Tranquilidad. Limpio malware, recupero accesos y blindo tu sitio para siempre. Auditoría de
+                            seguridad ofensiva y defensiva.</p>
+                    </div>
+
+                    <!-- Card 2: WPO (Optimización) - NEW -->
+                    <div class="service-card-optimized">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🚀</div>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Optimización WPO (Speed)</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Llevo tu web al <strong>100/100 en
+                                Google</strong>. Carga instantánea, Core Web Vitals y optimización de código para que
+                            Google te ame y tus clientes no esperen.</p>
+                    </div>
+
+                    <!-- Card 3: Branding -->
+                    <div class="service-card-optimized">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎨</div>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Branding & Diseño</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Diseño de Identidad Visual
+                            Corporativa & Branding Estratégico. Creo una identidad visual coherente para tu marca.
+                            Logos,
+                            paletas de color y posts para LinkedIn.</p>
+                    </div>
+
+                    <!-- Card 4: Estrategia (Was Maintenance) -->
+                    <div class="service-card-optimized">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📈</div>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Consultoría Técnica</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem;">No solo diseño, optimizo tu
+                            negocio.
+                            Integración de pagos, automatizaciones y estrategia técnica para escalar sin romper nada.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee Infinite Carousel (Tools) -->
+        <div class="marquee-wrapper">
+            <div class="marquee-content">
+                <span class="marquee-item">LINKEDIN <i class="fa-brands fa-linkedin"></i></span>
+                <span class="marquee-item">ESTRATEGIA <i class="fa-solid fa-chess"></i></span>
+                <span class="marquee-item">SEGURIDAD WEB <i class="fa-solid fa-shield-halved"></i></span>
+                <span class="marquee-item">OPTIMIZACIÓN WPO <i class="fa-solid fa-gauge-high"></i></span>
+                <span class="marquee-item">SEO TÉCNICO <i class="fa-solid fa-code"></i></span>
+                <span class="marquee-item">CONVERSIÓN <i class="fa-solid fa-chart-line"></i></span>
+                <!-- Repetir Exacto -->
+                <span class="marquee-item">LINKEDIN <i class="fa-brands fa-linkedin"></i></span>
+                <span class="marquee-item">ESTRATEGIA <i class="fa-solid fa-chess"></i></span>
+                <span class="marquee-item">SEGURIDAD WEB <i class="fa-solid fa-shield-halved"></i></span>
+                <span class="marquee-item">OPTIMIZACIÓN WPO <i class="fa-solid fa-gauge-high"></i></span>
+                <span class="marquee-item">SEO TÉCNICO <i class="fa-solid fa-code"></i></span>
+                <span class="marquee-item">CONVERSIÓN <i class="fa-solid fa-chart-line"></i></span>
+            </div>
+        </div>
+
+        <section class="logros" id="logros">
+            <div class="container">
+                <h2 class="section-title">Maquetas y Proyectos</h2>
+
+                <div class="projects-grid">
+
+                    <!-- CASO DE ÉXITO DESTACADO: ClinicFisio -->
+                    <article class="project-card case-study-featured">
+                        <div class="project-img"
+                            style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem;">
+                            <div style="font-size: 4rem; margin-bottom: 0.5rem;">🚀</div>
+                            <div
+                                style="font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; opacity: 0.9;">
+                                Caso de Éxito</div>
+                        </div>
+                        <div class="project-info">
+                            <span class="tag"
+                                style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+                                <i class="fa-solid fa-chart-line" style="margin-right:6px;"></i> OPTIMIZACIÓN WPO
+                            </span>
+                            <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">ClinicFisio</h3>
+                            <p style="color:var(--text-secondary); margin-bottom: 1rem;">
+                                Transformé una web lenta en una máquina de conversión. De 3.5s a 2.3s de carga.
+                            </p>
+
+                            <!-- Métricas de Resultados -->
+                            <div
+                                style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; margin-bottom: 1.5rem;">
+                                <div
+                                    style="background: #e8f5e9; padding: 0.8rem; border-radius: 10px; text-align: center;">
+                                    <div style="font-size: 1.5rem; font-weight: 800; color: #2ecc71;">-34%</div>
+                                    <div style="font-size: 0.75rem; color: #555;">Tiempo Carga</div>
+                                </div>
+                                <div
+                                    style="background: #e8f5e9; padding: 0.8rem; border-radius: 10px; text-align: center;">
+                                    <div style="font-size: 1.5rem; font-weight: 800; color: #2ecc71;">+65%</div>
+                                    <div style="font-size: 0.75rem; color: #555;">Conversión</div>
+                                </div>
+                                <div
+                                    style="background: #fff3e0; padding: 0.8rem; border-radius: 10px; text-align: center;">
+                                    <div style="font-size: 1.5rem; font-weight: 800; color: #ff9800;">0.0</div>
+                                    <div style="font-size: 0.75rem; color: #555;">CLS Perfecto</div>
+                                </div>
+                                <div
+                                    style="background: #fff3e0; padding: 0.8rem; border-radius: 10px; text-align: center;">
+                                    <div style="font-size: 1.5rem; font-weight: 800; color: #ff9800;">-70%</div>
+                                    <div style="font-size: 0.75rem; color: #555;">Peso Imágenes</div>
+                                </div>
+                            </div>
+
+                            <a href="#caso-clinicfisio" class="text-highlight"
+                                style="font-weight:800; text-decoration:none;">
+                                VER CASO COMPLETO →
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project New: EneNails -->
+                    <article class="project-card">
+                        <div class="project-img" style="background: #FFF0F5; font-size: 5rem;">💅</div>
+                        <div class="project-info">
+                            <span class="tag" style="background: #FFF0F5; color: #D81B60;">
+                                <i class="fa-solid fa-robot" style="margin-right:6px;"></i> SISTEMA AUTOMÁTICO
+                            </span>
+                            <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">EneNails</h3>
+                            <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">Gestión de citas inteligente
+                                para manicuristas. Adiós a los mensajes de WhatsApp sin fin.</p>
+                            <a href="https://ene-nails.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                class="text-highlight" style="font-weight:800; text-decoration:none;">VER DEMO →</a>
+                        </div>
+                    </article>
+
+                    <!-- Project 1: Sian -->
+                    <article class="project-card">
+                        <div class="project-img">💆‍♀️</div>
+                        <div class="project-info">
+                            <span class="tag" style="background: #e3f9eb; color: #15803d;">
+                                <i class="fa-solid fa-star" style="margin-right:6px;"></i> LANDING PAGE
+                            </span>
+                            <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">Sian Estética</h3>
+                            <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">Web completa para salón de
+                                belleza + Sistema de reservas automatizado que ahorra 5 horas semanales de gestión
+                                administrativa.</p>
+                            <a href="https://estetica-sian.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                class="text-highlight" style="font-weight:800; text-decoration:none;">VER WEB EN VIVO
+                                →</a>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: CroquiPan -->
+                    <article class="project-card">
+                        <div class="project-img" style="background: #FFF8E1; font-size: 5rem;">🥐</div>
+                        <div class="project-info">
+                            <span class="tag" style="background: #FFF8E1; color: #D4A017;">
+                                <i class="fa-solid fa-cart-shopping" style="margin-right:6px;"></i> ECOMMERCE
+                            </span>
+                            <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">CroquiPan</h3>
+                            <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">Tienda online para panadería
+                                artesanal. UX optimizada para pedidos locales rápidos y aumento de conversión.</p>
+                            <a href="https://croquipan.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                class="text-highlight" style="font-weight:800; text-decoration:none;">VER WEB EN VIVO
+                                →</a>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: EneSushi -->
+                    <article class="project-card">
+                        <div class="project-img" style="background: #1a1a1a; font-size: 5rem;">🍣</div>
+                        <div class="project-info">
+                            <span class="tag" style="background: #FFE5E5; color: #D32F2F;">
+                                <i class="fa-solid fa-utensils" style="margin-right:6px;"></i> RESTAURANTE
+                            </span>
+                            <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">EneSushi</h3>
+                            <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">Experiencia inmersiva para
+                                restaurante japonés. Carta digital moderna.</p>
+                            <a href="https://enesushi.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                class="text-highlight" style="font-weight:800; text-decoration:none;">VER WEB EN VIVO
+                                →</a>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CASO DE ESTUDIO COMPLETO: ClinicFisio -->
+        <section id="caso-clinicfisio" style="padding: 6rem 1.5rem; background: var(--bg-card);">
+            <div class="container">
+                <!-- Header del Caso -->
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <span
+                        style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                        🚀 Caso de Éxito
+                    </span>
+                    <h2 style="font-size: 2.5rem; font-weight: 900; margin: 1.5rem 0 1rem; line-height: 1.2;">
+                        ClinicFisio: De 3.5s a 2.3s
+                    </h2>
+                    <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto;">
+                        Cómo transformé una web lenta en una máquina de conversión con optimización WPO
+                    </p>
+                </div>
+
+                <!-- Métricas Destacadas -->
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+                    <div
+                        style="background: var(--bg-body); padding: 2rem; border-radius: 20px; text-align: center; border: 1px solid var(--border-color);">
+                        <div style="font-size: 3rem; font-weight: 900; color: #2ecc71; margin-bottom: 0.5rem;">-34%
+                        </div>
+                        <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.3rem;">Tiempo de
+                            Carga</div>
+                        <div style="font-size: 0.8rem; color: var(--text-secondary);">3.5s → 2.3s</div>
+                    </div>
+                    <div
+                        style="background: var(--bg-body); padding: 2rem; border-radius: 20px; text-align: center; border: 1px solid var(--border-color);">
+                        <div style="font-size: 3rem; font-weight: 900; color: #2ecc71; margin-bottom: 0.5rem;">+65%
+                        </div>
+                        <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.3rem;">Conversión
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--text-secondary);">2.3% → 3.8%</div>
+                    </div>
+                    <div
+                        style="background: var(--bg-body); padding: 2rem; border-radius: 20px; text-align: center; border: 1px solid var(--border-color);">
+                        <div style="font-size: 3rem; font-weight: 900; color: #ff9800; margin-bottom: 0.5rem;">0.0</div>
+                        <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.3rem;">CLS
+                            Perfecto</div>
+                        <div style="font-size: 0.8rem; color: var(--text-secondary);">Estabilidad Visual</div>
+                    </div>
+                    <div
+                        style="background: var(--bg-body); padding: 2rem; border-radius: 20px; text-align: center; border: 1px solid var(--border-color);">
+                        <div style="font-size: 3rem; font-weight: 900; color: #ff9800; margin-bottom: 0.5rem;">-70%
+                        </div>
+                        <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.3rem;">Peso
+                            Imágenes</div>
+                        <div style="font-size: 0.8rem; color: var(--text-secondary);">2.5MB → 750KB</div>
+                    </div>
+                </div>
+
+                <!-- El Desafío -->
+                <div style="margin-bottom: 4rem;">
+                    <h3
+                        style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem;">
+                        <span
+                            style="background: #ffe5e5; color: #e74c3c; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">⚠️</span>
+                        El Desafío
+                    </h3>
+                    <div
+                        style="background: var(--bg-body); padding: 2rem; border-radius: 20px; border-left: 4px solid #e74c3c;">
+                        <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+                            ClinicFisio tenía una web funcional, pero <strong>lenta</strong>. Los pacientes se quejaban
+                            de tiempos de carga superiores a 3.5 segundos y saltos visuales que afectaban la confianza.
+                        </p>
+                        <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem;">
+                            <li>⏱️ <strong>Carga lenta:</strong> 3.5+ segundos (muy por encima del estándar)</li>
+                            <li>📱 <strong>Saltos de contenido:</strong> CLS de 0.25 (inestabilidad visual)</li>
+                            <li>🍪 <strong>Bloqueo de cookies:</strong> iubenda bloqueaba ~1 segundo la carga inicial
+                            </li>
+                            <li>🖼️ <strong>Imágenes pesadas:</strong> PNG/JPG sin optimizar (~2.5MB)</li>
+                            <li>❌ <strong>Core Web Vitals:</strong> No cumplía los estándares de Google</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- La Solución -->
+                <div style="margin-bottom: 4rem;">
+                    <h3
+                        style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem;">
+                        <span
+                            style="background: #e3f9eb; color: #2ecc71; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">💡</span>
+                        La Solución
+                    </h3>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                        <!-- Solución 1 -->
+                        <div
+                            style="background: var(--bg-body); padding: 1.8rem; border-radius: 15px; border: 1px solid var(--border-color);">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">⚡</div>
+                            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem;">Carga Asíncrona</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                                Reprogramé scripts críticos y moví el gestor de cookies para eliminar el "pantallazo
+                                blanco" inicial.
+                            </p>
+                        </div>
+                        <!-- Solución 2 -->
+                        <div
+                            style="background: var(--bg-body); padding: 1.8rem; border-radius: 15px; border: 1px solid var(--border-color);">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">🎯</div>
+                            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem;">CSS Crítico</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                                Creé reservas de espacio para logo y menú, consiguiendo CLS 0.0 (estabilidad perfecta).
+                            </p>
+                        </div>
+                        <!-- Solución 3 -->
+                        <div
+                            style="background: var(--bg-body); padding: 1.8rem; border-radius: 15px; border: 1px solid var(--border-color);">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">🖼️</div>
+                            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem;">WebP Optimization
+                            </h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                                Implementé formato WebP en todas las imágenes, reduciendo el peso un 70% sin perder
+                                calidad.
+                            </p>
+                        </div>
+                        <!-- Solución 4 -->
+                        <div
+                            style="background: var(--bg-body); padding: 1.8rem; border-radius: 15px; border: 1px solid var(--border-color);">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">🧹</div>
+                            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem;">Higiene de Código
+                            </h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                                Eliminé 12 conexiones fantasma, reparé 8 enlaces rotos y optimicé el Sitemap XML.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Impacto en el Negocio -->
+                <div style="margin-bottom: 4rem;">
+                    <h3
+                        style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem;">
+                        <span
+                            style="background: #fff3e0; color: #ff9800; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">📈</span>
+                        Impacto en el Negocio
+                    </h3>
+                    <div
+                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 3rem; border-radius: 20px; color: white;">
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                            <div>
+                                <div style="font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem;">-38%</div>
+                                <div style="font-size: 1rem; opacity: 0.9;">Tasa de Rebote</div>
+                                <div style="font-size: 0.85rem; opacity: 0.7;">68% → 42%</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem;">+106%</div>
+                                <div style="font-size: 1rem; opacity: 0.9;">Tiempo en Sitio</div>
+                                <div style="font-size: 0.85rem; opacity: 0.7;">1:20 → 2:45</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem;">✅</div>
+                                <div style="font-size: 1rem; opacity: 0.9;">Core Web Vitals</div>
+                                <div style="font-size: 0.85rem; opacity: 0.7;">Google Aprobado</div>
+                            </div>
+                        </div>
+                        <p style="font-size: 1.1rem; line-height: 1.7; opacity: 0.95; margin-top: 1.5rem;">
+                            <strong>Resultado:</strong> La clínica ahora tiene ventaja competitiva en SEO local y recibe
+                            más consultas online que nunca. La inversión se pagó sola en el primer mes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CTA Final -->
+                <div
+                    style="text-align: center; background: var(--bg-body); padding: 3rem; border-radius: 20px; border: 2px solid var(--magenta);">
+                    <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem;">¿Tu web necesita optimización?
+                    </h3>
+                    <p
+                        style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        Si tu sitio carga lento, tiene saltos visuales o no cumple Core Web Vitals, puedo ayudarte a
+                        conseguir resultados como estos.
+                    </p>
+                    <a href="https://wa.me/34687356467" class="btn-mega">
+                        SOLICITAR AUDITORÍA WPO GRATUITA
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <section class="socials" style="padding-bottom: 4rem;">
+            <div class="container">
+                <h2 class="section-title">Contenido & Estrategia</h2>
+
+                <article class="project-card" style="background: white; border: 1px solid var(--border-color);">
+                    <!-- Visual side with gradients representing Insta/TikTok -->
+                    <div class="project-img"
+                        style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white;">
+                        <div style="text-align:center;">
+                            <i class="fa-solid fa-camera-retro"
+                                style="font-size: 3.5rem; margin-bottom: 1rem; display:block;"></i>
+                            <span style="font-size: 1rem; font-weight: 700; opacity: 0.9;">GRABACIÓN + EDICIÓN</span>
+                        </div>
+                    </div>
+
+                    <div class="project-info">
+                        <span class="tag" style="background: var(--magenta); color: white;">CREACIÓN DE MARCA
+                            ENEDIGITAL</span>
+                        <h3 style="font-size: 2rem; margin: 0.5rem 0;">Storytelling Visual</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                            No es solo subir vídeos. Es conectar. Yo misma <strong>grabo, edito y gestiono</strong> toda
+                            la estrategia de contenidos. Humanizo la tecnología para acercarla a las personas.
+                        </p>
+
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <a href="https://www.tiktok.com/@ene.digitalweb" target="_blank" rel="noopener noreferrer"
+                                class="btn-mega"
+                                style="background: #000; box-shadow: none; padding: 0.8rem 1.5rem; font-size: 0.9rem; flex: 1; text-align: center;">
+                                <i class="fa-brands fa-tiktok" style="margin-right:8px;"></i> Tik Tok
+                            </a>
+
+                            <a href="https://www.instagram.com/ene.digitalweb/" target="_blank"
+                                rel="noopener noreferrer" class="btn-mega"
+                                style="background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); box-shadow: none; padding: 0.8rem 1.5rem; font-size: 0.9rem; flex: 1; text-align: center;">
+                                <i class="fa-brands fa-instagram" style="margin-right:8px;"></i> Instagram
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="pricing" id="tarifas">
+            <div class="container">
+                <h2 class="section-title">Hablemos de negocios</h2>
+                <div class="price-box"
+                    style="padding: 2.5rem; text-align: left; background: var(--bg-card); border-radius: 40px; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
+
+                    <div
+                        style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; align-items: flex-start;">
+                        <div style="background: rgba(233, 30, 140, 0.1); padding: 1rem; border-radius: 20px;">
+                            <i class="fa-solid fa-handshake-simple"
+                                style="font-size: 2.5rem; color: var(--magenta);"></i>
+                        </div>
+                        <div style="flex: 1;">
+                            <h3 style="font-size: 1.8rem; line-height: 1.2; margin-bottom: 0.5rem;">Auditoría de
+                                Presencia Digital</h3>
+                            <p style="color: var(--text-secondary); font-size: 1rem;">Analizamos tu situación actual y
+                                definimos la hoja de ruta para escalar tu negocio con tecnología.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        style="background: var(--bg-body); padding: 1.5rem; border-radius: 20px; margin-bottom: 2rem; border: 1px solid var(--border-color);">
+                        <h4
+                            style="font-size: 1rem; margin-bottom: 1rem; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 1px;">
+                            ¿Qué vamos a tratar?</h4>
+                        <ul class="features" style="padding: 0; margin: 0;">
+                            <li style="font-size: 1rem; margin-bottom: 0.8rem;"><i class="fa-solid fa-check-double"
+                                    style="color: var(--magenta);"></i> Puntos críticos de fuga de clientes en tu web
+                            </li>
+                            <li style="font-size: 1rem; margin-bottom: 0.8rem;"><i class="fa-solid fa-check-double"
+                                    style="color: var(--magenta);"></i> Oportunidades de automatización
+                                (Reservas/Ventas)</li>
+                            <li style="font-size: 1rem; margin-bottom: 0;"><i class="fa-solid fa-check-double"
+                                    style="color: var(--magenta);"></i> Propuesta de valor y Branding estratégico</li>
+                        </ul>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <a href="https://wa.me/34687356467" class="btn-mega"
+                            style="width:100%; display:block;">SOLICITAR AUDITORÍA ESTRATÉGICA</a>
+                        <p class="text-highlight" style="margin-top: 1rem; font-weight: 600; font-size: 0.85rem;">
+                            *Sesión de valoración gratuita para negocios en activo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <h2 class="section-title" style="margin-bottom: 2rem;">Preguntas frecuentes</h2>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Qué incluye el mantenimiento de 90€? <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Todo lo técnico. Incluye la renovación anual de tu dominio (.com o .es), el hosting de alta
+                            velocidad, certificado de seguridad SSL (el candado verde), copias de seguridad semanales y
+                            soporte técnico por si algo falla.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿La web será 100% mía? <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Por supuesto. A diferencia de otras agencias que te "alquilan" la web, en EneDigital tú eres
+                            el dueño absoluto de tu dominio y tus archivos desde el primer día.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Tengo que pagar algo más? <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No hay sorpresas. Solo pagas el valor de la web y luego la cuota de
+                            mantenimiento de 90€ una vez al año (el primer año ya está incluido o prorrateado según
+                            oferta). Sin mensualidades ocultas.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Ya tengo dominio, ¿me sirve? <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>¡Claro! Si ya tienes un dominio comprado, lo redirigimos a nuestros servidores. Si no lo
+                            tienes, nosotros nos encargamos de todo el papeleo por ti.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <div class="floating-container">
+        <div class="whatsapp-bubble" id="whatsapp-bot">
+            <div class="bubble-header">
+                <span style="font-weight: 800;">Nellys (EneDigital)</span>
+                <button onclick="closeBot()"
+                    style="background:none; border:none; color:#666; cursor:pointer;">✕</button>
+            </div>
+            <div class="bubble-body">
+                ¡Hola! 👋<br>¿Quieres que veamos cómo impulsar tu negocio hoy?
+            </div>
+            <div class="bubble-arrow"></div>
+        </div>
+        <a href="https://wa.me/34687356467" class="btn-float btn-whatsapp" target="_blank" rel="noopener noreferrer"
+            aria-label="Chat en WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <footer>
+        <p>© 2026 EneDigital · Nellys Mata · Vitoria-Gasteiz</p>
+    </footer>
+
+    <script>
+        // --- LÓGICA MODO OSCURO ---
+        const toggleBtn = document.getElementById('theme-toggle');
+        const icon = toggleBtn.querySelector('i');
+        const body = document.body;
+
+        // Comprobar preferencia guardada
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // --- LÓGICA FAQ (ACORDEÓN) ---
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const wasActive = question.classList.contains('active');
+
+                // Cerrar todos
+                faqQuestions.forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.style.maxHeight = null;
+                });
+
+                // Abrir si no estaba activo
+                if (!wasActive) {
+                    question.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+
+        // --- LÓGICA COMPARTIR ---
+        function sharePage(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("¡Mira esta web para digitalizar tu negocio en Vitoria! 🚀");
+            const linkedinUrl = "https://www.linkedin.com/sharing/share-offsite/?url=" + url;
+
+            if (platform === 'whatsapp') {
+                window.open("https://wa.me/?text=" + text + "%20" + url, '_blank');
+            } else if (platform === 'linkedin') {
+                window.open(linkedinUrl, '_blank');
+            } else if (platform === 'copy') {
+                navigator.clipboard.writeText(window.location.href);
+                alert("¡Enlace copiado al portapapeles!");
+            }
+        }
+
+        // --- BOT WHATSAPP SIMULADO ---
+        const botBubble = document.getElementById('whatsapp-bot');
+
+        // Mostrar bot a los 4 segundos
+        setTimeout(() => {
+            botBubble.classList.add('show');
+            // Sonido de notificación opcional
+            // const audio = new Audio('notification.mp3'); audio.play(); 
+        }, 4000);
+
+        function closeBot() {
+            botBubble.classList.remove('show');
+        }
+    </script>
+</body>
+
+</html>
