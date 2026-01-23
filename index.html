@@ -16,10 +16,10 @@
         content="Agencia Digital en Vitoria-Gasteiz. Convertimos visitas en clientes con tecnología y estrategia.">
     <meta property="og:image" content="">
 
-    <!-- Preconnect para recursos externos críticos -->
+    <!-- DNS Prefetch y Preconnect optimizados -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <!-- Critical CSS Inline - Above the fold -->
     <style>
@@ -203,25 +203,22 @@
         }
     </style>
 
-    <!-- Preload de fuentes críticas -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" as="style">
-    <link rel="preload" href="style.css?v=2.4.0" as="style">
-
-    <!-- Fuentes con display=swap para evitar FOIT -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-
-    <!-- CSS no crítico con carga asíncrona -->
-    <link rel="stylesheet" href="style.css?v=2.4.0" media="print" onload="this.media='all'">
+    <!-- Fuentes optimizadas con subset latino y display=swap -->
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap&subset=latin">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap&subset=latin" media="print"
+        onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="style.css?v=2.4.0">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap&subset=latin">
     </noscript>
 
-    <!-- Font Awesome con carga diferida -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
+    <!-- CSS no crítico con carga asíncrona -->
+    <link rel="preload" href="style.css?v=2.5.0" as="style">
+    <link rel="stylesheet" href="style.css?v=2.5.0" media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="style.css?v=2.5.0">
     </noscript>
 </head>
 
@@ -232,7 +229,7 @@
             <a href="#" class="logo">EneDigital</a>
             <div class="nav-actions">
                 <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
-                    <i class="fa-solid fa-moon"></i>
+                    <span>🌙</span>
                 </button>
                 <a href="https://wa.me/34687356467" class="btn-nav">HABLEMOS</a>
             </div>
@@ -247,12 +244,9 @@
     </header>
 
     <div class="share-bar">
-        <button class="share-btn" onclick="sharePage('whatsapp')" aria-label="Compartir en Whatsapp"><i
-                class="fa-brands fa-whatsapp"></i></button>
-        <button class="share-btn" onclick="sharePage('copy')" aria-label="Copiar enlace"><i
-                class="fa-solid fa-link"></i></button>
-        <button class="share-btn" onclick="sharePage('linkedin')" aria-label="Compartir en LinkedIn"><i
-                class="fa-brands fa-linkedin-in"></i></button>
+        <button class="share-btn" onclick="sharePage('whatsapp')" aria-label="Compartir en Whatsapp">💬</button>
+        <button class="share-btn" onclick="sharePage('copy')" aria-label="Copiar enlace">🔗</button>
+        <button class="share-btn" onclick="sharePage('linkedin')" aria-label="Compartir en LinkedIn">💼</button>
     </div>
 
     <main>
@@ -328,19 +322,19 @@
         <!-- Marquee Infinite Carousel (Tools) -->
         <div class="marquee-wrapper">
             <div class="marquee-content">
-                <span class="marquee-item">LINKEDIN <i class="fa-brands fa-linkedin"></i></span>
-                <span class="marquee-item">ESTRATEGIA <i class="fa-solid fa-chess"></i></span>
-                <span class="marquee-item">SEGURIDAD WEB <i class="fa-solid fa-shield-halved"></i></span>
-                <span class="marquee-item">OPTIMIZACIÓN WPO <i class="fa-solid fa-gauge-high"></i></span>
-                <span class="marquee-item">SEO TÉCNICO <i class="fa-solid fa-code"></i></span>
-                <span class="marquee-item">CONVERSIÓN <i class="fa-solid fa-chart-line"></i></span>
+                <span class="marquee-item">LINKEDIN 💼</span>
+                <span class="marquee-item">ESTRATEGIA ♟️</span>
+                <span class="marquee-item">SEGURIDAD WEB 🛡️</span>
+                <span class="marquee-item">OPTIMIZACIÓN WPO ⚡</span>
+                <span class="marquee-item">SEO TÉCNICO 💻</span>
+                <span class="marquee-item">CONVERSIÓN 📈</span>
                 <!-- Repetir Exacto -->
-                <span class="marquee-item">LINKEDIN <i class="fa-brands fa-linkedin"></i></span>
-                <span class="marquee-item">ESTRATEGIA <i class="fa-solid fa-chess"></i></span>
-                <span class="marquee-item">SEGURIDAD WEB <i class="fa-solid fa-shield-halved"></i></span>
-                <span class="marquee-item">OPTIMIZACIÓN WPO <i class="fa-solid fa-gauge-high"></i></span>
-                <span class="marquee-item">SEO TÉCNICO <i class="fa-solid fa-code"></i></span>
-                <span class="marquee-item">CONVERSIÓN <i class="fa-solid fa-chart-line"></i></span>
+                <span class="marquee-item">LINKEDIN 💼</span>
+                <span class="marquee-item">ESTRATEGIA ♟️</span>
+                <span class="marquee-item">SEGURIDAD WEB 🛡️</span>
+                <span class="marquee-item">OPTIMIZACIÓN WPO ⚡</span>
+                <span class="marquee-item">SEO TÉCNICO 💻</span>
+                <span class="marquee-item">CONVERSIÓN 📈</span>
             </div>
         </div>
 
@@ -362,7 +356,7 @@
                         <div class="project-info">
                             <span class="tag"
                                 style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
-                                <i class="fa-solid fa-chart-line" style="margin-right:6px;"></i> OPTIMIZACIÓN WPO
+                                📈 OPTIMIZACIÓN WPO
                             </span>
                             <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">ClinicFisio</h3>
                             <p style="color:var(--text-secondary); margin-bottom: 1rem;">
@@ -406,7 +400,7 @@
                         <div class="project-img" style="background: #FFF0F5; font-size: 5rem;">💅</div>
                         <div class="project-info">
                             <span class="tag" style="background: #FFF0F5; color: #D81B60;">
-                                <i class="fa-solid fa-robot" style="margin-right:6px;"></i> SISTEMA AUTOMÁTICO
+                                🤖 SISTEMA AUTOMÁTICO
                             </span>
                             <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">EneNails</h3>
                             <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">Gestión de citas inteligente
@@ -421,7 +415,7 @@
                         <div class="project-img">💆‍♀️</div>
                         <div class="project-info">
                             <span class="tag" style="background: #e3f9eb; color: #15803d;">
-                                <i class="fa-solid fa-star" style="margin-right:6px;"></i> LANDING PAGE
+                                ⭐ LANDING PAGE
                             </span>
                             <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">Sian Estética</h3>
                             <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">Web completa para salón de
@@ -438,7 +432,7 @@
                         <div class="project-img" style="background: #FFF8E1; font-size: 5rem;">🥐</div>
                         <div class="project-info">
                             <span class="tag" style="background: #FFF8E1; color: #D4A017;">
-                                <i class="fa-solid fa-cart-shopping" style="margin-right:6px;"></i> ECOMMERCE
+                                🛒 ECOMMERCE
                             </span>
                             <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">CroquiPan</h3>
                             <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">Tienda online para panadería
@@ -454,7 +448,7 @@
                         <div class="project-img" style="background: #1a1a1a; font-size: 5rem;">🍣</div>
                         <div class="project-info">
                             <span class="tag" style="background: #FFE5E5; color: #D32F2F;">
-                                <i class="fa-solid fa-utensils" style="margin-right:6px;"></i> RESTAURANTE
+                                🍽️ RESTAURANTE
                             </span>
                             <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">EneSushi</h3>
                             <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">Experiencia inmersiva para
@@ -666,8 +660,7 @@
                     <div class="project-img"
                         style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white;">
                         <div style="text-align:center;">
-                            <i class="fa-solid fa-camera-retro"
-                                style="font-size: 3.5rem; margin-bottom: 1rem; display:block;"></i>
+                            <span style="font-size: 3.5rem; margin-bottom: 1rem; display:block;">📸</span>
                             <span style="font-size: 1rem; font-weight: 700; opacity: 0.9;">GRABACIÓN + EDICIÓN</span>
                         </div>
                     </div>
@@ -685,13 +678,13 @@
                             <a href="https://www.tiktok.com/@ene.digitalweb" target="_blank" rel="noopener noreferrer"
                                 class="btn-mega"
                                 style="background: #000; box-shadow: none; padding: 0.8rem 1.5rem; font-size: 0.9rem; flex: 1; text-align: center;">
-                                <i class="fa-brands fa-tiktok" style="margin-right:8px;"></i> Tik Tok
+                                📱 Tik Tok
                             </a>
 
                             <a href="https://www.instagram.com/ene.digitalweb/" target="_blank"
                                 rel="noopener noreferrer" class="btn-mega"
                                 style="background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); box-shadow: none; padding: 0.8rem 1.5rem; font-size: 0.9rem; flex: 1; text-align: center;">
-                                <i class="fa-brands fa-instagram" style="margin-right:8px;"></i> Instagram
+                                📷 Instagram
                             </a>
                         </div>
                     </div>
@@ -708,8 +701,7 @@
                     <div
                         style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; align-items: flex-start;">
                         <div style="background: rgba(233, 30, 140, 0.1); padding: 1rem; border-radius: 20px;">
-                            <i class="fa-solid fa-handshake-simple"
-                                style="font-size: 2.5rem; color: var(--magenta);"></i>
+                            <span style="font-size: 2.5rem; color: var(--magenta);">🤝</span>
                         </div>
                         <div style="flex: 1;">
                             <h3 style="font-size: 1.8rem; line-height: 1.2; margin-bottom: 0.5rem;">Auditoría de
@@ -725,14 +717,13 @@
                             style="font-size: 1rem; margin-bottom: 1rem; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 1px;">
                             ¿Qué vamos a tratar?</h4>
                         <ul class="features" style="padding: 0; margin: 0;">
-                            <li style="font-size: 1rem; margin-bottom: 0.8rem;"><i class="fa-solid fa-check-double"
-                                    style="color: var(--magenta);"></i> Puntos críticos de fuga de clientes en tu web
+                            <li style="font-size: 1rem; margin-bottom: 0.8rem;">✅ Puntos críticos de fuga de clientes en
+                                tu web
                             </li>
-                            <li style="font-size: 1rem; margin-bottom: 0.8rem;"><i class="fa-solid fa-check-double"
-                                    style="color: var(--magenta);"></i> Oportunidades de automatización
+                            <li style="font-size: 1rem; margin-bottom: 0.8rem;">✅ Oportunidades de automatización
                                 (Reservas/Ventas)</li>
-                            <li style="font-size: 1rem; margin-bottom: 0;"><i class="fa-solid fa-check-double"
-                                    style="color: var(--magenta);"></i> Propuesta de valor y Branding estratégico</li>
+                            <li style="font-size: 1rem; margin-bottom: 0;">✅ Propuesta de valor y Branding estratégico
+                            </li>
                         </ul>
                     </div>
 
@@ -752,7 +743,7 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        ¿Qué incluye el mantenimiento de 90€? <i class="fa-solid fa-chevron-down"></i>
+                        ¿Qué incluye el mantenimiento de 90€? <span>▼</span>
                     </button>
                     <div class="faq-answer">
                         <p>Todo lo técnico. Incluye la renovación anual de tu dominio (.com o .es), el hosting de alta
@@ -811,7 +802,7 @@
         </div>
         <a href="https://wa.me/34687356467" class="btn-float btn-whatsapp" target="_blank" rel="noopener noreferrer"
             aria-label="Chat en WhatsApp">
-            <i class="fa-brands fa-whatsapp"></i>
+            <span style="font-size: 1.5rem;">💬</span>
         </a>
     </div>
 
@@ -830,26 +821,23 @@
         function initApp() {
             // --- LÓGICA MODO OSCURO ---
             const toggleBtn = document.getElementById('theme-toggle');
-            const icon = toggleBtn.querySelector('i');
+            const icon = toggleBtn.querySelector('span');
             const body = document.body;
 
             // Comprobar preferencia guardada
             if (localStorage.getItem('theme') === 'dark') {
                 body.classList.add('dark-mode');
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
+                icon.textContent = '☀️';
             }
 
             toggleBtn.addEventListener('click', () => {
                 body.classList.toggle('dark-mode');
 
                 if (body.classList.contains('dark-mode')) {
-                    icon.classList.remove('fa-moon');
-                    icon.classList.add('fa-sun');
+                    icon.textContent = '☀️';
                     localStorage.setItem('theme', 'dark');
                 } else {
-                    icon.classList.remove('fa-sun');
-                    icon.classList.add('fa-moon');
+                    icon.textContent = '🌙';
                     localStorage.setItem('theme', 'light');
                 }
             });
