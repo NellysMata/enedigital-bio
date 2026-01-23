@@ -14,18 +14,215 @@
     <meta property="og:title" content="Diseño Web Vitoria-Gasteiz | EneDigital">
     <meta property="og:description"
         content="Agencia Digital en Vitoria-Gasteiz. Convertimos visitas en clientes con tecnología y estrategia.">
-    <meta property="og:image" content=""> <!-- Add actual image URL if available -->
+    <meta property="og:image" content="">
 
-    <!-- Fonts with optimized loading for Safari -->
+    <!-- Preconnect para recursos externos críticos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- font-display=swap prevents FOIT (Flash of Invisible Text) in Safari -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        crossorigin="anonymous">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-    <!-- Custom CSS with cache busting version -->
-    <link rel="stylesheet" href="style.css?v=2.3.0">
+    <!-- Critical CSS Inline - Above the fold -->
+    <style>
+        :root {
+            --magenta: #E91E8C;
+            --magenta-dark: #C2185B;
+            --magenta-text: #b01666;
+            --magenta-glow: rgba(233, 30, 140, 0.4);
+            --bg-body: #fffcfd;
+            --bg-card: #ffffff;
+            --bg-nav: rgba(255, 252, 253, 0.96);
+            --text-main: #1a1a1a;
+            --text-secondary: #555555;
+            --border-color: #f0f0f0;
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+            --faq-bg: #ffffff;
+            --text-highlight: #C2185B
+        }
+
+        body.dark-mode {
+            --bg-body: #0a0a0a;
+            --bg-card: #141414;
+            --bg-nav: rgba(10, 10, 10, 0.96);
+            --text-main: #ffffff;
+            --text-secondary: #d0d0d0;
+            --border-color: #333333;
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            --faq-bg: #1a1a1a;
+            --text-highlight: #ff66a3
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            overflow-x: hidden;
+            max-width: 100vw
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-nav);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 30, 140, 0.1)
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--text-highlight);
+            text-decoration: none
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-main);
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .btn-nav {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 800;
+            font-size: 0.8rem;
+            border: 2px solid var(--text-main);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px
+        }
+
+        .hero {
+            padding: 8rem 1.5rem 6rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 1.5rem
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .btn-mega {
+            background: linear-gradient(135deg, var(--magenta), #ff5e9e);
+            color: white;
+            padding: 1.2rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px var(--magenta-glow);
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            text-align: center
+        }
+
+        .text-highlight {
+            color: var(--text-highlight) !important
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            line-height: 1.2;
+            color: var(--text-main)
+        }
+
+        img,
+        svg {
+            max-width: 100%;
+            height: auto;
+            display: block
+        }
+    </style>
+
+    <!-- Preload de fuentes críticas -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" as="style">
+    <link rel="preload" href="style.css?v=2.4.0" as="style">
+
+    <!-- Fuentes con display=swap para evitar FOIT -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+
+    <!-- CSS no crítico con carga asíncrona -->
+    <link rel="stylesheet" href="style.css?v=2.4.0" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="style.css?v=2.4.0">
+    </noscript>
+
+    <!-- Font Awesome con carga diferida -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </noscript>
 </head>
 
 <body>
@@ -623,55 +820,72 @@
     </footer>
 
     <script>
-        // --- LÓGICA MODO OSCURO ---
-        const toggleBtn = document.getElementById('theme-toggle');
-        const icon = toggleBtn.querySelector('i');
-        const body = document.body;
-
-        // Comprobar preferencia guardada
-        if (localStorage.getItem('theme') === 'dark') {
-            body.classList.add('dark-mode');
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
+        // Ejecutar después de que el DOM esté completamente cargado
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initApp);
+        } else {
+            initApp();
         }
 
-        toggleBtn.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
+        function initApp() {
+            // --- LÓGICA MODO OSCURO ---
+            const toggleBtn = document.getElementById('theme-toggle');
+            const icon = toggleBtn.querySelector('i');
+            const body = document.body;
 
-            if (body.classList.contains('dark-mode')) {
+            // Comprobar preferencia guardada
+            if (localStorage.getItem('theme') === 'dark') {
+                body.classList.add('dark-mode');
                 icon.classList.remove('fa-moon');
                 icon.classList.add('fa-sun');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
-                localStorage.setItem('theme', 'light');
             }
-        });
 
-        // --- LÓGICA FAQ (ACORDEÓN) ---
-        const faqQuestions = document.querySelectorAll('.faq-question');
+            toggleBtn.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
 
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const wasActive = question.classList.contains('active');
-
-                // Cerrar todos
-                faqQuestions.forEach(q => {
-                    q.classList.remove('active');
-                    q.nextElementSibling.style.maxHeight = null;
-                });
-
-                // Abrir si no estaba activo
-                if (!wasActive) {
-                    question.classList.add('active');
-                    answer.style.maxHeight = answer.scrollHeight + "px";
+                if (body.classList.contains('dark-mode')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                    localStorage.setItem('theme', 'light');
                 }
             });
-        });
 
-        // --- LÓGICA COMPARTIR ---
+            // --- LÓGICA FAQ (ACORDEÓN) ---
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const wasActive = question.classList.contains('active');
+
+                    // Cerrar todos
+                    faqQuestions.forEach(q => {
+                        q.classList.remove('active');
+                        q.nextElementSibling.style.maxHeight = null;
+                    });
+
+                    // Abrir si no estaba activo
+                    if (!wasActive) {
+                        question.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    }
+                });
+            });
+
+            // --- BOT WHATSAPP SIMULADO ---
+            const botBubble = document.getElementById('whatsapp-bot');
+
+            // Mostrar bot a los 4 segundos
+            setTimeout(() => {
+                botBubble.classList.add('show');
+            }, 4000);
+        }
+
+        // --- LÓGICA COMPARTIR (No requiere DOM) ---
         function sharePage(platform) {
             const url = encodeURIComponent(window.location.href);
             const text = encodeURIComponent("¡Mira esta web para digitalizar tu negocio en Vitoria! 🚀");
@@ -687,18 +901,8 @@
             }
         }
 
-        // --- BOT WHATSAPP SIMULADO ---
-        const botBubble = document.getElementById('whatsapp-bot');
-
-        // Mostrar bot a los 4 segundos
-        setTimeout(() => {
-            botBubble.classList.add('show');
-            // Sonido de notificación opcional
-            // const audio = new Audio('notification.mp3'); audio.play(); 
-        }, 4000);
-
         function closeBot() {
-            botBubble.classList.remove('show');
+            document.getElementById('whatsapp-bot').classList.remove('show');
         }
     </script>
 </body>

@@ -46,7 +46,6 @@ body.dark-mode {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -78,6 +77,8 @@ body {
     -moz-osx-font-smoothing: grayscale;
     /* Improve text rendering in Safari */
     text-rendering: optimizeLegibility;
+    /* Transiciones específicas para tema */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1,
@@ -88,6 +89,7 @@ h5,
 h6 {
     line-height: 1.2;
     color: var(--text-main);
+    transition: color 0.3s ease;
 }
 
 img,
