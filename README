@@ -1,0 +1,68 @@
+# 🚀 EneDigital | Soluciones Web Estratégicas
+
+> Plataforma corporativa y ecosistema de herramientas digitales para la digitalización de negocios en Vitoria-Gasteiz.
+
+![Estado del Proyecto](https://img.shields.io/badge/Estado-Producci%C3%B3n-success?style=for-the-badge)
+![Tecnología](https://img.shields.io/badge/Stack-HTML5_CSS3_JS-magenta?style=for-the-badge)
+![Performance](https://img.shields.io/badge/Lighthouse-100%2F100-green?style=for-the-badge)
+
+## 📋 Sobre el Proyecto
+
+**EneDigital** no es solo una landing page. Es una plataforma integral diseñada para ofrecer servicios de transformación digital a pequeños negocios (sector belleza y bienestar).
+
+El proyecto se centra en **Web Performance** (Core Web Vitals), **SEO Local** y la integración de **Micro-SaaS** (pequeñas aplicaciones de software) dentro de un mismo dominio.
+
+### ✨ Características Principales
+
+- **⚡ Rendimiento Extremo:** Arquitectura sin dependencias pesadas (Vanilla JS) para carga instantánea en móviles (95-100 en PageSpeed Insights).
+- **🎨 UI/UX Adaptativo:** Sistema de diseño con variables CSS (`:root`) que soporta **Modo Oscuro/Claro** persistente (localStorage).
+- **📱 Mobile-First:** Diseño responsivo optimizado para conversión en dispositivos móviles.
+- **🛠 Ecosistema de Apps:** Integración de herramientas funcionales (`/apps`) dentro del dominio principal.
+- **🔗 Bio-Link Optimizado:** Página ligera (`links.html`) dedicada para redes sociales (TikTok/Instagram).
+
+## 📂 Arquitectura del Proyecto
+
+El proyecto sigue una estructura modular para facilitar la escalabilidad y el mantenimiento de las micro-aplicaciones.
+
+```text
+enedigital-web/
+├── index.html          # Landing Page Principal (Venta & Autoridad)
+├── links.html          # Página optimizada para Bio de Redes Sociales
+├── style.css           # Estilos Globales y Variables de Diseño
+├── script.js           # Lógica global (Modo oscuro, UI)
+├── img/                # Assets gráficos optimizados
+│
+└── apps/               # Módulos de Software (Micro-Apps)
+    ├── calculadora/    # App: Calculadora de Presupuestos
+    ├── tareas/         # App: Gestor de Tareas Interno
+    └── clima/          # App: Widget de Datos en Tiempo Real
+
+🛠 Stack Tecnológico
+Frontend: HTML5 Semántico, CSS3 (Flexbox/Grid, Custom Properties), JavaScript (ES6+).
+
+Control de Versiones: Git & GitHub.
+
+Despliegue: Vercel / Netlify.
+
+Herramientas: FontAwesome (Iconos), Google Fonts (Inter).
+
+🚀 Instalación y Despliegue
+Este proyecto es estático, por lo que no requiere compilación ni instalación de dependencias npm.
+
+Clonar el repositorio:
+
+Bash
+
+git clone [https://github.com/nellysmata/enedigital.git](https://github.com/nellysmata/enedigital.git)
+Ejecutar localmente: Puedes usar cualquier servidor local, por ejemplo con la extensión Live Server de VS Code o Python:
+
+Bash
+
+python3 -m http.server
+👩‍💻 Autora
+Nellys Mata Fundadora de EneDigital & Desarrolladora Frontend
+
+🌐 Web: enedigital.es
+
+💼 LinkedIn: Nellys Mata
+```
