@@ -16,8 +16,12 @@
         content="Agencia Digital en Vitoria-Gasteiz. Convertimos visitas en clientes con tecnología y estrategia.">
     <meta property="og:image" content="">
 
-    <!-- DNS Prefetch eliminado - Sin recursos externos -->
-
+     <script async>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KH3FC94Z');</script>
+   
     <!-- Critical CSS Inline - Above the fold -->
     <style>
         :root {
@@ -209,7 +213,10 @@
 </head>
 
 <body>
-
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH3FC94Z"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">EneDigital</a>
@@ -390,7 +397,7 @@
                             </span>
                             <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">EneNails</h3>
                             <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">Gestión de citas inteligente
-                                para manicuristas. Adiós a los mensajes de WhatsApp sin fin.</p>
+                                para manicuristas. Adiós a los mensajes de sApp sin fin.</p>
                             <a href="https://ene-nails.vercel.app/" target="_blank" rel="noopener noreferrer"
                                 class="text-highlight" style="font-weight:800; text-decoration:none;">VER DEMO →</a>
                         </div>
@@ -878,6 +885,14 @@
         function closeBot() {
             document.getElementById('whatsapp-bot').classList.remove('show');
         }
+  document.getElementById('boton-whatsapp-ene').addEventListener('click', function() {
+    gtag('event', 'generar_lead', {
+      'event_category': 'Contacto',
+      'event_label': 'Clic Boton WhatsApp',
+      'value': 1
+    });
+    console.log('Evento de conversión enviado a Analytics');
+  });
     </script>
 </body>
 
