@@ -682,8 +682,24 @@
                     Demos funcionales y prototipos en vivo
                 </p>
 
-                <!-- Grid compacto 4 columnas sin espacios -->
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;">
+                <!-- Grid responsive mobile first sin espacios -->
+                <div style="display: grid; grid-template-columns: 1fr; gap: 0;">
+                    <style>
+                        @media (min-width: 768px) {
+                            .projects-grid-no-gap {
+                                grid-template-columns: repeat(2, 1fr) !important;
+                            }
+                        }
+
+                        @media (min-width: 1024px) {
+                            .projects-grid-no-gap {
+                                grid-template-columns: repeat(4, 1fr) !important;
+                            }
+                        }
+                    </style>
+                    <script>
+                        document.currentScript.parentElement.classList.add('projects-grid-no-gap');
+                    </script>
 
                     <!-- Project 1: EneNails -->
                     <article
