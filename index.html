@@ -381,7 +381,7 @@
                     <p class="text-highlight" style="font-weight:800; text-transform:uppercase; font-size:0.8rem;">
                         Fundadora EneDigital</p>
                     <a href="https://www.linkedin.com/in/nellysmata" target="_blank" rel="noopener noreferrer"
-                        style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; color: var(--magenta); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: opacity 0.3s ease;"
+                        style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; color: var(--magenta-text); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: opacity 0.3s ease;"
                         onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
                         💼 LinkedIn
                     </a>
@@ -699,7 +699,7 @@
                         <div style="background: #FFF0F5; padding: 3rem; text-align: center; font-size: 4rem;">💅</div>
                         <div style="padding: 1.5rem;">
                             <span
-                                style="background: #FFF0F5; color: #D81B60; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">
+                                style="background: #FFF0F5; color: #880E4F; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">
                                 🤖 SISTEMA AUTOMÁTICO
                             </span>
                             <h3 style="font-size: 1.3rem; margin: 1rem 0 0.5rem;">EneNails</h3>
@@ -725,7 +725,7 @@
                             💆‍♀️</div>
                         <div style="padding: 1.5rem;">
                             <span
-                                style="background: #e3f9eb; color: #15803d; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">
+                                style="background: #e3f9eb; color: #14532d; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">
                                 ⭐ LANDING PAGE
                             </span>
                             <h3 style="font-size: 1.3rem; margin: 1rem 0 0.5rem;">Sian Estética</h3>
@@ -749,7 +749,7 @@
                         <div style="background: #FFF8E1; padding: 3rem; text-align: center; font-size: 4rem;">🥐</div>
                         <div style="padding: 1.5rem;">
                             <span
-                                style="background: #FFF8E1; color: #D4A017; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">
+                                style="background: #FFF8E1; color: #714C04; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">
                                 🛒 ECOMMERCE
                             </span>
                             <h3 style="font-size: 1.3rem; margin: 1rem 0 0.5rem;">CroquiPan</h3>
@@ -773,7 +773,7 @@
                         <div style="background: #1a1a1a; padding: 3rem; text-align: center; font-size: 4rem;">🍣</div>
                         <div style="padding: 1.5rem;">
                             <span
-                                style="background: #FFE5E5; color: #D32F2F; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">
+                                style="background: #FFE5E5; color: #B71C1C; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">
                                 🍽️ RESTAURANTE
                             </span>
                             <h3 style="font-size: 1.3rem; margin: 1rem 0 0.5rem;">EneSushi</h3>
@@ -799,7 +799,7 @@
             <div class="container">
                 <div style="text-align: center; margin-bottom: 4rem;">
                     <span
-                        style="background: var(--magenta); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                        style="background: var(--magenta-dark); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
                         ⭐ Testimonios
                     </span>
                     <h2 style="font-size: 2.5rem; font-weight: 900; margin: 1.5rem 0 1rem; line-height: 1.2;">
@@ -1013,7 +1013,7 @@
                     </div>
 
                     <div class="project-info">
-                        <span class="tag" style="background: var(--magenta); color: white;">CREACIÓN DE MARCA
+                        <span class="tag" style="background: var(--magenta-dark); color: white;">CREACIÓN DE MARCA
                             ENEDIGITAL</span>
                         <h3 style="font-size: 2rem; margin: 0.5rem 0;">Storytelling Visual</h3>
                         <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
@@ -1343,17 +1343,9 @@
                     dotsContainer.innerHTML = '';
                     for (let i = 0; i < totalTestimonials; i++) {
                         const dot = document.createElement('button');
-                        dot.style.cssText = `
-                            width: 12px;
-                            height: 12px;
-                            border-radius: 50%;
-                            border: 2px solid var(--border-color);
-                            background: transparent;
-                            cursor: pointer;
-                            transition: all 0.3s ease;
-                        `;
+                        dot.className = 'testimonial-dot';
                         dot.setAttribute('aria-label', `Ir al testimonio ${i + 1}`);
-                        dot.addEventListener('click', () => goToSlide(i));
+                        dot.onclick = () => goToSlide(i); // Use onclick directly for simplicity or keep addEventListener
                         dotsContainer.appendChild(dot);
                     }
                     updateDots();
@@ -1361,16 +1353,12 @@
 
                 // Actualizar dots activos
                 function updateDots() {
-                    const dots = dotsContainer.querySelectorAll('button');
+                    const dots = dotsContainer.querySelectorAll('.testimonial-dot');
                     dots.forEach((dot, index) => {
                         if (index === currentIndex) {
-                            dot.style.background = 'var(--magenta)';
-                            dot.style.borderColor = 'var(--magenta)';
-                            dot.style.transform = 'scale(1.2)';
+                            dot.classList.add('active');
                         } else {
-                            dot.style.background = 'transparent';
-                            dot.style.borderColor = 'var(--border-color)';
-                            dot.style.transform = 'scale(1)';
+                            dot.classList.remove('active');
                         }
                     });
                 }
