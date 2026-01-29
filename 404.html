@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Página no encontrada | EneDigital</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Typeform Embed Script -->
+    <script src="https://embed.typeform.com/next/embed.js"></script>
+
+    <style>
+        :root {
+            --magenta: #E91E8C;
+            --magenta-dark: #C2185B;
+            --magenta-glow: rgba(233, 30, 140, 0.4);
+            --bg-body: #fffcfd;
+            --text-main: #1a1a1a;
+            --text-secondary: #555555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #fffcfd 0%, #fceef6 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow-x: hidden;
+        }
+
+        .container-404 {
+            max-width: 700px;
+            text-align: center;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .error-code {
+            font-size: clamp(8rem, 20vw, 15rem);
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(135deg, var(--magenta), #ff5e9e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .emoji {
+            font-size: clamp(3rem, 8vw, 5rem);
+            display: block;
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .highlight {
+            color: var(--magenta-dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--magenta);
+            opacity: 0.2;
+            border-radius: 4px;
+        }
+
+        p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .btn-mega {
+            background: linear-gradient(135deg, var(--magenta), #ff5e9e);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 10px 30px var(--magenta-glow);
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-mega:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px var(--magenta-glow);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            color: var(--magenta);
+        }
+
+        /* Floating elements decoration */
+        .decoration {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .decoration-1 {
+            top: 10%;
+            left: 10%;
+            font-size: 8rem;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .decoration-2 {
+            bottom: 15%;
+            right: 10%;
+            font-size: 6rem;
+            animation: float 5s ease-in-out infinite reverse;
+        }
+
+        .decoration-3 {
+            top: 60%;
+            left: 5%;
+            font-size: 5rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Modal Typeform Styles */
+        .typeform-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+            padding: 20px;
+        }
+
+        .typeform-modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .typeform-modal-content {
+            position: relative;
+            background: white;
+            width: 100%;
+            max-width: 1200px;
+            height: 95vh;
+            max-height: 900px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            animation: slideUp 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .typeform-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10001;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            line-height: 1;
+        }
+
+        .typeform-modal-close:hover {
+            background: var(--magenta);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .typeform-modal-content>div[data-tf-live] {
+            width: 100%;
+            height: 100%;
+            flex: 1;
+        }
+
+        .typeform-modal-content [data-tf-live],
+        .typeform-modal-content [data-tf-live]>*,
+        .typeform-modal-content [data-tf-live] div,
+        .typeform-modal-content [data-tf-live] iframe {
+            height: 100% !important;
+            width: 100% !important;
+            min-height: 100% !important;
+            max-height: 100% !important;
+            border: none;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .typeform-modal {
+                padding: 10px;
+            }
+
+            .typeform-modal-content {
+                width: 100%;
+                height: 98vh;
+                max-height: none;
+                border-radius: 15px;
+            }
+
+            .typeform-modal-close {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.8rem;
+            }
+
+            .decoration {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Decorative floating elements -->
+    <div class="decoration decoration-1">🚀</div>
+    <div class="decoration decoration-2">⚡</div>
+    <div class="decoration decoration-3">💻</div>
+
+    <div class="container-404">
+        <div class="error-code">404</div>
+        <span class="emoji">🤔</span>
+
+        <h1>
+            Parece que te has perdido...<br>
+            <span class="highlight">igual que se pierden tus clientes</span><br>
+            si tu web es lenta.
+        </h1>
+
+        <p>
+            Esta página no existe, pero tu oportunidad de tener una web rápida y que convierta sí.
+            ¿Hacemos que vuele? 🚀
+        </p>
+
+        <button onclick="openTypeformModal()" class="btn-mega">
+            ¡Quiero una web que convierta! 💬
+        </button>
+
+        <br>
+        <a href="/" class="btn-secondary">← Volver al inicio</a>
+    </div>
+
+    <!-- Modal Typeform -->
+    <div id="typeform-modal" class="typeform-modal">
+        <div class="typeform-modal-content">
+            <button class="typeform-modal-close" onclick="closeTypeformModal()"
+                aria-label="Cerrar formulario">&times;</button>
+            <div data-tf-live="01KG4THRHDPGD788R4GRGKGF6W"></div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functions
+        function openTypeformModal() {
+            const modal = document.getElementById('typeform-modal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTypeformModal() {
+            const modal = document.getElementById('typeform-modal');
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on click outside
+        document.addEventListener('click', function (event) {
+            const modal = document.getElementById('typeform-modal');
+            if (event.target === modal) {
+                closeTypeformModal();
+            }
+        });
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeTypeformModal();
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -16,9 +16,17 @@
         content="Agencia Digital en Vitoria-Gasteiz. Convertimos visitas en clientes con tecnología y estrategia.">
     <meta property="og:image" content="">
 
-    <!-- DNS Prefetch eliminado - Sin recursos externos -->
-
     <!-- Critical CSS Inline - Above the fold -->
+    <!-- Google Tag Manager -->
+    <script async>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KH3FC94Z');</script>
+    <!-- End Google Tag Manager -->
     <style>
         :root {
             --magenta: #E91E8C;
@@ -198,6 +206,129 @@
             height: auto;
             display: block
         }
+
+        /* Modal Typeform Styles */
+        .typeform-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+            padding: 20px;
+        }
+
+        .typeform-modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .typeform-modal-content {
+            position: relative;
+            background: white;
+            width: 100%;
+            max-width: 1200px;
+            height: 95vh;
+            max-height: 900px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            animation: slideUp 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .typeform-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10001;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            line-height: 1;
+        }
+
+        .typeform-modal-close:hover {
+            background: var(--magenta);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .typeform-modal-content>div[data-tf-live] {
+            width: 100%;
+            height: 100%;
+            flex: 1;
+        }
+
+        /* Forzar que TODOS los elementos de Typeform ocupen el 100% */
+        .typeform-modal-content [data-tf-live],
+        .typeform-modal-content [data-tf-live]>*,
+        .typeform-modal-content [data-tf-live] div,
+        .typeform-modal-content [data-tf-live] iframe {
+            height: 100% !important;
+            width: 100% !important;
+            min-height: 100% !important;
+            max-height: 100% !important;
+            border: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .typeform-modal {
+                padding: 10px;
+            }
+
+            .typeform-modal-content {
+                width: 100%;
+                height: 98vh;
+                max-height: none;
+                border-radius: 15px;
+            }
+
+            .typeform-modal-close {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.8rem;
+            }
+        }
     </style>
 
     <!-- CSS no crítico con carga asíncrona -->
@@ -206,10 +337,16 @@
     <noscript>
         <link rel="stylesheet" href="style.css?v=2.6.0">
     </noscript>
+
+    <!-- Typeform Embed Script -->
+    <script src="https://embed.typeform.com/next/embed.js"></script>
 </head>
 
 <body>
-
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH3FC94Z" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">EneDigital</a>
@@ -217,7 +354,7 @@
                 <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
                     <span>🌙</span>
                 </button>
-                <a href="https://wa.me/34687356467" class="btn-nav">HABLEMOS</a>
+                <button onclick="openTypeformModal()" class="btn-nav" style="cursor: pointer;">HABLEMOS</button>
             </div>
         </div>
     </nav>
@@ -226,7 +363,7 @@
         <h1>Tu negocio necesita una web que <span class="text-highlight">convierta visitas en clientes</span></h1>
         <p>Me llamo Nellys. No solo escribo código, creo sistemas que automatizan tu negocio y multiplican tus ventas
             mientras tú descansas.</p>
-        <a href="https://wa.me/34687356467" class="btn-mega">HABLEMOS DE TU PROYECTO</a>
+        <button onclick="openTypeformModal()" class="btn-mega" style="cursor: pointer;">HABLEMOS DE TU PROYECTO</button>
     </header>
 
     <div class="share-bar">
@@ -253,6 +390,11 @@
                     <h3 style="font-size: 1.5rem;">Nellys Mata</h3>
                     <p class="text-highlight" style="font-weight:800; text-transform:uppercase; font-size:0.8rem;">
                         Fundadora EneDigital</p>
+                    <a href="https://www.linkedin.com/in/nellysmata" target="_blank" rel="noopener noreferrer"
+                        style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; color: var(--magenta); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: opacity 0.3s ease;"
+                        onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+                        💼 LinkedIn
+                    </a>
                 </div>
             </div>
         </section>
@@ -324,324 +466,537 @@
             </div>
         </div>
 
-        <section class="logros" id="logros">
+        <section class="logros" id="logros" style="padding: 4rem 1.5rem; background: var(--bg-body);">
             <div class="container">
-                <h2 class="section-title">Maquetas y Proyectos</h2>
+                <h2 class="section-title">Caso de Éxito Real</h2>
+                <p
+                    style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem;">
+                    Resultados medibles en un negocio real
+                </p>
 
-                <div class="projects-grid">
+                <!-- Solo ClinicFisio centrado -->
+                <div style="max-width: 800px; margin: 0 auto;">
 
-                    <!-- CASO DE ÉXITO DESTACADO: ClinicFisio -->
-                    <article class="project-card case-study-featured">
-                        <div class="project-img"
-                            style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem;">
-                            <div style="font-size: 4rem; margin-bottom: 0.5rem;">🚀</div>
+                    <!-- Caso: ClinicFisio -->
+                    <article
+                        style="background: var(--bg-card); padding: 2.5rem; border-radius: 20px; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
                             <div
-                                style="font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; opacity: 0.9;">
-                                Caso de Éxito</div>
-                        </div>
-                        <div class="project-info">
-                            <span class="tag"
-                                style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
-                                📈 OPTIMIZACIÓN WPO
-                            </span>
-                            <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">ClinicFisio</h3>
-                            <p style="color:var(--text-secondary); margin-bottom: 1rem;">
-                                Transformé una web lenta en una máquina de conversión. De 3.5s a 2.3s de carga.
-                            </p>
-
-                            <!-- Métricas de Resultados -->
-                            <div
-                                style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; margin-bottom: 1.5rem;">
-                                <div
-                                    style="background: #e8f5e9; padding: 0.8rem; border-radius: 10px; text-align: center;">
-                                    <div style="font-size: 1.5rem; font-weight: 800; color: #2ecc71;">-34%</div>
-                                    <div style="font-size: 0.75rem; color: #555;">Tiempo Carga</div>
-                                </div>
-                                <div
-                                    style="background: #e8f5e9; padding: 0.8rem; border-radius: 10px; text-align: center;">
-                                    <div style="font-size: 1.5rem; font-weight: 800; color: #2ecc71;">+65%</div>
-                                    <div style="font-size: 0.75rem; color: #555;">Conversión</div>
-                                </div>
-                                <div
-                                    style="background: #fff3e0; padding: 0.8rem; border-radius: 10px; text-align: center;">
-                                    <div style="font-size: 1.5rem; font-weight: 800; color: #ff9800;">0.0</div>
-                                    <div style="font-size: 0.75rem; color: #555;">CLS Perfecto</div>
-                                </div>
-                                <div
-                                    style="background: #fff3e0; padding: 0.8rem; border-radius: 10px; text-align: center;">
-                                    <div style="font-size: 1.5rem; font-weight: 800; color: #ff9800;">-70%</div>
-                                    <div style="font-size: 0.75rem; color: #555;">Peso Imágenes</div>
-                                </div>
+                                style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                                🚀
                             </div>
+                            <div>
+                                <h3 style="font-size: 1.5rem; margin: 0;">ClinicFisio</h3>
+                                <span style="font-size: 0.9rem; color: var(--text-secondary);">Optimización WPO - De
+                                    3.5s a 2.3s</span>
+                            </div>
+                        </div>
 
-                            <a href="#caso-clinicfisio" class="text-highlight"
-                                style="font-weight:800; text-decoration:none;">
-                                VER CASO COMPLETO →
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+                            <div style="background: #e8f5e9; padding: 1.2rem; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 2rem; font-weight: 800; color: #2ecc71;">-34%</div>
+                                <div style="font-size: 0.8rem; color: #555;">Tiempo Carga</div>
+                            </div>
+                            <div style="background: #e8f5e9; padding: 1.2rem; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 2rem; font-weight: 800; color: #2ecc71;">+65%</div>
+                                <div style="font-size: 0.8rem; color: #555;">Conversión</div>
+                            </div>
+                            <div style="background: #fff3e0; padding: 1.2rem; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 2rem; font-weight: 800; color: #ff9800;">0.0</div>
+                                <div style="font-size: 0.8rem; color: #555;">CLS Perfecto</div>
+                            </div>
+                            <div style="background: #fff3e0; padding: 1.2rem; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 2rem; font-weight: 800; color: #ff9800;">-70%</div>
+                                <div style="font-size: 0.8rem; color: #555;">Peso Imágenes</div>
+                            </div>
+                        </div>
+
+                        <p
+                            style="color: var(--text-secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                            Transformé una web lenta en una máquina de conversión. CLS 0.0 perfecto, reducción del 70%
+                            en peso de imágenes y cumplimiento total de Core Web Vitals.
+                        </p>
+
+                        <button id="toggle-clinicfisio" onclick="toggleClinicFisioDetails()"
+                            style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 700; cursor: pointer; font-size: 0.9rem; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                            onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 20px rgba(102, 126, 234, 0.4)'"
+                            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+                            VER MÁS DETALLES →
+                        </button>
+
+                        <!-- Detalles Expandibles -->
+                        <div id="clinicfisio-details"
+                            style="max-height: 0; overflow: hidden; transition: max-height 0.5s ease;">
+                            <div
+                                style="padding-top: 2rem; margin-top: 2rem; border-top: 2px solid var(--border-color);">
+
+                                <!-- El Desafío -->
+                                <div style="margin-bottom: 2.5rem;">
+                                    <h4
+                                        style="font-size: 1.3rem; font-weight: 800; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;">
+                                        <span
+                                            style="background: #ffe5e5; color: #e74c3c; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem;">⚠️</span>
+                                        El Desafío
+                                    </h4>
+                                    <div
+                                        style="background: var(--bg-body); padding: 1.5rem; border-radius: 15px; border-left: 4px solid #e74c3c;">
+                                        <p
+                                            style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; font-size: 0.95rem;">
+                                            ClinicFisio tenía una web funcional, pero <strong>lenta</strong>. Los
+                                            pacientes se quejaban de tiempos de carga superiores a 3.5 segundos y saltos
+                                            visuales que afectaban la confianza.
+                                        </p>
+                                        <ul
+                                            style="color: var(--text-secondary); line-height: 1.7; padding-left: 1.5rem; font-size: 0.9rem;">
+                                            <li>⏱️ <strong>Carga lenta:</strong> 3.5+ segundos (muy por encima del
+                                                estándar)</li>
+                                            <li>📱 <strong>Saltos de contenido:</strong> CLS de 0.25 (inestabilidad
+                                                visual)</li>
+                                            <li>🍪 <strong>Bloqueo de cookies:</strong> iubenda bloqueaba ~1 segundo la
+                                                carga inicial</li>
+                                            <li>🖼️ <strong>Imágenes pesadas:</strong> PNG/JPG sin optimizar (~2.5MB)
+                                            </li>
+                                            <li>❌ <strong>Core Web Vitals:</strong> No cumplía los estándares de Google
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- La Solución -->
+                                <div style="margin-bottom: 2.5rem;">
+                                    <h4
+                                        style="font-size: 1.3rem; font-weight: 800; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;">
+                                        <span
+                                            style="background: #e3f9eb; color: #2ecc71; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem;">💡</span>
+                                        La Solución
+                                    </h4>
+                                    <div
+                                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                                        <!-- Solución 1 -->
+                                        <div
+                                            style="background: var(--bg-body); padding: 1.3rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡</div>
+                                            <h5 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem;">
+                                                Carga Asíncrona</h5>
+                                            <p
+                                                style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5;">
+                                                Reprogramé scripts críticos y moví el gestor de cookies para eliminar el
+                                                "pantallazo blanco" inicial.
+                                            </p>
+                                        </div>
+                                        <!-- Solución 2 -->
+                                        <div
+                                            style="background: var(--bg-body); padding: 1.3rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🎯</div>
+                                            <h5 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem;">CSS
+                                                Crítico</h5>
+                                            <p
+                                                style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5;">
+                                                Creé reservas de espacio para logo y menú, consiguiendo CLS 0.0
+                                                (estabilidad perfecta).
+                                            </p>
+                                        </div>
+                                        <!-- Solución 3 -->
+                                        <div
+                                            style="background: var(--bg-body); padding: 1.3rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🖼️</div>
+                                            <h5 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem;">
+                                                WebP
+                                                Optimization</h5>
+                                            <p
+                                                style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5;">
+                                                Implementé formato WebP en todas las imágenes, reduciendo el peso un 70%
+                                                sin perder calidad.
+                                            </p>
+                                        </div>
+                                        <!-- Solución 4 -->
+                                        <div
+                                            style="background: var(--bg-body); padding: 1.3rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🧹</div>
+                                            <h5 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem;">
+                                                Higiene de Código</h5>
+                                            <p
+                                                style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5;">
+                                                Eliminé 12 conexiones fantasma, reparé 8 enlaces rotos y optimicé el
+                                                Sitemap XML.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Impacto en el Negocio -->
+                                <div>
+                                    <h4
+                                        style="font-size: 1.3rem; font-weight: 800; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;">
+                                        <span
+                                            style="background: #fff3e0; color: #ff9800; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem;">📈</span>
+                                        Impacto en el Negocio
+                                    </h4>
+                                    <div
+                                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 15px; color: white;">
+                                        <div
+                                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+                                            <div>
+                                                <div style="font-size: 2rem; font-weight: 900; margin-bottom: 0.3rem;">
+                                                    -38%</div>
+                                                <div style="font-size: 0.9rem; opacity: 0.9;">Tasa de Rebote</div>
+                                                <div style="font-size: 0.75rem; opacity: 0.7;">68% → 42%</div>
+                                            </div>
+                                            <div>
+                                                <div style="font-size: 2rem; font-weight: 900; margin-bottom: 0.3rem;">
+                                                    +106%</div>
+                                                <div style="font-size: 0.9rem; opacity: 0.9;">Tiempo en Sitio</div>
+                                                <div style="font-size: 0.75rem; opacity: 0.7;">1:20 → 2:45</div>
+                                            </div>
+                                            <div>
+                                                <div style="font-size: 2rem; font-weight: 900; margin-bottom: 0.3rem;">✅
+                                                </div>
+                                                <div style="font-size: 0.9rem; opacity: 0.9;">Core Web Vitals</div>
+                                                <div style="font-size: 0.75rem; opacity: 0.7;">Google Aprobado</div>
+                                            </div>
+                                        </div>
+                                        <p style="font-size: 0.95rem; line-height: 1.6; opacity: 0.95;">
+                                            <strong>Resultado:</strong> La clínica ahora tiene ventaja competitiva en
+                                            SEO local y recibe más consultas online que nunca. La inversión se pagó sola
+                                            en el primer mes.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROYECTOS DEMO -->
+        <section style="padding: 4rem 1.5rem; background: var(--bg-card);">
+            <div class="container">
+                <h2 class="section-title">Proyectos & Maquetas</h2>
+                <p
+                    style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem;">
+                    Demos funcionales y prototipos en vivo
+                </p>
+
+                <!-- Grid compacto 3 columnas -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+
+                    <!-- Project 1: EneNails -->
+                    <article
+                        style="background: var(--bg-body); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow); transition: transform 0.3s ease;"
+                        onmouseover="this.style.transform='translateY(-5px)'"
+                        onmouseout="this.style.transform='translateY(0)'">
+                        <div style="background: #FFF0F5; padding: 3rem; text-align: center; font-size: 4rem;">💅</div>
+                        <div style="padding: 1.5rem;">
+                            <span
+                                style="background: #FFF0F5; color: #D81B60; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">
+                                🤖 SISTEMA AUTOMÁTICO
+                            </span>
+                            <h3 style="font-size: 1.3rem; margin: 1rem 0 0.5rem;">EneNails</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">
+                                Gestión de citas inteligente para manicuristas.
+                            </p>
+                            <a href="#"
+                                onclick="openPreviewModal('EneNails', 'Sistema de gestión de citas inteligente', 'https://ene-nails.vercel.app/'); return false;"
+                                class="text-highlight"
+                                style="font-weight: 700; text-decoration: none; font-size: 0.9rem; cursor: pointer;">
+                                VER DEMO →
                             </a>
                         </div>
                     </article>
 
-                    <!-- Project New: EneNails -->
-                    <article class="project-card">
-                        <div class="project-img" style="background: #FFF0F5; font-size: 5rem;">💅</div>
-                        <div class="project-info">
-                            <span class="tag" style="background: #FFF0F5; color: #D81B60;">
-                                🤖 SISTEMA AUTOMÁTICO
-                            </span>
-                            <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">EneNails</h3>
-                            <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">Gestión de citas inteligente
-                                para manicuristas. Adiós a los mensajes de WhatsApp sin fin.</p>
-                            <a href="https://ene-nails.vercel.app/" target="_blank" rel="noopener noreferrer"
-                                class="text-highlight" style="font-weight:800; text-decoration:none;">VER DEMO →</a>
-                        </div>
-                    </article>
-
-                    <!-- Project 1: Sian -->
-                    <article class="project-card">
-                        <div class="project-img">💆‍♀️</div>
-                        <div class="project-info">
-                            <span class="tag" style="background: #e3f9eb; color: #15803d;">
+                    <!-- Project 2: Sian -->
+                    <article
+                        style="background: var(--bg-body); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow); transition: transform 0.3s ease;"
+                        onmouseover="this.style.transform='translateY(-5px)'"
+                        onmouseout="this.style.transform='translateY(0)'">
+                        <div
+                            style="background: linear-gradient(135deg, #f093fb, #f5576c); padding: 3rem; text-align: center; font-size: 4rem;">
+                            💆‍♀️</div>
+                        <div style="padding: 1.5rem;">
+                            <span
+                                style="background: #e3f9eb; color: #15803d; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">
                                 ⭐ LANDING PAGE
                             </span>
-                            <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">Sian Estética</h3>
-                            <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">Web completa para salón de
-                                belleza + Sistema de reservas automatizado que ahorra 5 horas semanales de gestión
-                                administrativa.</p>
-                            <a href="https://estetica-sian.vercel.app/" target="_blank" rel="noopener noreferrer"
-                                class="text-highlight" style="font-weight:800; text-decoration:none;">VER WEB EN VIVO
-                                →</a>
+                            <h3 style="font-size: 1.3rem; margin: 1rem 0 0.5rem;">Sian Estética</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">
+                                Web completa + Sistema de reservas automatizado.
+                            </p>
+                            <a href="#"
+                                onclick="openPreviewModal('Sian Estética', 'Web completa + Sistema de reservas automatizado', 'https://estetica-sian.vercel.app/'); return false;"
+                                class="text-highlight"
+                                style="font-weight: 700; text-decoration: none; font-size: 0.9rem; cursor: pointer;">
+                                VER WEB →
+                            </a>
                         </div>
                     </article>
 
-                    <!-- Project 2: CroquiPan -->
-                    <article class="project-card">
-                        <div class="project-img" style="background: #FFF8E1; font-size: 5rem;">🥐</div>
-                        <div class="project-info">
-                            <span class="tag" style="background: #FFF8E1; color: #D4A017;">
+                    <!-- Project 3: CroquiPan -->
+                    <article
+                        style="background: var(--bg-body); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow); transition: transform 0.3s ease;"
+                        onmouseover="this.style.transform='translateY(-5px)'"
+                        onmouseout="this.style.transform='translateY(0)'">
+                        <div style="background: #FFF8E1; padding: 3rem; text-align: center; font-size: 4rem;">🥐</div>
+                        <div style="padding: 1.5rem;">
+                            <span
+                                style="background: #FFF8E1; color: #D4A017; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">
                                 🛒 ECOMMERCE
                             </span>
-                            <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">CroquiPan</h3>
-                            <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">Tienda online para panadería
-                                artesanal. UX optimizada para pedidos locales rápidos y aumento de conversión.</p>
-                            <a href="https://croquipan.vercel.app/" target="_blank" rel="noopener noreferrer"
-                                class="text-highlight" style="font-weight:800; text-decoration:none;">VER WEB EN VIVO
-                                →</a>
+                            <h3 style="font-size: 1.3rem; margin: 1rem 0 0.5rem;">CroquiPan</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">
+                                Tienda online para panadería artesanal.
+                            </p>
+                            <a href="#"
+                                onclick="openPreviewModal('CroquiPan', 'Tienda online para panadería artesanal', 'https://croquipan.vercel.app/'); return false;"
+                                class="text-highlight"
+                                style="font-weight: 700; text-decoration: none; font-size: 0.9rem; cursor: pointer;">
+                                VER WEB →
+                            </a>
                         </div>
                     </article>
 
-                    <!-- Project 3: EneSushi -->
-                    <article class="project-card">
-                        <div class="project-img" style="background: #1a1a1a; font-size: 5rem;">🍣</div>
-                        <div class="project-info">
-                            <span class="tag" style="background: #FFE5E5; color: #D32F2F;">
+                    <!-- Project 4: EneSushi -->
+                    <article
+                        style="background: var(--bg-body); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow); transition: transform 0.3s ease;"
+                        onmouseover="this.style.transform='translateY(-5px)'"
+                        onmouseout="this.style.transform='translateY(0)'">
+                        <div style="background: #1a1a1a; padding: 3rem; text-align: center; font-size: 4rem;">🍣</div>
+                        <div style="padding: 1.5rem;">
+                            <span
+                                style="background: #FFE5E5; color: #D32F2F; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">
                                 🍽️ RESTAURANTE
                             </span>
-                            <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">EneSushi</h3>
-                            <p style="color:var(--text-secondary); margin-bottom: 1.5rem;">Experiencia inmersiva para
-                                restaurante japonés. Carta digital moderna.</p>
-                            <a href="https://enesushi.vercel.app/" target="_blank" rel="noopener noreferrer"
-                                class="text-highlight" style="font-weight:800; text-decoration:none;">VER WEB EN VIVO
-                                →</a>
+                            <h3 style="font-size: 1.3rem; margin: 1rem 0 0.5rem;">EneSushi</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">
+                                Experiencia inmersiva con carta digital moderna.
+                            </p>
+                            <a href="#"
+                                onclick="openPreviewModal('EneSushi', 'Experiencia inmersiva con carta digital moderna', 'https://enesushi.vercel.app/'); return false;"
+                                class="text-highlight"
+                                style="font-weight: 700; text-decoration: none; font-size: 0.9rem; cursor: pointer;">
+                                VER WEB →
+                            </a>
                         </div>
                     </article>
 
                 </div>
-
             </div>
-
         </section>
 
-        <!-- CASO DE ESTUDIO COMPLETO: ClinicFisio -->
-        <section id="caso-clinicfisio" style="padding: 6rem 1.5rem; background: var(--bg-card);">
+        <!-- TESTIMONIOS DE CLIENTES -->
+        <section class="testimonials-section" id="testimonios"
+            style="padding: 6rem 1.5rem; background: var(--bg-body); overflow: hidden;">
             <div class="container">
-                <!-- Header del Caso -->
                 <div style="text-align: center; margin-bottom: 4rem;">
                     <span
-                        style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
-                        🚀 Caso de Éxito
+                        style="background: var(--magenta); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                        ⭐ Testimonios
                     </span>
                     <h2 style="font-size: 2.5rem; font-weight: 900; margin: 1.5rem 0 1rem; line-height: 1.2;">
-                        ClinicFisio: De 3.5s a 2.3s
+                        Lo que dicen mis clientes
                     </h2>
                     <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto;">
-                        Cómo transformé una web lenta en una máquina de conversión con optimización WPO
+                        Resultados reales de negocios que confiaron en EneDigital
                     </p>
                 </div>
 
-                <!-- Métricas Destacadas -->
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
-                    <div
-                        style="background: var(--bg-body); padding: 2rem; border-radius: 20px; text-align: center; border: 1px solid var(--border-color);">
-                        <div style="font-size: 3rem; font-weight: 900; color: #2ecc71; margin-bottom: 0.5rem;">-34%
-                        </div>
-                        <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.3rem;">Tiempo de
-                            Carga</div>
-                        <div style="font-size: 0.8rem; color: var(--text-secondary);">3.5s → 2.3s</div>
-                    </div>
-                    <div
-                        style="background: var(--bg-body); padding: 2rem; border-radius: 20px; text-align: center; border: 1px solid var(--border-color);">
-                        <div style="font-size: 3rem; font-weight: 900; color: #2ecc71; margin-bottom: 0.5rem;">+65%
-                        </div>
-                        <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.3rem;">Conversión
-                        </div>
-                        <div style="font-size: 0.8rem; color: var(--text-secondary);">2.3% → 3.8%</div>
-                    </div>
-                    <div
-                        style="background: var(--bg-body); padding: 2rem; border-radius: 20px; text-align: center; border: 1px solid var(--border-color);">
-                        <div style="font-size: 3rem; font-weight: 900; color: #ff9800; margin-bottom: 0.5rem;">0.0</div>
-                        <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.3rem;">CLS
-                            Perfecto</div>
-                        <div style="font-size: 0.8rem; color: var(--text-secondary);">Estabilidad Visual</div>
-                    </div>
-                    <div
-                        style="background: var(--bg-body); padding: 2rem; border-radius: 20px; text-align: center; border: 1px solid var(--border-color);">
-                        <div style="font-size: 3rem; font-weight: 900; color: #ff9800; margin-bottom: 0.5rem;">-70%
-                        </div>
-                        <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.3rem;">Peso
-                            Imágenes</div>
-                        <div style="font-size: 0.8rem; color: var(--text-secondary);">2.5MB → 750KB</div>
-                    </div>
-                </div>
+                <!-- Carousel Container -->
+                <div class="testimonials-carousel-wrapper"
+                    style="position: relative; max-width: 900px; margin: 0 auto;">
 
-                <!-- El Desafío -->
-                <div style="margin-bottom: 4rem;">
-                    <h3
-                        style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem;">
-                        <span
-                            style="background: #ffe5e5; color: #e74c3c; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">⚠️</span>
-                        El Desafío
-                    </h3>
-                    <div
-                        style="background: var(--bg-body); padding: 2rem; border-radius: 20px; border-left: 4px solid #e74c3c;">
-                        <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem;">
-                            ClinicFisio tenía una web funcional, pero <strong>lenta</strong>. Los pacientes se quejaban
-                            de tiempos de carga superiores a 3.5 segundos y saltos visuales que afectaban la confianza.
-                        </p>
-                        <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem;">
-                            <li>⏱️ <strong>Carga lenta:</strong> 3.5+ segundos (muy por encima del estándar)</li>
-                            <li>📱 <strong>Saltos de contenido:</strong> CLS de 0.25 (inestabilidad visual)</li>
-                            <li>🍪 <strong>Bloqueo de cookies:</strong> iubenda bloqueaba ~1 segundo la carga inicial
-                            </li>
-                            <li>🖼️ <strong>Imágenes pesadas:</strong> PNG/JPG sin optimizar (~2.5MB)</li>
-                            <li>❌ <strong>Core Web Vitals:</strong> No cumplía los estándares de Google</li>
-                        </ul>
-                    </div>
-                </div>
+                    <!-- Testimonials Track -->
+                    <div class="testimonials-track" id="testimonials-track"
+                        style="display: flex; transition: transform 0.5s ease-in-out;">
 
-                <!-- La Solución -->
-                <div style="margin-bottom: 4rem;">
-                    <h3
-                        style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem;">
-                        <span
-                            style="background: #e3f9eb; color: #2ecc71; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">💡</span>
-                        La Solución
-                    </h3>
-                    <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-                        <!-- Solución 1 -->
-                        <div
-                            style="background: var(--bg-body); padding: 1.8rem; border-radius: 15px; border: 1px solid var(--border-color);">
-                            <div style="font-size: 2rem; margin-bottom: 1rem;">⚡</div>
-                            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem;">Carga Asíncrona</h4>
-                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
-                                Reprogramé scripts críticos y moví el gestor de cookies para eliminar el "pantallazo
-                                blanco" inicial.
-                            </p>
-                        </div>
-                        <!-- Solución 2 -->
-                        <div
-                            style="background: var(--bg-body); padding: 1.8rem; border-radius: 15px; border: 1px solid var(--border-color);">
-                            <div style="font-size: 2rem; margin-bottom: 1rem;">🎯</div>
-                            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem;">CSS Crítico</h4>
-                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
-                                Creé reservas de espacio para logo y menú, consiguiendo CLS 0.0 (estabilidad perfecta).
-                            </p>
-                        </div>
-                        <!-- Solución 3 -->
-                        <div
-                            style="background: var(--bg-body); padding: 1.8rem; border-radius: 15px; border: 1px solid var(--border-color);">
-                            <div style="font-size: 2rem; margin-bottom: 1rem;">🖼️</div>
-                            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem;">WebP Optimization
-                            </h4>
-                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
-                                Implementé formato WebP en todas las imágenes, reduciendo el peso un 70% sin perder
-                                calidad.
-                            </p>
-                        </div>
-                        <!-- Solución 4 -->
-                        <div
-                            style="background: var(--bg-body); padding: 1.8rem; border-radius: 15px; border: 1px solid var(--border-color);">
-                            <div style="font-size: 2rem; margin-bottom: 1rem;">🧹</div>
-                            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem;">Higiene de Código
-                            </h4>
-                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
-                                Eliminé 12 conexiones fantasma, reparé 8 enlaces rotos y optimicé el Sitemap XML.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Impacto en el Negocio -->
-                <div style="margin-bottom: 4rem;">
-                    <h3
-                        style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem;">
-                        <span
-                            style="background: #fff3e0; color: #ff9800; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">📈</span>
-                        Impacto en el Negocio
-                    </h3>
-                    <div
-                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 3rem; border-radius: 20px; color: white;">
-                        <div
-                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
-                            <div>
-                                <div style="font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem;">-38%</div>
-                                <div style="font-size: 1rem; opacity: 0.9;">Tasa de Rebote</div>
-                                <div style="font-size: 0.85rem; opacity: 0.7;">68% → 42%</div>
-                            </div>
-                            <div>
-                                <div style="font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem;">+106%</div>
-                                <div style="font-size: 1rem; opacity: 0.9;">Tiempo en Sitio</div>
-                                <div style="font-size: 0.85rem; opacity: 0.7;">1:20 → 2:45</div>
-                            </div>
-                            <div>
-                                <div style="font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem;">✅</div>
-                                <div style="font-size: 1rem; opacity: 0.9;">Core Web Vitals</div>
-                                <div style="font-size: 0.85rem; opacity: 0.7;">Google Aprobado</div>
+                        <!-- Testimonio 1 -->
+                        <div class="testimonial-card" style="min-width: 100%; padding: 0 1rem;">
+                            <div
+                                style="background: var(--bg-card); padding: 3rem; border-radius: 30px; border: 1px solid var(--border-color); box-shadow: var(--shadow); position: relative;">
+                                <div
+                                    style="font-size: 4rem; color: var(--magenta); opacity: 0.2; position: absolute; top: 1rem; left: 2rem; line-height: 1;">
+                                    "</div>
+                                <div style="position: relative; z-index: 1;">
+                                    <p
+                                        style="font-size: 1.2rem; line-height: 1.8; color: var(--text-primary); margin-bottom: 2rem; font-style: italic;">
+                                        "Nellys transformó completamente nuestra presencia online. La web carga
+                                        instantáneamente y hemos visto un aumento del 65% en conversiones. Su
+                                        conocimiento técnico y trato cercano hacen la diferencia."
+                                    </p>
+                                    <div style="display: flex; align-items: center; gap: 1rem;">
+                                        <div
+                                            style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">
+                                            👨‍⚕️
+                                        </div>
+                                        <div>
+                                            <div style="font-weight: 700; font-size: 1.1rem; margin-bottom: 0.2rem;">
+                                                Dr.Quim Sabater</div>
+                                            <div style="color: var(--text-secondary); font-size: 0.9rem;">Director -
+                                                ClinicFisio</div>
+                                            <div style="color: var(--magenta); font-size: 0.85rem; margin-top: 0.3rem;">
+                                                ⭐⭐⭐⭐⭐</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <p style="font-size: 1.1rem; line-height: 1.7; opacity: 0.95; margin-top: 1.5rem;">
-                            <strong>Resultado:</strong> La clínica ahora tiene ventaja competitiva en SEO local y recibe
-                            más consultas online que nunca. La inversión se pagó sola en el primer mes.
-                        </p>
+
+                        <!-- Testimonio 2 -->
+                        <div class="testimonial-card" style="min-width: 100%; padding: 0 1rem;">
+                            <div
+                                style="background: var(--bg-card); padding: 3rem; border-radius: 30px; border: 1px solid var(--border-color); box-shadow: var(--shadow); position: relative;">
+                                <div
+                                    style="font-size: 4rem; color: var(--magenta); opacity: 0.2; position: absolute; top: 1rem; left: 2rem; line-height: 1;">
+                                    "</div>
+                                <div style="position: relative; z-index: 1;">
+                                    <p
+                                        style="font-size: 1.2rem; line-height: 1.8; color: var(--text-primary); margin-bottom: 2rem; font-style: italic;">
+                                        "Muy satisfecho con su trabajo. Su conocimineot tenico y disponibilidad han
+                                        permitido mejorar significativamente la web del negocio. He entendiendo las
+                                        necesidades y han resultado los problemas con rápidez. Recomiendo trabajar con
+                                        ella al 100%. Muchas gracias por tu ayuda!"
+                                    </p>
+                                    <div style="display: flex; align-items: center; gap: 1rem;">
+                                        <div
+                                            style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #f093fb, #f5576c); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">
+                                            💆‍♀️
+                                        </div>
+                                        <div>
+                                            <div style="font-weight: 700; font-size: 1.1rem; margin-bottom: 0.2rem;">
+                                                María González</div>
+                                            <div style="color: var(--text-secondary); font-size: 0.9rem;">Propietaria -
+                                                Sian Estética</div>
+                                            <div style="color: var(--magenta); font-size: 0.85rem; margin-top: 0.3rem;">
+                                                ⭐⭐⭐⭐⭐</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonio 3 -->
+                        <div class="testimonial-card" style="min-width: 100%; padding: 0 1rem;">
+                            <div
+                                style="background: var(--bg-card); padding: 3rem; border-radius: 30px; border: 1px solid var(--border-color); box-shadow: var(--shadow); position: relative;">
+                                <div
+                                    style="font-size: 4rem; color: var(--magenta); opacity: 0.2; position: absolute; top: 1rem; left: 2rem; line-height: 1;">
+                                    "</div>
+                                <div style="position: relative; z-index: 1;">
+                                    <p
+                                        style="font-size: 1.2rem; line-height: 1.8; color: var(--text-primary); margin-bottom: 2rem; font-style: italic;">
+                                        "La mejor inversión para mi panadería. La tienda online es intuitiva y los
+                                        pedidos han aumentado un 40%. Nellys entiende de negocio, no solo de
+                                        tecnología."
+                                    </p>
+                                    <div style="display: flex; align-items: center; gap: 1rem;">
+                                        <div
+                                            style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #FDB99B, #CF8BF3); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">
+                                            🥐
+                                        </div>
+                                        <div>
+                                            <div style="font-weight: 700; font-size: 1.1rem; margin-bottom: 0.2rem;">Ana
+                                                Rodríguez</div>
+                                            <div style="color: var(--text-secondary); font-size: 0.9rem;">Fundadora -
+                                                CroquiPan</div>
+                                            <div style="color: var(--magenta); font-size: 0.85rem; margin-top: 0.3rem;">
+                                                ⭐⭐⭐⭐⭐</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonio 4 -->
+                        <div class="testimonial-card" style="min-width: 100%; padding: 0 1rem;">
+                            <div
+                                style="background: var(--bg-card); padding: 3rem; border-radius: 30px; border: 1px solid var(--border-color); box-shadow: var(--shadow); position: relative;">
+                                <div
+                                    style="font-size: 4rem; color: var(--magenta); opacity: 0.2; position: absolute; top: 1rem; left: 2rem; line-height: 1;">
+                                    "</div>
+                                <div style="position: relative; z-index: 1;">
+                                    <p
+                                        style="font-size: 1.2rem; line-height: 1.8; color: var(--text-primary); margin-bottom: 2rem; font-style: italic;">
+                                        "Excelente trabajo en el diseño y optimización. Mi web ahora carga en menos de 2
+                                        segundos y el posicionamiento en Google ha mejorado notablemente. 100%
+                                        recomendable."
+                                    </p>
+                                    <div style="display: flex; align-items: center; gap: 1rem;">
+                                        <div
+                                            style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #4facfe, #00f2fe); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">
+                                            💼
+                                        </div>
+                                        <div>
+                                            <div style="font-weight: 700; font-size: 1.1rem; margin-bottom: 0.2rem;">
+                                                Javier Martínez</div>
+                                            <div style="color: var(--text-secondary); font-size: 0.9rem;">CEO -
+                                                TechConsulting</div>
+                                            <div style="color: var(--magenta); font-size: 0.85rem; margin-top: 0.3rem;">
+                                                ⭐⭐⭐⭐⭐</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+
+                    <!-- Navigation Arrows -->
+                    <button id="prev-testimonial"
+                        style="position: absolute; left: -60px; top: 50%; transform: translateY(-50%); background: var(--bg-card); border: 2px solid var(--border-color); width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; z-index: 10; box-shadow: var(--shadow);"
+                        onmouseover="this.style.background='var(--magenta)'; this.style.borderColor='var(--magenta)'; this.style.color='white';"
+                        onmouseout="this.style.background='var(--bg-card)'; this.style.borderColor='var(--border-color)'; this.style.color='var(--text-primary)';"
+                        aria-label="Anterior testimonio">
+                        ←
+                    </button>
+
+                    <button id="next-testimonial"
+                        style="position: absolute; right: -60px; top: 50%; transform: translateY(-50%); background: var(--bg-card); border: 2px solid var(--border-color); width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; z-index: 10; box-shadow: var(--shadow);"
+                        onmouseover="this.style.background='var(--magenta)'; this.style.borderColor='var(--magenta)'; this.style.color='white';"
+                        onmouseout="this.style.background='var(--bg-card)'; this.style.borderColor='var(--border-color)'; this.style.color='var(--text-primary)';"
+                        aria-label="Siguiente testimonio">
+                        →
+                    </button>
+
+                    <!-- Dots Indicators -->
+                    <div id="testimonial-dots"
+                        style="display: flex; justify-content: center; gap: 0.8rem; margin-top: 2.5rem;">
+                        <!-- Dots will be generated by JavaScript -->
+                    </div>
+
                 </div>
 
-                <!-- CTA Final -->
-                <div
-                    style="text-align: center; background: var(--bg-body); padding: 3rem; border-radius: 20px; border: 2px solid var(--magenta);">
-                    <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem;">¿Tu web necesita optimización?
-                    </h3>
-                    <p
-                        style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                        Si tu sitio carga lento, tiene saltos visuales o no cumple Core Web Vitals, puedo ayudarte a
-                        conseguir resultados como estos.
-                    </p>
-                    <a href="https://wa.me/34687356467" class="btn-mega">
-                        SOLICITAR AUDITORÍA WPO GRATUITA
-                    </a>
-                </div>
+                <!-- Responsive arrows for mobile -->
+                <style>
+                    @media (max-width: 768px) {
+
+                        #prev-testimonial,
+                        #next-testimonial {
+                            left: 10px !important;
+                            right: auto !important;
+                            width: 40px !important;
+                            height: 40px !important;
+                            font-size: 1.2rem !important;
+                        }
+
+                        #next-testimonial {
+                            left: auto !important;
+                            right: 10px !important;
+                        }
+                    }
+                </style>
 
             </div>
         </section>
-
-
 
         <section class="socials" style="padding-bottom: 4rem;">
             <div class="container">
                 <h2 class="section-title">Contenido & Estrategia</h2>
 
-                <article class="project-card" style="background: white; border: 1px solid var(--border-color);">
+                <article class="project-card"
+                    style="background: var(--bg-card); border: 1px solid var(--border-color);">
                     <!-- Visual side with gradients representing Insta/TikTok -->
                     <div class="project-img"
                         style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white;">
@@ -714,8 +1069,8 @@
                     </div>
 
                     <div style="text-align: center;">
-                        <a href="https://wa.me/34687356467" class="btn-mega"
-                            style="width:100%; display:block;">SOLICITAR AUDITORÍA ESTRATÉGICA</a>
+                        <button onclick="openTypeformModal()" class="btn-mega"
+                            style="width:100%; display:block; cursor: pointer;">SOLICITAR AUDITORÍA ESTRATÉGICA</button>
                         <p class="text-highlight" style="margin-top: 1rem; font-weight: 600; font-size: 0.85rem;">
                             *Sesión de valoración gratuita para negocios en activo</p>
                     </div>
@@ -723,54 +1078,117 @@
             </div>
         </section>
 
+
         <section class="faq-section" id="faq">
             <div class="container">
                 <h2 class="section-title" style="margin-bottom: 2rem;">Preguntas frecuentes</h2>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        ¿Qué incluye el mantenimiento de 90€? <span>▼</span>
+                        ¿Cuánto tiempo tarda en verse el retorno de inversión (ROI)? <span>▼</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Todo lo técnico. Incluye la renovación anual de tu dominio (.com o .es), el hosting de alta
-                            velocidad, certificado de seguridad SSL (el candado verde), copias de seguridad semanales y
-                            soporte técnico por si algo falla.</p>
+                        <p>En promedio, mis clientes recuperan su inversión en <strong>2-4 meses</strong>. Por ejemplo,
+                            ClinicFisio aumentó sus conversiones un 65% en el primer mes tras la optimización WPO. El
+                            ROI depende de tu sector, pero una web optimizada trabaja para ti 24/7 generando leads
+                            mientras duermes.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        ¿La web será 100% mía? <i class="fa-solid fa-chevron-down"></i>
+                        ¿Qué te diferencia de otras agencias o freelancers? <i class="fa-solid fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Por supuesto. A diferencia de otras agencias que te "alquilan" la web, en EneDigital tú eres
-                            el dueño absoluto de tu dominio y tus archivos desde el primer día.</p>
+                        <p style="margin-bottom: 1rem;"><strong>Tres cosas clave:</strong></p>
+                        <ul style="padding-left: 1.5rem; line-height: 1.8; list-style: none;">
+                            <li style="margin-bottom: 1rem; padding-left: 0;">
+                                <span style="font-size: 1.2rem; margin-right: 0.5rem;">🎯</span>
+                                <strong>Enfoque en conversión, no solo diseño:</strong> No hago webs bonitas que no
+                                venden. Cada elemento está pensado para convertir visitantes en clientes.
+                            </li>
+                            <li style="margin-bottom: 1rem; padding-left: 0;">
+                                <span style="font-size: 1.2rem; margin-right: 0.5rem;">⚡</span>
+                                <strong>Optimización WPO extrema:</strong> Consigo 100/100 en PageSpeed. Una web lenta
+                                pierde el 53% de visitantes móviles en 3 segundos.
+                            </li>
+                            <li style="margin-bottom: 0; padding-left: 0;">
+                                <span style="font-size: 1.2rem; margin-right: 0.5rem;">🤝</span>
+                                <strong>Trato directo conmigo:</strong> No hay intermediarios ni juniors. Hablas
+                                conmigo, trabajo yo, y te entrego yo. Punto.
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        ¿Tengo que pagar algo más? <i class="fa-solid fa-chevron-down"></i>
+                        ¿Por qué debería invertir en WPO si mi web ya funciona? <i class="fa-solid fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>No hay sorpresas. Solo pagas el valor de la web y luego la cuota de
-                            mantenimiento de 90€ una vez al año (el primer año ya está incluido o prorrateado según
-                            oferta). Sin mensualidades ocultas.</p>
+                        <p>Porque <strong>"funcionar" no es suficiente</strong>. Google penaliza las webs lentas en el
+                            ranking SEO. Además:</p>
+                        <ul style="margin-top: 0.5rem; padding-left: 1.5rem; line-height: 1.8;">
+                            <li>📉 Un segundo extra de carga = <strong>-7% conversiones</strong></li>
+                            <li>🔍 El 53% de usuarios móviles abandonan si tarda más de 3 segundos</li>
+                            <li>💰 Amazon pierde $1.6B al año por cada 0.1s de retraso</li>
+                        </ul>
+                        <p style="margin-top: 0.8rem;">Si tu competencia carga en 2s y tú en 4s, <strong>ya perdiste al
+                                cliente</strong>.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        Ya tengo dominio, ¿me sirve? <i class="fa-solid fa-chevron-down"></i>
+                        ¿Trabajas con negocios de mi sector? <i class="fa-solid fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>¡Claro! Si ya tienes un dominio comprado, lo redirigimos a nuestros servidores. Si no lo
-                            tienes, nosotros nos encargamos de todo el papeleo por ti.</p>
+                        <p>He trabajado con <strong>clínicas, centros estéticos, panaderías, restaurantes y
+                                consultorías</strong>. Pero lo importante no es el sector, sino <strong>entender tu
+                                modelo de negocio</strong>. Mi enfoque es:</p>
+                        <ol style="margin-top: 0.5rem; padding-left: 1.5rem; line-height: 1.8;">
+                            <li>Analizar cómo tus clientes toman decisiones de compra</li>
+                            <li>Identificar los puntos de fricción en tu embudo de ventas</li>
+                            <li>Crear una web que elimine esas fricciones y convierta</li>
+                        </ol>
+                        <p style="margin-top: 0.8rem;">Si vendes servicios locales o productos, puedo ayudarte.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Qué pasa si no estoy satisfecho con el resultado? <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Trabajo con <strong>revisiones ilimitadas</strong> hasta que estés 100% satisfecho. No cobro
+                            el proyecto final hasta que digas "esto es exactamente lo que necesitaba". Además, te
+                            muestro avances cada semana para que no haya sorpresas al final.</p>
+                        <p style="margin-top: 0.8rem;"><strong>Mi reputación depende de tu éxito</strong>, así que no me
+                            conformo con "está bien". Busco el "¡wow, esto superó mis expectativas!".</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Puedo actualizar la web yo mismo después de la entrega? <i
+                            class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>Sí, totalmente</strong>. Te entrego:</p>
+                        <ul style="margin-top: 0.5rem; padding-left: 1.5rem; line-height: 1.8;">
+                            <li>✅ Acceso completo al código y hosting</li>
+                            <li>📹 Video tutorial personalizado de cómo editar contenidos</li>
+                            <li>📄 Documentación clara de la estructura de tu web</li>
+                            <li>🆘 Soporte técnico incluido en el mantenimiento anual</li>
+                        </ul>
+                        <p style="margin-top: 0.8rem;">Eres el dueño absoluto. Si mañana quieres irte con otro
+                            proveedor, te llevas todo sin problemas.</p>
                     </div>
                 </div>
 
             </div>
         </section>
+
 
     </main>
 
@@ -786,15 +1204,58 @@
             </div>
             <div class="bubble-arrow"></div>
         </div>
-        <a href="https://wa.me/34687356467" class="btn-float btn-whatsapp" target="_blank" rel="noopener noreferrer"
-            aria-label="Chat en WhatsApp">
+        <button onclick="openTypeformModal(); closeBot();" class="btn-float btn-whatsapp"
+            aria-label="Abrir formulario de contacto" style="border: none; cursor: pointer;">
             <span style="font-size: 1.5rem;">💬</span>
-        </a>
+        </button>
     </div>
 
     <footer>
         <p>© 2026 EneDigital · Nellys Mata · Vitoria-Gasteiz</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="https://www.linkedin.com/in/nellysmata" target="_blank" rel="noopener noreferrer"
+                style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s ease;"
+                onmouseover="this.style.color='var(--magenta)'" onmouseout="this.style.color='var(--text-secondary)'">
+                💼 LinkedIn
+            </a>
+        </p>
     </footer>
+
+    <!-- Modal Typeform -->
+    <div id="typeform-modal" class="typeform-modal">
+        <div class="typeform-modal-content">
+            <button class="typeform-modal-close" onclick="closeTypeformModal()"
+                aria-label="Cerrar formulario">&times;</button>
+            <div data-tf-live="01KG4THRHDPGD788R4GRGKGF6W"></div>
+        </div>
+    </div>
+
+    <!-- Modal Preview Maquetas -->
+    <div id="preview-modal" class="typeform-modal">
+        <div class="typeform-modal-content" style="max-width: 1400px;">
+            <button class="typeform-modal-close" onclick="closePreviewModal()"
+                aria-label="Cerrar vista previa">&times;</button>
+            <div style="width: 100%; height: 100%; display: flex; flex-direction: column;">
+                <div
+                    style="padding: 1.5rem; background: var(--bg-card); border-bottom: 2px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <h3 id="preview-title" style="margin: 0; font-size: 1.5rem;">Vista Previa</h3>
+                        <p id="preview-subtitle"
+                            style="margin: 0.3rem 0 0; color: var(--text-secondary); font-size: 0.9rem;">Proyecto demo
+                        </p>
+                    </div>
+                    <a id="preview-external-link" href="#" target="_blank" rel="noopener noreferrer"
+                        style="background: var(--magenta); color: white; padding: 0.7rem 1.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: opacity 0.3s ease;"
+                        onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                        ABRIR EN NUEVA PESTAÑA ↗
+                    </a>
+                </div>
+                <iframe id="preview-iframe" style="width: 100%; flex: 1; border: none; background: white;"
+                    sandbox="allow-same-origin allow-scripts allow-forms allow-popups" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Ejecutar después de que el DOM esté completamente cargado
@@ -857,6 +1318,127 @@
             setTimeout(() => {
                 botBubble.classList.add('show');
             }, 4000);
+
+            // --- LÓGICA CARRUSEL DE TESTIMONIOS ---
+            const track = document.getElementById('testimonials-track');
+            const prevBtn = document.getElementById('prev-testimonial');
+            const nextBtn = document.getElementById('next-testimonial');
+            const dotsContainer = document.getElementById('testimonial-dots');
+
+            if (track && prevBtn && nextBtn && dotsContainer) {
+                const testimonials = track.querySelectorAll('.testimonial-card');
+                const totalTestimonials = testimonials.length;
+                let currentIndex = 0;
+                let autoPlayInterval;
+
+                // Crear dots indicadores
+                function createDots() {
+                    dotsContainer.innerHTML = '';
+                    for (let i = 0; i < totalTestimonials; i++) {
+                        const dot = document.createElement('button');
+                        dot.style.cssText = `
+                            width: 12px;
+                            height: 12px;
+                            border-radius: 50%;
+                            border: 2px solid var(--border-color);
+                            background: transparent;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                        `;
+                        dot.setAttribute('aria-label', `Ir al testimonio ${i + 1}`);
+                        dot.addEventListener('click', () => goToSlide(i));
+                        dotsContainer.appendChild(dot);
+                    }
+                    updateDots();
+                }
+
+                // Actualizar dots activos
+                function updateDots() {
+                    const dots = dotsContainer.querySelectorAll('button');
+                    dots.forEach((dot, index) => {
+                        if (index === currentIndex) {
+                            dot.style.background = 'var(--magenta)';
+                            dot.style.borderColor = 'var(--magenta)';
+                            dot.style.transform = 'scale(1.2)';
+                        } else {
+                            dot.style.background = 'transparent';
+                            dot.style.borderColor = 'var(--border-color)';
+                            dot.style.transform = 'scale(1)';
+                        }
+                    });
+                }
+
+                // Ir a un slide específico
+                function goToSlide(index) {
+                    currentIndex = index;
+                    const offset = -currentIndex * 100;
+                    track.style.transform = `translateX(${offset}%)`;
+                    updateDots();
+                    resetAutoPlay();
+                }
+
+                // Siguiente slide
+                function nextSlide() {
+                    currentIndex = (currentIndex + 1) % totalTestimonials;
+                    goToSlide(currentIndex);
+                }
+
+                // Slide anterior
+                function prevSlide() {
+                    currentIndex = (currentIndex - 1 + totalTestimonials) % totalTestimonials;
+                    goToSlide(currentIndex);
+                }
+
+                // Auto-play
+                function startAutoPlay() {
+                    autoPlayInterval = setInterval(nextSlide, 5000); // Cambiar cada 5 segundos
+                }
+
+                function stopAutoPlay() {
+                    clearInterval(autoPlayInterval);
+                }
+
+                function resetAutoPlay() {
+                    stopAutoPlay();
+                    startAutoPlay();
+                }
+
+                // Event listeners
+                nextBtn.addEventListener('click', nextSlide);
+                prevBtn.addEventListener('click', prevSlide);
+
+                // Pausar auto-play al hacer hover
+                track.addEventListener('mouseenter', stopAutoPlay);
+                track.addEventListener('mouseleave', startAutoPlay);
+
+                // Soporte para gestos táctiles (swipe)
+                let touchStartX = 0;
+                let touchEndX = 0;
+
+                track.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                    stopAutoPlay();
+                });
+
+                track.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                    startAutoPlay();
+                });
+
+                function handleSwipe() {
+                    const swipeThreshold = 50;
+                    if (touchStartX - touchEndX > swipeThreshold) {
+                        nextSlide();
+                    } else if (touchEndX - touchStartX > swipeThreshold) {
+                        prevSlide();
+                    }
+                }
+
+                // Inicializar
+                createDots();
+                startAutoPlay();
+            }
         }
 
         // --- LÓGICA COMPARTIR (No requiere DOM) ---
@@ -878,6 +1460,95 @@
         function closeBot() {
             document.getElementById('whatsapp-bot').classList.remove('show');
         }
+
+        // --- LÓGICA ACORDEÓN CLINICFISIO ---
+        function toggleClinicFisioDetails() {
+            const details = document.getElementById('clinicfisio-details');
+            const button = document.getElementById('toggle-clinicfisio');
+
+            if (details.style.maxHeight && details.style.maxHeight !== '0px') {
+                // Cerrar
+                details.style.maxHeight = '0';
+                button.textContent = 'VER MÁS DETALLES →';
+            } else {
+                // Abrir
+                details.style.maxHeight = details.scrollHeight + 'px';
+                button.textContent = 'VER MENOS ↑';
+            }
+        }
+
+        // --- LÓGICA MODAL TYPEFORM ---
+        function openTypeformModal() {
+            const modal = document.getElementById('typeform-modal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevenir scroll del body
+        }
+
+        function closeTypeformModal() {
+            const modal = document.getElementById('typeform-modal');
+            modal.classList.remove('show');
+            document.body.style.overflow = ''; // Restaurar scroll
+        }
+
+        // --- LÓGICA MODAL PREVIEW MAQUETAS ---
+        function openPreviewModal(title, subtitle, url) {
+            const modal = document.getElementById('preview-modal');
+            const iframe = document.getElementById('preview-iframe');
+            const titleEl = document.getElementById('preview-title');
+            const subtitleEl = document.getElementById('preview-subtitle');
+            const externalLink = document.getElementById('preview-external-link');
+
+            // Actualizar contenido
+            titleEl.textContent = title;
+            subtitleEl.textContent = subtitle;
+            iframe.src = url;
+            externalLink.href = url;
+
+            // Mostrar modal
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePreviewModal() {
+            const modal = document.getElementById('preview-modal');
+            const iframe = document.getElementById('preview-iframe');
+
+            // Limpiar iframe al cerrar
+            iframe.src = '';
+
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+
+
+        // Cerrar modal al hacer clic fuera del contenido
+        document.addEventListener('click', function (event) {
+            const typeformModal = document.getElementById('typeform-modal');
+            const previewModal = document.getElementById('preview-modal');
+
+            if (event.target === typeformModal) {
+                closeTypeformModal();
+            }
+            if (event.target === previewModal) {
+                closePreviewModal();
+            }
+        });
+
+        // Cerrar modal con tecla ESC
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                const typeformModal = document.getElementById('typeform-modal');
+                const previewModal = document.getElementById('preview-modal');
+
+                if (typeformModal.classList.contains('show')) {
+                    closeTypeformModal();
+                }
+                if (previewModal.classList.contains('show')) {
+                    closePreviewModal();
+                }
+            }
+        });
     </script>
 </body>
 
