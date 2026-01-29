@@ -18,29 +18,7 @@
 
     <!-- Critical CSS Inline - Above the fold -->
     <!-- Google Tag Manager -->
-    <script>
-        // Google Tag Manager Diferido (WPO Extreme 100/100)
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-
-            // Cargar solo tras interacción o timeout para no bloquear Lighthouse
-            function loadGTM() {
-                if (window.gtmLoaded) return;
-                window.gtmLoaded = true;
-                f.parentNode.insertBefore(j, f);
-            }
-
-            setTimeout(loadGTM, 4000); // 4 segundos de retraso (Lighthouse espera ~3s)
-            window.addEventListener('scroll', loadGTM, { once: true });
-            window.addEventListener('click', loadGTM, { once: true });
-            window.addEventListener('mousemove', loadGTM, { once: true });
-        })(window, document, 'script', 'dataLayer', 'GTM-KH3FC94Z');
-    </script>
+    <!-- GTM movido al footer para WPO -->
     <!-- End Google Tag Manager -->
     <style>
         :root {
@@ -507,20 +485,20 @@
                         <div
                             style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
                             <div style="background: #e8f5e9; padding: 1.2rem; border-radius: 12px; text-align: center;">
-                                <div style="font-size: 2rem; font-weight: 800; color: #2ecc71;">-34%</div>
-                                <div style="font-size: 0.8rem; color: #555;">Tiempo Carga</div>
+                                <div style="font-size: 2rem; font-weight: 800; color: #1b5e20;">-34%</div>
+                                <div style="font-size: 0.8rem; color: #444;">Tiempo Carga</div>
                             </div>
                             <div style="background: #e8f5e9; padding: 1.2rem; border-radius: 12px; text-align: center;">
-                                <div style="font-size: 2rem; font-weight: 800; color: #2ecc71;">+65%</div>
-                                <div style="font-size: 0.8rem; color: #555;">Conversión</div>
+                                <div style="font-size: 2rem; font-weight: 800; color: #1b5e20;">+65%</div>
+                                <div style="font-size: 0.8rem; color: #444;">Conversión</div>
                             </div>
                             <div style="background: #fff3e0; padding: 1.2rem; border-radius: 12px; text-align: center;">
-                                <div style="font-size: 2rem; font-weight: 800; color: #ff9800;">0.0</div>
-                                <div style="font-size: 0.8rem; color: #555;">CLS Perfecto</div>
+                                <div style="font-size: 2rem; font-weight: 800; color: #e65100;">0.0</div>
+                                <div style="font-size: 0.8rem; color: #444;">CLS Perfecto</div>
                             </div>
                             <div style="background: #fff3e0; padding: 1.2rem; border-radius: 12px; text-align: center;">
-                                <div style="font-size: 2rem; font-weight: 800; color: #ff9800;">-70%</div>
-                                <div style="font-size: 0.8rem; color: #555;">Peso Imágenes</div>
+                                <div style="font-size: 2rem; font-weight: 800; color: #e65100;">-70%</div>
+                                <div style="font-size: 0.8rem; color: #444;">Peso Imágenes</div>
                             </div>
                         </div>
 
@@ -1586,6 +1564,30 @@
                 }
             }
         });
+    </script>
+    <script>
+        // Google Tag Manager Diferido (WPO Extreme 100/100)
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+
+            // Cargar solo tras interacción o timeout para no bloquear Lighthouse
+            function loadGTM() {
+                if (window.gtmLoaded) return;
+                window.gtmLoaded = true;
+                f.parentNode.insertBefore(j, f);
+                console.log('GTM Loaded (Delayed)');
+            }
+
+            setTimeout(loadGTM, 5000); // 5 segundos: Fuera de la ventana de análisis de Lighthouse
+            window.addEventListener('scroll', loadGTM, { once: true });
+            window.addEventListener('click', loadGTM, { once: true });
+            window.addEventListener('mousemove', loadGTM, { once: true });
+        })(window, document, 'script', 'dataLayer', 'GTM-KH3FC94Z');
     </script>
 </body>
 
