@@ -52,7 +52,8 @@
             --bg-card: #ffffff;
             --bg-nav: rgba(255, 252, 253, 0.96);
             --text-main: #1a1a1a;
-            --text-secondary: #555555;
+            --text-secondary: #4a4a4a;
+            /* Contraste mejorado AAA */
             --border-color: #f0f0f0;
             --shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
             --faq-bg: #ffffff;
@@ -357,10 +358,7 @@
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH3FC94Z" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <!-- GTM noscript eliminado para WPO 100/100 -->
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">EneDigital</a>
@@ -1226,7 +1224,7 @@
         <div class="whatsapp-bubble" id="whatsapp-bot">
             <div class="bubble-header">
                 <span style="font-weight: 800;">Nellys (EneDigital)</span>
-                <button onclick="closeBot()"
+                <button onclick="closeBot()" aria-label="Cerrar chat"
                     style="background:none; border:none; color:#666; cursor:pointer;">✕</button>
             </div>
             <div class="bubble-body">
@@ -1280,7 +1278,8 @@
                         ABRIR EN NUEVA PESTAÑA ↗
                     </a>
                 </div>
-                <iframe id="preview-iframe" style="width: 100%; flex: 1; border: none; background: white;"
+                <iframe id="preview-iframe" title="Vista previa del sitio web"
+                    style="width: 100%; flex: 1; border: none; background: white;"
                     sandbox="allow-same-origin allow-scripts allow-forms allow-popups" loading="lazy">
                 </iframe>
             </div>
