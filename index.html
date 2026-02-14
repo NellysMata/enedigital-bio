@@ -20,311 +20,7 @@
     <!-- Google Tag Manager -->
     <!-- GTM movido al footer para WPO -->
     <!-- End Google Tag Manager -->
-    <style>
-        :root {
-            --magenta: #E91E8C;
-            --magenta-dark: #C2185B;
-            --magenta-text: #b01666;
-            --magenta-glow: rgba(233, 30, 140, 0.4);
-            --bg-body: #fffcfd;
-            --bg-card: #ffffff;
-            --bg-nav: rgba(255, 252, 253, 0.96);
-            --text-main: #1a1a1a;
-            --text-secondary: #4a4a4a;
-            /* Contraste mejorado AAA */
-            --border-color: #f0f0f0;
-            --shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
-            --faq-bg: #ffffff;
-            --text-highlight: #C2185B
-        }
-
-        body.dark-mode {
-            --bg-body: #0a0a0a;
-            --bg-card: #141414;
-            --bg-nav: rgba(10, 10, 10, 0.96);
-            --text-main: #ffffff;
-            --text-secondary: #d0d0d0;
-            --border-color: #333333;
-            --shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            --faq-bg: #1a1a1a;
-            --text-highlight: #ff66a3
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-            overflow-x: hidden;
-            max-width: 100vw
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: var(--bg-body);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-            max-width: 100vw;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--bg-nav);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(233, 30, 140, 0.1)
-        }
-
-        .nav-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--text-highlight);
-            text-decoration: none
-        }
-
-        .nav-actions {
-            display: flex;
-            gap: 15px;
-            align-items: center
-        }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1.2rem;
-            color: var(--text-main);
-            padding: 8px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center
-        }
-
-        .btn-nav {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 800;
-            font-size: 0.8rem;
-            border: 2px solid var(--text-main);
-            padding: 0.5rem 1.2rem;
-            border-radius: 50px
-        }
-
-        .hero {
-            padding: 8rem 1.5rem 6rem;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 900;
-            letter-spacing: -2px;
-            line-height: 1.1;
-            margin-bottom: 1.5rem
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto
-        }
-
-        .btn-mega {
-            background: linear-gradient(135deg, var(--magenta), #ff5e9e);
-            color: white;
-            padding: 1.2rem 2rem;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 1.1rem;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 10px 30px var(--magenta-glow);
-            text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-            text-align: center
-        }
-
-        .text-highlight {
-            color: var(--text-highlight) !important
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1.5rem
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            line-height: 1.2;
-            color: var(--text-main)
-        }
-
-        img,
-        svg {
-            max-width: 100%;
-            height: auto;
-            display: block
-        }
-
-        /* Modal Typeform Styles */
-        .typeform-modal {
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            animation: fadeIn 0.3s ease;
-            padding: 20px;
-        }
-
-        .typeform-modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .typeform-modal-content {
-            position: relative;
-            background: white;
-            width: 100%;
-            max-width: 1200px;
-            height: 95vh;
-            max-height: 900px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-            animation: slideUp 0.4s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .typeform-modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            z-index: 10001;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            border: none;
-            font-size: 2rem;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            line-height: 1;
-        }
-
-        .typeform-modal-close:hover {
-            background: var(--magenta);
-            transform: rotate(90deg) scale(1.1);
-        }
-
-        .typeform-modal-content>div[data-tf-live] {
-            width: 100%;
-            height: 100%;
-            flex: 1;
-        }
-
-        /* Forzar que TODOS los elementos de Typeform ocupen el 100% */
-        .typeform-modal-content [data-tf-live],
-        .typeform-modal-content [data-tf-live]>*,
-        .typeform-modal-content [data-tf-live] div,
-        .typeform-modal-content [data-tf-live] iframe {
-            height: 100% !important;
-            width: 100% !important;
-            min-height: 100% !important;
-            max-height: 100% !important;
-            border: none;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .typeform-modal {
-                padding: 10px;
-            }
-
-            .typeform-modal-content {
-                width: 100%;
-                height: 98vh;
-                max-height: none;
-                border-radius: 15px;
-            }
-
-            .typeform-modal-close {
-                top: 10px;
-                right: 10px;
-                width: 40px;
-                height: 40px;
-                font-size: 1.8rem;
-            }
-        }
-    </style>
-
+    <link rel="stylesheet" href="style.css">
     <!-- CSS no crítico con carga asíncrona -->
     <link rel="preload" href="style.css?v=2.6.0" as="style">
     <link rel="stylesheet" href="style.css?v=2.6.0" media="print" onload="this.media='all'">
@@ -336,7 +32,6 @@
 </head>
 
 <body>
-    <!-- GTM noscript eliminado para WPO 100/100 -->
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">EneDigital</a>
@@ -349,88 +44,191 @@
         </div>
     </nav>
 
-    <header class="hero">
-        <h1>Tu negocio necesita una web que <span class="text-highlight">convierta visitas en clientes</span></h1>
-        <p>Me llamo Nellys. No solo escribo código, creo sistemas que automatizan tu negocio y multiplican tus ventas
-            mientras tú descansas.</p>
-        <button onclick="openTypeformModal()" class="btn-mega" style="cursor: pointer;">HABLEMOS DE TU PROYECTO</button>
+    <header class="hero-split">
+        <div class="hero-content">
+            <h1>Ingeniería Web de <span class="text-highlight">Alta Disponibilidad.</span></h1>
+            <p
+                style="font-size: 1.15rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 2.5rem; max-width: 650px;">
+                Transformamos deuda técnica en activos digitales de conversión masiva. Arquitecturas optimizadas para
+                escalabilidad, velocidad crítica y resistencia ante picos de tráfico.
+            </p>
+            <div class="hero-actions">
+                <button onclick="openTypeformModal()" class="btn-mega" style="cursor: pointer;">SOLICITAR DIAGNÓSTICO
+                    TÉCNICO</button>
+                <div class="trust-badge">
+                    <span style="color: var(--text-highlight); font-family: monospace;">[SYSTEM_READY]</span> 5.0 Google
+                    Rating
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-image-container">
+                <img src="img/hero-optimized.jpg" alt="Nellys Mata - Consultora Web"
+                    style="width: 100%; height: 100%; object-fit: cover; object-position: center 35%; display: block;">
+            </div>
+            <div class="floating-score">
+                <div
+                    style="width: 50px; height: 50px; border-radius: 50%; border: 4px solid #00c853; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #00c853; font-size: 0.9rem;">
+                    98</div>
+                <div style="text-align: left; line-height: 1.2;">
+                    <div style="font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 0.5px;">
+                        PERFORMANCE</div>
+                    <div style="font-weight: 800; font-size: 0.95rem;">Lighthouse</div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <div class="share-bar">
-        <button class="share-btn" onclick="sharePage('whatsapp')" aria-label="Compartir en Whatsapp">💬</button>
-        <button class="share-btn" onclick="sharePage('copy')" aria-label="Copiar enlace">🔗</button>
-        <button class="share-btn" onclick="sharePage('linkedin')" aria-label="Compartir en LinkedIn">💼</button>
+        <button class="share-btn" onclick="sharePage('whatsapp')" aria-label="Compartir en Whatsapp">Whatsapp</button>
+        <button class="share-btn" onclick="sharePage('copy')" aria-label="Copiar enlace">Copy Link</button>
+        <button class="share-btn" onclick="sharePage('linkedin')" aria-label="Compartir en LinkedIn">LinkedIn</button>
     </div>
 
     <main>
-        <section class="about" id="sobre-mi">
-            <div class="container about-flex">
-                <div style="flex: 1.2; min-width: 320px;">
-                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; letter-spacing: -1px;">Ingeniería + Ventas 🛠️
-                    </h2>
-                    <p style="font-size: 1.1rem; margin-bottom: 1.2rem;">Soy <strong>Nellys Mata</strong>. Mi formación
-                        técnica me da la precisión, pero mis años en ventas me han enseñado lo más importante:
-                        <strong>las personas compran a personas.</strong>
-                    </p>
-                    <p style="font-size: 1.1rem; margin-bottom: 1.2rem;">En EneDigital no hay palabras raras. Te
-                        escucho, entiendo tu negocio y te entrego una herramienta que te haga la vida más fácil.</p>
+        <!-- Sección 2: La Cara detrás del Código (About Mejorado) -->
+        <!-- Sección 2: Arquitectura Digital (Pastel Professional) -->
+        <section class="about-tech" id="architecture">
+            <div class="container tech-grid">
+                <!-- Left Column: Copy & System Status -->
+                <div class="tech-content">
+                    <h2 class="tech-title">Arquitectura Digital:<br>Sistemas para la Conversión.</h2>
+                    <div class="tech-copy">
+                        <p>No opero bajo caprichos estéticos, sino bajo métricas de negocio. En EneDigital intervenimos
+                            el código heredado y saneamos el entorno para eliminar la latencia que frena las operaciones
+                            comerciales críticas.</p>
+                        <p>Mi enfoque combina la precisión de la ingeniería de software con la psicología de la
+                            conversión: si tu plataforma no genera ingresos, el marketing no servirá de nada.</p>
+                    </div>
+
+                    <!-- System Status Line (Minimal) -->
+                    <div class="system-status-line">
+                        <span class="status-item">SYSTEM_STATUS: <strong class="status-ok">OPTIMIZED</strong></span>
+                        <span class="status-divider">|</span>
+                        <span class="status-item">ACTIVE_AUDITS: <strong>3</strong></span>
+                        <span class="status-divider">|</span>
+                        <span class="status-item">ENGINE: <strong>ENE_CORE_V2.6</strong></span>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <button onclick="openTypeformModal()" class="btn-tech-pastel"
+                        style="cursor: pointer; border: none;">Solicitar Diagnóstico Técnico →</button>
                 </div>
-                <div class="profile-card">
-                    <span style="font-size: 5rem; display: block; margin-bottom: 1rem;">👩💻</span>
-                    <h3 style="font-size: 1.5rem;">Nellys Mata</h3>
-                    <p class="text-highlight" style="font-weight:800; text-transform:uppercase; font-size:0.8rem;">
-                        Fundadora EneDigital</p>
-                    <a href="https://www.linkedin.com/in/nellysmata" target="_blank" rel="noopener noreferrer"
-                        style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; color: var(--magenta-text); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: opacity 0.3s ease;"
-                        onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
-                        💼 LinkedIn
-                    </a>
+
+                <!-- Right Column: Pastel Data Widget -->
+                <div class="tech-visual">
+                    <div class="data-monitor-pastel">
+                        <div class="monitor-header-pastel">
+                            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                            <span class="monitor-title-pastel">enedigital_core_v2.6.0</span>
+                        </div>
+                        <div class="monitor-screen-pastel">
+                            <div class="data-row-pastel">
+                                <span class="label-pastel">RESPONSE_TIME:</span>
+                                <span class="value-pastel success-pastel">0.2s [OK]</span>
+                            </div>
+                            <div class="data-row-pastel">
+                                <span class="label-pastel">LCP_STATUS:</span>
+                                <span class="value-pastel success-pastel">STABLE</span>
+                            </div>
+                            <div class="data-row-pastel">
+                                <span class="label-pastel">DB_LATENCY:</span>
+                                <span class="value-pastel cyan-pastel">-70% [OPTIMIZED]</span>
+                            </div>
+                            <div class="data-graph-pastel">
+                                <!-- CSS Bars -->
+                                <div class="bar-pastel" style="height: 40%"></div>
+                                <div class="bar-pastel" style="height: 60%"></div>
+                                <div class="bar-pastel" style="height: 30%"></div>
+                                <div class="bar-pastel active-pastel" style="height: 85%"></div>
+                                <div class="bar-pastel" style="height: 50%"></div>
+                                <div class="bar-pastel" style="height: 70%"></div>
+                                <div class="bar-pastel" style="height: 45%"></div>
+                            </div>
+                            <div class="terminal-line-pastel">
+                                > SYSTEM_READY
+                                <span class="cursor-pastel">_</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section class="services" style="padding: 4rem 1.5rem; background: var(--bg-body);">
+        <!-- Sección 3: Servicios Estratégicos (3 Bloques) -->
+        <section class="services" style="padding: 6rem 1.5rem; background: var(--bg-body);">
             <div class="container">
-                <!-- Grid optimizado: 2x2 en desktop, 1 columna en mobile -->
+                <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
+                    <h2 class="section-title" style="margin-bottom: 1rem;">Protocolos de Intervención</h2>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem;">Soluciones de ingeniería para problemas
+                        de
+                        negocio</p>
+                </div>
+
                 <div class="services-grid-optimized">
 
-                    <!-- Card 1: Seguridad (Webs Hackeadas) -->
-                    <div class="service-card-optimized">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🛡️</div>
-                        <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Ciberseguridad & Rescate</h3>
-                        <p style="color: var(--text-secondary); font-size: 0.95rem;"><strong>¿Web Hackeada?</strong>
-                            Tranquilidad. Limpio malware, recupero accesos y blindo tu sitio para siempre. Auditoría de
-                            seguridad ofensiva y defensiva.</p>
-                    </div>
-
-                    <!-- Card 2: WPO (Optimización) - NEW -->
-                    <div class="service-card-optimized">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🚀</div>
-                        <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Optimización WPO (Speed)</h3>
-                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Llevo tu web al <strong>100/100 en
-                                Google</strong>. Carga instantánea, Core Web Vitals y optimización de código para que
-                            Google te ame y tus clientes no esperen.</p>
-                    </div>
-
-                    <!-- Card 3: Branding -->
-                    <div class="service-card-optimized">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎨</div>
-                        <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Branding & Diseño</h3>
-                        <p style="color: var(--text-secondary); font-size: 0.95rem;">Diseño de Identidad Visual
-                            Corporativa & Branding Estratégico. Creo una identidad visual coherente para tu marca.
-                            Logos,
-                            paletas de color y posts para LinkedIn.</p>
-                    </div>
-
-                    <!-- Card 4: Estrategia (Was Maintenance) -->
-                    <div class="service-card-optimized">
-                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📈</div>
-                        <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Consultoría Técnica</h3>
-                        <p style="color: var(--text-secondary); font-size: 0.95rem;">No solo diseño, optimizo tu
-                            negocio.
-                            Integración de pagos, automatizaciones y estrategia técnica para escalar sin romper nada.
+                    <!-- Bloque 1: WPO Pro -->
+                    <div class="service-card-pro">
+                        <div class="service-icon wpo"
+                            style="font-family: monospace; font-size: 1.5rem !important; font-weight: 700;">DEV</div>
+                        <h3>Arquitectura de Rendimiento</h3>
+                        <p>
+                            Reingeniería del stack tecnológico. Minificación de assets críticos, optimización del
+                            Critical Rendering Path y reducción drástica del Time-to-First-Byte (TTFB).
                         </p>
+                        <ul>
+                            <li>:: <span>Ejecución Asíncrona de Scripts</span></li>
+                            <li>:: <span>Refactorización de Código Legacy</span></li>
+                            <li>:: <span>Optimización de Base de Datos</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Bloque 2: Desarrollo Web Estratégico -->
+                    <div class="service-card-pro featured">
+                        <div class="service-icon strategic"
+                            style="font-family: monospace; font-size: 1.5rem !important; font-weight: 700;">UX/UI</div>
+                        <h3>Ingeniería de Conversión</h3>
+                        <p>
+                            Diseño de interfaces de alta fidelidad orientadas a la retención. Implementación de patrones
+                            de UX cognitivo y arquitecturas de información persuasivas.
+                        </p>
+                        <ul>
+                            <li>:: <span>Sistemas de Diseño Atómico</span></li>
+                            <li>:: <span>Micro-interacciones de Feedback</span></li>
+                            <li>:: <span>Jerarquía Visual Avanzada</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Bloque 3: Partner Agencias -->
+                    <div class="service-card-pro">
+                        <div class="service-icon partner"
+                            style="font-family: monospace; font-size: 1.5rem !important; font-weight: 700;">B2B</div>
+                        <h3>Infraestructura White-Label</h3>
+                        <p>
+                            Soporte técnico de segundo nivel para agencias. Desarrollo de módulos personalizados y
+                            resolución de deuda técnica en proyectos escalables.
+                        </p>
+                        <ul>
+                            <li>:: <span>Integración de APIs REST/GraphQL</span></li>
+                            <li>:: <span>Desarrollo de Temas a Medida</span></li>
+                            <li>:: <span>Auditoría de Seguridad</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Bloque 4: Consultoría & Rescate -->
+                    <div class="service-card-pro">
+                        <div class="service-icon maint"
+                            style="font-family: monospace; font-size: 1.5rem !important; font-weight: 700;">SEC</div>
+                        <h3>Blindaje Operativo</h3>
+                        <p>
+                            Protocolos de seguridad ofensiva y defensiva. Monitorización 24/7 de integridad de archivos
+                            y mitigación de vulnerabilidades Zero-Day.
+                        </p>
+                        <ul>
+                            <li>:: <span>Hardening de Servidores</span></li>
+                            <li>:: <span>Gestión de Identidad y Accesos</span></li>
+                            <li>:: <span>Recuperación ante Desastres</span></li>
+                        </ul>
                     </div>
 
                 </div>
@@ -440,359 +238,468 @@
         <!-- Marquee Infinite Carousel (Tools) -->
         <div class="marquee-wrapper">
             <div class="marquee-content">
-                <span class="marquee-item">LINKEDIN 💼</span>
-                <span class="marquee-item">ESTRATEGIA ♟️</span>
-                <span class="marquee-item">SEGURIDAD WEB 🛡️</span>
-                <span class="marquee-item">OPTIMIZACIÓN WPO ⚡</span>
-                <span class="marquee-item">SEO TÉCNICO 💻</span>
-                <span class="marquee-item">CONVERSIÓN 📈</span>
-                <!-- Repetir Exacto -->
-                <span class="marquee-item">LINKEDIN 💼</span>
-                <span class="marquee-item">ESTRATEGIA ♟️</span>
-                <span class="marquee-item">SEGURIDAD WEB 🛡️</span>
-                <span class="marquee-item">OPTIMIZACIÓN WPO ⚡</span>
-                <span class="marquee-item">SEO TÉCNICO 💻</span>
-                <span class="marquee-item">CONVERSIÓN 📈</span>
+                <span class="marquee-item">LATENCY_OPTIMIZATION</span>
+                <span class="marquee-item">CORE_WEB_VITALS</span>
+                <span class="marquee-item">HEADLESS_ARCHITECTURE</span>
+                <span class="marquee-item">DATABASE_SHARDING</span>
+                <span class="marquee-item">SERVER_SIDE_RENDERING</span>
+                <span class="marquee-item">EDGE_COMPUTING</span>
+                <span class="marquee-item">LATENCY_OPTIMIZATION</span>
+                <span class="marquee-item">CORE_WEB_VITALS</span>
+                <span class="marquee-item">HEADLESS_ARCHITECTURE</span>
+                <span class="marquee-item">DATABASE_SHARDING</span>
+                <span class="marquee-item">SERVER_SIDE_RENDERING</span>
+                <span class="marquee-item">EDGE_COMPUTING</span>
             </div>
         </div>
 
-        <section class="logros" id="logros" style="padding: 4rem 1.5rem; background: var(--bg-body);">
+        <!-- PORTFOLIO STRATEGIC SECTION -->
+        <section class="portfolio" id="portfolio" style="padding: 6rem 1.5rem;">
             <div class="container">
-                <h2 class="section-title">Caso de Éxito Real</h2>
-                <p
-                    style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem;">
-                    Resultados medibles en un negocio real
-                </p>
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 class="section-title" style="margin-bottom: 1rem;">Portfolio: Resultados que Hablan</h2>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                        Clasificados por impacto y tipología de negocio. Menos promesa, más performance.</p>
+                </div>
 
-                <!-- Solo ClinicFisio centrado -->
-                <div style="max-width: 800px; margin: 0 auto;">
+                <!-- CATEGORÍA 1: ECOMMERCE -->
+                <div style="margin-bottom: 5rem;">
+                    <h3
+                        style="font-size: 1.8rem; margin-bottom: 2rem; border-left: 5px solid var(--magenta); padding-left: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                        <span
+                            style="background: rgba(233, 30, 140, 0.1); padding: 0.5rem; border-radius: 10px;">🛍️</span>
+                        eCommerce de Alto Rendimiento
+                    </h3>
 
-                    <!-- Caso: ClinicFisio -->
+                    <!-- Caso Edimar -->
                     <article
-                        style="background: var(--bg-card); padding: 2.5rem; border-radius: 20px; border: 1px solid var(--border-color); box-shadow: var(--shadow);">
-                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                            <div
-                                style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 2rem;">
-                                🚀
-                            </div>
-                            <div>
-                                <h3 style="font-size: 1.5rem; margin: 0;">ClinicFisio</h3>
-                                <span style="font-size: 0.9rem; color: var(--text-secondary);">Optimización WPO - De
-                                    3.5s a 2.3s</span>
-                            </div>
+                        style="background: var(--bg-card); padding: 2.5rem; border-radius: 20px; border: 1px solid var(--border-color); box-shadow: var(--shadow); position: relative; margin-bottom: 3rem;">
+                        <div
+                            style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--magenta), #ff5e9e); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; box-shadow: 0 5px 15px rgba(233, 30, 140, 0.3); font-family: monospace;">
+                            [SYSTEM_CRITICAL_FIX]
                         </div>
 
                         <div
+                            style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; margin-top: 1rem;">
+                            <div
+                                style="width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #FF6B35, #F7931E); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3); color: white; font-family: monospace; font-weight: 800;">
+                                WO
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.8rem; margin: 0; font-weight: 900;">Electrónica Edimar</h3>
+                                <span
+                                    style="font-size: 1rem; color: var(--text-secondary); font-weight: 600;">Refactorización
+                                    WooCommerce (17k+ SKUs)</span>
+                            </div>
+                        </div>
+
+                        <!-- Métricas Edimar -->
+                        <div
                             style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
                             <div style="background: #e8f5e9; padding: 1.2rem; border-radius: 12px; text-align: center;">
-                                <div style="font-size: 2rem; font-weight: 800; color: #1b5e20;">-34%</div>
-                                <div style="font-size: 0.8rem; color: #444;">Tiempo Carga</div>
+                                <div style="font-size: 2rem; font-weight: 800; color: #1b5e20;">94/100</div>
+                                <div style="font-size: 0.8rem; color: #444;">PERFORMANCE</div>
+                                <div style="font-size: 0.75rem; color: #2e7d32; font-weight: 600; margin-top: 0.2rem;">
+                                    [OPTIMIZED]</div>
                             </div>
-                            <div style="background: #e8f5e9; padding: 1.2rem; border-radius: 12px; text-align: center;">
-                                <div style="font-size: 2rem; font-weight: 800; color: #1b5e20;">+65%</div>
-                                <div style="font-size: 0.8rem; color: #444;">Conversión</div>
+                            <div style="background: #e3f2fd; padding: 1.2rem; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 2rem; font-weight: 800; color: #0d47a1;">3.1s</div>
+                                <div style="font-size: 0.8rem; color: #444;">LCP (Tiempo de Carga)</div>
+                                <div style="font-size: 0.75rem; color: #1565c0; font-weight: 600; margin-top: 0.2rem;">
+                                    -56% LATENCIA</div>
+                            </div>
+                            <div style="background: #f3e5f5; padding: 1.2rem; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 2rem; font-weight: 800; color: #4a148c;">50ms</div>
+                                <div style="font-size: 0.8rem; color: #444;">TBT (Bloqueo)</div>
+                                <div style="font-size: 0.75rem; color: #6a1b9a; font-weight: 600; margin-top: 0.2rem;">
+                                    [MINIMIZED]</div>
                             </div>
                             <div style="background: #fff3e0; padding: 1.2rem; border-radius: 12px; text-align: center;">
-                                <div style="font-size: 2rem; font-weight: 800; color: #e65100;">0.0</div>
-                                <div style="font-size: 0.8rem; color: #444;">CLS Perfecto</div>
-                            </div>
-                            <div style="background: #fff3e0; padding: 1.2rem; border-radius: 12px; text-align: center;">
-                                <div style="font-size: 2rem; font-weight: 800; color: #e65100;">-70%</div>
-                                <div style="font-size: 0.8rem; color: #444;">Peso Imágenes</div>
+                                <div style="font-size: 2rem; font-weight: 800; color: #e65100;">100/100</div>
+                                <div style="font-size: 0.8rem; color: #444;">SEO AUTHORITY</div>
+                                <div style="font-size: 0.75rem; color: #ef6c00; font-weight: 600; margin-top: 0.2rem;">
+                                    [MAX_SCORE]</div>
                             </div>
                         </div>
 
                         <p
                             style="color: var(--text-secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
-                            Transformé una web lenta en una máquina de conversión. CLS 0.0 perfecto, reducción del 70%
-                            en peso de imágenes y cumplimiento total de Core Web Vitals.
+                            Optimización de infraestructura para entorno de alto tráfico. Auditoría de bottlenecks en
+                            base de datos y reescritura de lógica de renderizado para eliminar latencia en catálogo
+                            masivo.
                         </p>
 
-                        <button id="toggle-clinicfisio" onclick="toggleClinicFisioDetails()"
-                            style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 700; cursor: pointer; font-size: 0.9rem; transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                            onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 20px rgba(102, 126, 234, 0.4)'"
+                        <button id="toggle-edimar" onclick="toggleEdimarDetails()"
+                            style="background: linear-gradient(135deg, var(--magenta), #ff5e9e); color: white; border: none; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 700; cursor: pointer; font-size: 0.9rem; transition: transform 0.3s ease, box-shadow 0.3s ease; display: block; margin: 0 auto; font-family: monospace;"
+                            onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 20px rgba(233, 30, 140, 0.4)'"
                             onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
-                            VER MÁS DETALLES →
+                            VER REGISTRO DE INTERVENCIÓN >>
                         </button>
 
-                        <!-- Detalles Expandibles -->
+                        <div id="edimar-details"
+                            style="max-height: 0; overflow: hidden; transition: max-height 0.5s ease;">
+                            <div
+                                style="padding-top: 2rem; margin-top: 2rem; border-top: 2px solid var(--border-color);">
+                                <!-- El Reto -->
+                                <div
+                                    style="background: rgba(231, 76, 60, 0.05); padding: 1.5rem; border-radius: 15px; border-left: 4px solid #e74c3c; margin-bottom: 2rem;">
+                                    <h4
+                                        style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; font-family: monospace;">
+                                        [DIAGNOSIS]
+                                    </h4>
+                                    <p
+                                        style="color: var(--text-secondary); line-height: 1.7; margin: 0; font-size: 0.95rem;">
+                                        Desbordamiento de recursos en servidor (CPU 100%) por consultas SQL no
+                                        indexadas. Latencia crítica en LCP (7.1s) debido a bloqueo del Main Thread por
+                                        scripts de terceros sin diferir.
+                                    </p>
+                                </div>
+                                <!-- Gráfica -->
+                                <div style="margin-bottom: 2.5rem; text-align: center;">
+                                    <img src="img/edimar_performance_comparison_1771012858145.png"
+                                        alt="Comparación de rendimiento Electrónica Edimar"
+                                        style="width: 100%; max-width: 700px; height: auto; border-radius: 20px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); margin: 0 auto; display: block;"
+                                        loading="lazy">
+                                </div>
+                                <!-- Puntos Clave -->
+                                <div
+                                    style="background: var(--bg-body); padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                                    <h4
+                                        style="font-size: 1.2rem; font-weight: 800; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem; font-family: monospace;">
+                                        [PROTOCOL_EXECUTED]
+                                    </h4>
+                                    <ul
+                                        style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.5rem; margin: 0; font-size: 0.95rem;">
+                                        <li>Limpieza de tablas `wp_options` y transients en MySQL.</li>
+                                        <li>Implementación de carga condicional de assets (Script Loading Strategies).
+                                        </li>
+                                        <li>Generación de Critical CSS para renderizado Above-the-fold instantáneo.</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Impacto -->
+                                <div
+                                    style="background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%); padding: 2rem; border-radius: 15px; color: white; text-align: center;">
+                                    <div
+                                        style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.8rem; opacity: 0.95; font-family: monospace;">
+                                        [BUSINESS_IMPACT]
+                                    </div>
+                                    <p style="font-size: 1rem; line-height: 1.7; margin: 0; opacity: 0.95;">
+                                        Recuperación de tráfico orgánico y estabilización de tasa de conversión tras
+                                        reducción de tiempos de espera.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Proyecto Demo eCommerce -->
+                    <article
+                        style="background: var(--bg-card); border-radius: 20px; border: 1px solid var(--border-color); box-shadow: var(--shadow); overflow: hidden; margin-top: 2rem;">
+                        <div style="padding: 2rem; display: flex; align-items: center; gap: 1.5rem;">
+                            <div style="font-size: 2rem;">
+                                🥐</div>
+                            <div>
+                                <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight:800;">CroquiPan</h4>
+                                <p style="margin-bottom: 1rem; color: var(--text-secondary);">Arquitectura híbrida de
+                                    capa estática con integración transaccional desacoplada. UX cognitivo orientado a
+                                    conversión inmediata mediante patrones de persuasión visual.</p>
+                                <a href="https://croquipan.netlify.app/" target="_blank"
+                                    style="color: var(--magenta); font-weight:700; text-decoration:none; font-family:monospace;">[RUN_DEMO]
+                                    →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- CATEGORÍA 2: NEGOCIOS LOCALES -->
+                <div>
+                    <h3
+                        style="font-size: 1.8rem; margin-bottom: 2rem; border-left: 5px solid #2979FF; padding-left: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                        <span
+                            style="background: rgba(41, 121, 255, 0.1); padding: 0.5rem; border-radius: 10px; font-family: monospace; font-size: 1.2rem; font-weight: 800;">LB</span>
+                        Negocios Locales & Corporativos
+                    </h3>
+
+                    <!-- Caso ClinicFisio -->
+                    <article
+                        style="background: var(--bg-card); padding: 2.5rem; border-radius: 20px; border: 1px solid var(--border-color); box-shadow: var(--shadow); margin-bottom: 3rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div
+                                style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">
+                                💆
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.5rem; margin: 0;">ClinicFisio</h3>
+                                <span style="font-size: 0.9rem; color: var(--text-secondary);">Infraestructura SEO Local
+                                    & WPO</span>
+                            </div>
+                        </div>
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+                            <div style="background: #e8f5e9; padding: 1.2rem; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 2rem; font-weight: 800; color: #1b5e20;">-34%</div>
+                                <div style="font-size: 0.8rem; color: #444;">LATENCIA DE CARGA</div>
+                            </div>
+                            <div style="background: #e8f5e9; padding: 1.2rem; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 2rem; font-weight: 800; color: #1b5e20;">+65%</div>
+                                <div style="font-size: 0.8rem; color: #444;">CONVERSIÓN (CRO)</div>
+                            </div>
+                            <div style="background: #fff3e0; padding: 1.2rem; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 2rem; font-weight: 800; color: #e65100;">0.0</div>
+                                <div style="font-size: 0.8rem; color: #444;">CLS (Layout Shift)</div>
+                            </div>
+                            <div style="background: #fff3e0; padding: 1.2rem; border-radius: 12px; text-align: center;">
+                                <div style="font-size: 2rem; font-weight: 800; color: #e65100;">-70%</div>
+                                <div style="font-size: 0.8rem; color: #444;">PAYLOAD ASSETS</div>
+                            </div>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                            Optimización de la cadena de renderizado para dispositivos móviles en redes 4G.
+                            Implementación de microdatos para dominancia en SEO Local.
+                        </p>
+                        <button id="toggle-clinicfisio" onclick="toggleClinicFisioDetails()"
+                            style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; padding: 0.8rem 2rem; border-radius: 50px; font-weight: 700; cursor: pointer; font-size: 0.9rem; transition: transform 0.3s ease, box-shadow 0.3s ease; display: block; margin: 0 auto; font-family: monospace;"
+                            onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 20px rgba(102, 126, 234, 0.4)'"
+                            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+                            VER DETALLES TÉCNICOS >>
+                        </button>
                         <div id="clinicfisio-details"
                             style="max-height: 0; overflow: hidden; transition: max-height 0.5s ease;">
                             <div
                                 style="padding-top: 2rem; margin-top: 2rem; border-top: 2px solid var(--border-color);">
+                                <div style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
 
-                                <!-- El Desafío -->
-                                <div style="margin-bottom: 2.5rem;">
-                                    <h4
-                                        style="font-size: 1.3rem; font-weight: 800; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;">
-                                        <span
-                                            style="background: #ffe5e5; color: #e74c3c; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem;">⚠️</span>
-                                        El Desafío
-                                    </h4>
+                                    <!-- El Desafío -->
                                     <div
-                                        style="background: var(--bg-body); padding: 1.5rem; border-radius: 15px; border-left: 4px solid #e74c3c;">
-                                        <p
-                                            style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; font-size: 0.95rem;">
-                                            ClinicFisio tenía una web funcional, pero <strong>lenta</strong>. Los
-                                            pacientes se quejaban de tiempos de carga superiores a 3.5 segundos y saltos
-                                            visuales que afectaban la confianza.
+                                        style="background: rgba(41, 121, 255, 0.05); padding: 1.5rem; border-radius: 12px; border-left: 4px solid #2979FF; margin-bottom: 2rem;">
+                                        <h4
+                                            style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; color: #2979FF; font-family: monospace;">
+                                            [KERNEL_PANIC_AUDIT]
+                                        </h4>
+                                        <p style="margin: 0;">
+                                            Infraestructura visualmente correcta pero con deuda técnica severa. Tiempo
+                                            de bloqueo (TBT) superior a <strong>800ms</strong> en móvil, penalizando el
+                                            posicionamiento en SERPs locales.
                                         </p>
-                                        <ul
-                                            style="color: var(--text-secondary); line-height: 1.7; padding-left: 1.5rem; font-size: 0.9rem;">
-                                            <li>⏱️ <strong>Carga lenta:</strong> 3.5+ segundos (muy por encima del
-                                                estándar)</li>
-                                            <li>📱 <strong>Saltos de contenido:</strong> CLS de 0.25 (inestabilidad
-                                                visual)</li>
-                                            <li>🍪 <strong>Bloqueo de cookies:</strong> iubenda bloqueaba ~1 segundo la
-                                                carga inicial</li>
-                                            <li>🖼️ <strong>Imágenes pesadas:</strong> PNG/JPG sin optimizar (~2.5MB)
+                                    </div>
+
+                                    <!-- Intervención Técnica -->
+                                    <div style="margin-bottom: 2rem;">
+                                        <h4
+                                            style="font-size: 1.1rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-main); font-family: monospace;">
+                                            [DEPLOYMENT_LOG]</h4>
+                                        <ul style="padding-left: 1.2rem; margin: 0;">
+                                            <li style="margin-bottom: 0.8rem;"><strong>Asset Pipeline:</strong>
+                                                Transcodificación dinámica de imágenes a WebP/AVIF con policies de caché
+                                                agresivas.
                                             </li>
-                                            <li>❌ <strong>Core Web Vitals:</strong> No cumplía los estándares de Google
+                                            <li style="margin-bottom: 0.8rem;"><strong>Cumulative Layout Shift:</strong>
+                                                Reserva de espacio en viewport para eliminar saltos visuales en iframes
+                                                de terceros (Mapas/Booking).</li>
+                                            <li style="margin-bottom: 0.8rem;"><strong>Structured Data:</strong>
+                                                Inyección de JSON-LD `LocalBusiness` y `MedicalOrganization` para Rich
+                                                Snippets.
                                             </li>
+                                            <li><strong>Thread Unblocking:</strong> Offloading de scripts de chat y
+                                                analítica mediante Web Workers.</li>
                                         </ul>
                                     </div>
-                                </div>
 
-                                <!-- La Solución -->
-                                <div style="margin-bottom: 2.5rem;">
-                                    <h4
-                                        style="font-size: 1.3rem; font-weight: 800; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;">
-                                        <span
-                                            style="background: #e3f9eb; color: #2ecc71; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem;">💡</span>
-                                        La Solución
-                                    </h4>
+                                    <!-- Impacto y Testimonio -->
                                     <div
-                                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-                                        <!-- Solución 1 -->
-                                        <div
-                                            style="background: var(--bg-body); padding: 1.3rem; border-radius: 12px; border: 1px solid var(--border-color);">
-                                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡</div>
-                                            <h5 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem;">
-                                                Carga Asíncrona</h5>
-                                            <p
-                                                style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5;">
-                                                Reprogramé scripts críticos y moví el gestor de cookies para eliminar el
-                                                "pantallazo blanco" inicial.
-                                            </p>
-                                        </div>
-                                        <!-- Solución 2 -->
-                                        <div
-                                            style="background: var(--bg-body); padding: 1.3rem; border-radius: 12px; border: 1px solid var(--border-color);">
-                                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🎯</div>
-                                            <h5 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem;">CSS
-                                                Crítico</h5>
-                                            <p
-                                                style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5;">
-                                                Creé reservas de espacio para logo y menú, consiguiendo CLS 0.0
-                                                (estabilidad perfecta).
-                                            </p>
-                                        </div>
-                                        <!-- Solución 3 -->
-                                        <div
-                                            style="background: var(--bg-body); padding: 1.3rem; border-radius: 12px; border: 1px solid var(--border-color);">
-                                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🖼️</div>
-                                            <h5 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem;">
-                                                WebP
-                                                Optimization</h5>
-                                            <p
-                                                style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5;">
-                                                Implementé formato WebP en todas las imágenes, reduciendo el peso un 70%
-                                                sin perder calidad.
-                                            </p>
-                                        </div>
-                                        <!-- Solución 4 -->
-                                        <div
-                                            style="background: var(--bg-body); padding: 1.3rem; border-radius: 12px; border: 1px solid var(--border-color);">
-                                            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🧹</div>
-                                            <h5 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem;">
-                                                Higiene de Código</h5>
-                                            <p
-                                                style="color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5;">
-                                                Eliminé 12 conexiones fantasma, reparé 8 enlaces rotos y optimicé el
-                                                Sitemap XML.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Impacto en el Negocio -->
-                                <div>
-                                    <h4
-                                        style="font-size: 1.3rem; font-weight: 800; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;">
-                                        <span
-                                            style="background: #fff3e0; color: #ff9800; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem;">📈</span>
-                                        Impacto en el Negocio
-                                    </h4>
-                                    <div
-                                        style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 15px; color: white;">
-                                        <div
-                                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
-                                            <div>
-                                                <div style="font-size: 2rem; font-weight: 900; margin-bottom: 0.3rem;">
-                                                    -38%</div>
-                                                <div style="font-size: 0.9rem; opacity: 0.9;">Tasa de Rebote</div>
-                                                <div style="font-size: 0.75rem; opacity: 0.7;">68% → 42%</div>
-                                            </div>
-                                            <div>
-                                                <div style="font-size: 2rem; font-weight: 900; margin-bottom: 0.3rem;">
-                                                    +106%</div>
-                                                <div style="font-size: 0.9rem; opacity: 0.9;">Tiempo en Sitio</div>
-                                                <div style="font-size: 0.75rem; opacity: 0.7;">1:20 → 2:45</div>
-                                            </div>
-                                            <div>
-                                                <div style="font-size: 2rem; font-weight: 900; margin-bottom: 0.3rem;">✅
-                                                </div>
-                                                <div style="font-size: 0.9rem; opacity: 0.9;">Core Web Vitals</div>
-                                                <div style="font-size: 0.75rem; opacity: 0.7;">Google Aprobado</div>
-                                            </div>
-                                        </div>
-                                        <p style="font-size: 0.95rem; line-height: 1.6; opacity: 0.95;">
-                                            <strong>Resultado:</strong> La clínica ahora tiene ventaja competitiva en
-                                            SEO local y recibe más consultas online que nunca. La inversión se pagó sola
-                                            en el primer mes.
+                                        style="background: var(--bg-body); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                                        <p style="margin-bottom: 1rem; font-family: monospace; font-size: 0.9rem;">
+                                            <strong>STATUS:</strong> "Autoridad de dominio recuperada. Incremento del
+                                            200% en conversión de leads cualificados."
                                         </p>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
-
                     </article>
 
+                    <!-- GRID DE PROYECTOS (DEMOS) -->
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+
+                        <!-- EneNails -->
+                        <article
+                            style="background: var(--bg-body); border-radius: 20px; border: 1px solid var(--border-color); box-shadow: var(--shadow); overflow: hidden; transition: transform 0.3s ease;"
+                            onmouseover="this.style.transform='translateY(-5px)'"
+                            onmouseout="this.style.transform='translateY(0)'">
+                            <div style="padding: 1.5rem;">
+                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">💅 EneNails</div>
+                                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                                    Sistema de Reservas (SPA) con sincronización Real-Time.</p>
+                                <a href="https://ene-nails.vercel.app/" target="_blank"
+                                    style="font-size: 0.8rem; font-weight: 700; color: var(--magenta); text-decoration: none; font-family: monospace;">[LAUNCH_DEMO]
+                                    →</a>
+                            </div>
+                        </article>
+
+                        <!-- Sian -->
+                        <article
+                            style="background: var(--bg-body); border-radius: 20px; border: 1px solid var(--border-color); box-shadow: var(--shadow); overflow: hidden; transition: transform 0.3s ease;"
+                            onmouseover="this.style.transform='translateY(-5px)'"
+                            onmouseout="this.style.transform='translateY(0)'">
+                            <div style="padding: 1.5rem;">
+                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">💆‍♀️ Sian</div>
+                                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                                    Landing
+                                    Page High-Performance para captación de leads.</p>
+                                <a href="https://estetica-sian.vercel.app/" target="_blank"
+                                    style="font-size: 0.8rem; font-weight: 700; color: var(--magenta); text-decoration: none; font-family: monospace;">[LAUNCH_DEMO]
+                                    →</a>
+                            </div>
+                        </article>
+
+                        <!-- EneSushi -->
+                        <article
+                            style="background: var(--bg-body); border-radius: 20px; border: 1px solid var(--border-color); box-shadow: var(--shadow); overflow: hidden; transition: transform 0.3s ease;"
+                            onmouseover="this.style.transform='translateY(-5px)'"
+                            onmouseout="this.style.transform='translateY(0)'">
+                            <div style="padding: 1.5rem;">
+                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🍣 EneSushi</div>
+                                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">PWA
+                                    (Progressive Web App) con menú interactivo inmersivo.</p>
+                                <a href="https://enesushi.vercel.app/" target="_blank"
+                                    style="font-size: 0.8rem; font-weight: 700; color: var(--magenta); text-decoration: none; font-family: monospace;">[LAUNCH_DEMO]
+                                    →</a>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- PROYECTOS DEMO -->
-        <section style="padding: 4rem 1.5rem; background: var(--bg-card);">
+        <!-- SECCIÓN BITÁCORA DE RENDIMIENTO -->
+        <section class="bitacora"
+            style="padding: 6rem 1.5rem; background: var(--bg-card); border-top: 1px solid var(--border-color);">
             <div class="container">
-                <h2 class="section-title">Proyectos & Maquetas</h2>
-                <p
-                    style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem;">
-                    Demos funcionales y prototipos en vivo
-                </p>
+                <div
+                    style="margin-bottom: 3rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 2rem;">
+                    <div>
+                        <span
+                            style="font-family: monospace; color: var(--magenta); font-weight: 700; font-size: 0.9rem; letter-spacing: 1px;">//
+                            DEV_LOGS</span>
+                        <h2 class="section-title" style="margin: 0.5rem 0 0.5rem; font-size: 2.2rem;">Bitácora de
+                            Ingeniería</h2>
+                        <p style="color: var(--text-secondary); font-size: 1.1rem; margin: 0;">Registro técnico de
+                            intervenciones. Datos, no opiniones.</p>
+                    </div>
+                </div>
 
-                <!-- Grid responsive mobile first con espacio pequeño -->
-                <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
-                    <style>
-                        @media (min-width: 768px) {
-                            .projects-grid-no-gap {
-                                grid-template-columns: repeat(2, 1fr) !important;
-                            }
-                        }
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
 
-                        @media (min-width: 1024px) {
-                            .projects-grid-no-gap {
-                                grid-template-columns: repeat(4, 1fr) !important;
-                            }
-                        }
-                    </style>
-                    <script>
-                        document.currentScript.parentElement.classList.add('projects-grid-no-gap');
-                    </script>
-
-                    <!-- Project 1: EneNails -->
+                    <!-- Entrada 1: WooCommerce -->
                     <article
-                        style="background: var(--bg-body); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow); transition: transform 0.3s ease;"
-                        onmouseover="this.style.transform='translateY(-5px)'"
-                        onmouseout="this.style.transform='translateY(0)'">
-                        <div style="background: #FFF0F5; padding: 3rem; text-align: center; font-size: 4rem;">💅</div>
-                        <div style="padding: 1.5rem;">
-                            <span
-                                style="background: #FFF0F5; color: #880E4F; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">
-                                🤖 SISTEMA AUTOMÁTICO
-                            </span>
-                            <h3 style="font-size: 1.3rem; margin: 1rem 0 0.5rem;">EneNails</h3>
-                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">
-                                Gestión de citas inteligente para manicuristas.
-                            </p>
-                            <a href="#"
-                                onclick="openPreviewModal('EneNails', 'Sistema de gestión de citas inteligente', 'https://ene-nails.vercel.app/'); return false;"
-                                class="text-highlight"
-                                style="font-weight: 700; text-decoration: none; font-size: 0.9rem; cursor: pointer;">
-                                VER WEB →
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Project 2: Sian -->
-                    <article
-                        style="background: var(--bg-body); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow); transition: transform 0.3s ease;"
-                        onmouseover="this.style.transform='translateY(-5px)'"
-                        onmouseout="this.style.transform='translateY(0)'">
+                        style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; display: flex; flex-direction: column; position: relative; overflow: hidden;"
+                        onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.05)'"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                         <div
-                            style="background: linear-gradient(135deg, #f093fb, #f5576c); padding: 3rem; text-align: center; font-size: 4rem;">
-                            💆‍♀️</div>
-                        <div style="padding: 1.5rem;">
-                            <span
-                                style="background: #e3f9eb; color: #14532d; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">
-                                ⭐ LANDING PAGE
-                            </span>
-                            <h3 style="font-size: 1.3rem; margin: 1rem 0 0.5rem;">Sian Estética</h3>
-                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">
-                                Web completa + Sistema de reservas automatizado.
-                            </p>
-                            <a href="#"
-                                onclick="openPreviewModal('Sian Estética', 'Web completa + Sistema de reservas automatizado', 'https://estetica-sian.vercel.app/'); return false;"
-                                class="text-highlight"
-                                style="font-weight: 700; text-decoration: none; font-size: 0.9rem; cursor: pointer;">
-                                VER WEB →
-                            </a>
+                            style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #2e7d32;">
                         </div>
+                        <div
+                            style="font-family: monospace; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem; display: flex; justify-content: space-between;">
+                            <span>LOG #003</span>
+                            <span>DATABASE</span>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem; font-weight: 800; line-height: 1.4;">
+                            Reingeniería DB WooCommerce: Latencia Zero</h3>
+                        <div style="margin-bottom: 1.5rem; display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                            <span
+                                style="background: #e8f5e9; color: #2e7d32; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700; font-family: monospace;">TBT:
+                                50ms</span>
+                            <span
+                                style="background: #e8f5e9; color: #2e7d32; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700; font-family: monospace;">SCORE:
+                                94</span>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1;">
+                            Optimización de queries huérfanas y reindexación de tablas en catálogo de 17k items.
+                            Implementación de Object Cache.
+                        </p>
+                        <a href="#"
+                            style="color: var(--text-main); font-weight: 700; text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; font-family: monospace;"
+                            onclick="openTechModal('log-042'); return false;">
+                            [READ_LOG] >>
+                        </a>
                     </article>
 
-                    <!-- Project 3: CroquiPan -->
+                    <!-- Entrada 2: CLS -->
                     <article
-                        style="background: var(--bg-body); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow); transition: transform 0.3s ease;"
-                        onmouseover="this.style.transform='translateY(-5px)'"
-                        onmouseout="this.style.transform='translateY(0)'">
-                        <div style="background: #FFF8E1; padding: 3rem; text-align: center; font-size: 4rem;">🥐</div>
-                        <div style="padding: 1.5rem;">
-                            <span
-                                style="background: #FFF8E1; color: #714C04; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">
-                                🛒 ECOMMERCE
-                            </span>
-                            <h3 style="font-size: 1.3rem; margin: 1rem 0 0.5rem;">CroquiPan</h3>
-                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">
-                                Tienda online para panadería artesanal.
-                            </p>
-                            <a href="#"
-                                onclick="openPreviewModal('CroquiPan', 'Tienda online para panadería artesanal', 'https://croquipan.vercel.app/'); return false;"
-                                class="text-highlight"
-                                style="font-weight: 700; text-decoration: none; font-size: 0.9rem; cursor: pointer;">
-                                VER WEB →
-                            </a>
+                        style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; display: flex; flex-direction: column; position: relative; overflow: hidden;"
+                        onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.05)'"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <div
+                            style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--magenta);">
                         </div>
+                        <div
+                            style="font-family: monospace; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem; display: flex; justify-content: space-between;">
+                            <span>LOG #002</span>
+                            <span>RENDER_FIX</span>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem; font-weight: 800; line-height: 1.4;">
+                            Mitigación de Layout Shift (CLS)</h3>
+                        <div style="margin-bottom: 1.5rem; display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                            <span
+                                style="background: #f3e5f5; color: #7b1fa2; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700; font-family: monospace;">CLS:
+                                0.0</span>
+                            <span
+                                style="background: #fff3e0; color: #ef6c00; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700; font-family: monospace;">UX:
+                                STABLE</span>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1;">
+                            Análisis de reflows y repaints causados por inyección de contenido dinámico.
+                        </p>
+                        <a href="#"
+                            style="color: var(--text-main); font-weight: 700; text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; font-family: monospace;"
+                            onclick="openTechModal('log-041'); return false;">
+                            [READ_LOG] >>
+                        </a>
                     </article>
 
-                    <!-- Project 4: EneSushi -->
+                    <!-- Entrada 3: Local Business -->
                     <article
-                        style="background: var(--bg-body); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow); transition: transform 0.3s ease;"
-                        onmouseover="this.style.transform='translateY(-5px)'"
-                        onmouseout="this.style.transform='translateY(0)'">
-                        <div style="background: #1a1a1a; padding: 3rem; text-align: center; font-size: 4rem;">🍣</div>
-                        <div style="padding: 1.5rem;">
-                            <span
-                                style="background: #FFE5E5; color: #B71C1C; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">
-                                🍽️ RESTAURANTE
-                            </span>
-                            <h3 style="font-size: 1.3rem; margin: 1rem 0 0.5rem;">EneSushi</h3>
-                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">
-                                Experiencia inmersiva con carta digital moderna.
-                            </p>
-                            <a href="#"
-                                onclick="openPreviewModal('EneSushi', 'Experiencia inmersiva con carta digital moderna', 'https://enesushi.vercel.app/'); return false;"
-                                class="text-highlight"
-                                style="font-weight: 700; text-decoration: none; font-size: 0.9rem; cursor: pointer;">
-                                VER WEB →
-                            </a>
+                        style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; display: flex; flex-direction: column; position: relative; overflow: hidden;"
+                        onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 30px rgba(0,0,0,0.05)'"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <div
+                            style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #2979FF;">
                         </div>
+                        <div
+                            style="font-family: monospace; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem; display: flex; justify-content: space-between;">
+                            <span>LOG #001</span>
+                            <span>CRITICAL_PATH</span>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem; font-weight: 800; line-height: 1.4;">
+                            Optimización WPO para SEO Local</h3>
+                        <div style="margin-bottom: 1.5rem; display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                            <span
+                                style="background: #e3f2fd; color: #1565c0; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700; font-family: monospace;">MOBILE:
+                                100</span>
+                            <span
+                                style="background: #e1f5fe; color: #0277bd; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700; font-family: monospace;">LCP:
+                                1.2s</span>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1;">
+                            Reducción del payload inicial y deferring de scripts de terceros para dominancia en SERPs.
+                        </p>
+                        <a href="#"
+                            style="color: var(--text-main); font-weight: 700; text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; font-family: monospace;"
+                            onclick="openTechModal('log-040'); return false;">
+                            [READ_LOG] >>
+                        </a>
                     </article>
 
                 </div>
             </div>
         </section>
-
         <!-- TESTIMONIOS DE CLIENTES -->
         <section class="testimonials-section" id="testimonios"
             style="padding: 6rem 1.5rem; background: var(--bg-body); overflow: hidden;">
@@ -975,24 +882,6 @@
                 </div>
 
                 <!-- Responsive arrows for mobile -->
-                <style>
-                    @media (max-width: 768px) {
-
-                        #prev-testimonial,
-                        #next-testimonial {
-                            left: 10px !important;
-                            right: auto !important;
-                            width: 40px !important;
-                            height: 40px !important;
-                            font-size: 1.2rem !important;
-                        }
-
-                        #next-testimonial {
-                            left: auto !important;
-                            right: 10px !important;
-                        }
-                    }
-                </style>
 
             </div>
         </section>
@@ -1216,15 +1105,24 @@
         </button>
     </div>
 
-    <footer>
-        <p>© 2026 EneDigital · Nellys Mata · Vitoria-Gasteiz</p>
-        <p style="margin-top: 0.5rem;">
-            <a href="https://www.linkedin.com/in/nellysmata" target="_blank" rel="noopener noreferrer"
-                style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s ease;"
-                onmouseover="this.style.color='var(--magenta)'" onmouseout="this.style.color='var(--text-secondary)'">
-                💼 LinkedIn
-            </a>
-        </p>
+    <footer style="border-top: 1px solid var(--border-color); padding-top: 2rem; margin-top: 0;">
+        <div class="container"
+            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="font-family: monospace; font-size: 0.8rem; color: var(--text-secondary);">
+                <span style="color: #00c853;">●</span> SYSTEM_STATUS: ONLINE // ENEDIGITAL v2.6.0
+            </div>
+            <div style="font-family: monospace; font-size: 0.8rem; color: var(--text-secondary);">
+                © 2026 NELLYS MATA [VITORIA-GASTEIZ]
+            </div>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="https://www.linkedin.com/in/nellysmata" target="_blank" rel="noopener noreferrer"
+                    style="color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; font-family: monospace;"
+                    onmouseover="this.style.color='var(--magenta)'"
+                    onmouseout="this.style.color='var(--text-secondary)'">
+                    [LINKEDIN_PROFILE]
+                </a>
+            </div>
+        </div>
     </footer>
 
     <!-- Modal Typeform -->
@@ -1264,319 +1162,172 @@
         </div>
     </div>
 
-    <script>
-        // Ejecutar después de que el DOM esté completamente cargado
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initApp);
-        } else {
-            initApp();
-        }
 
-        function initApp() {
-            // --- LÓGICA MODO OSCURO ---
-            const toggleBtn = document.getElementById('theme-toggle');
-            const icon = toggleBtn.querySelector('span');
-            const body = document.body;
+    <!-- Technical Report Modal HTML (LOG #042 - WooCommerce) -->
+    <div id="tech-modal-log-042" class="tech-modal" onclick="if(event.target === this) closeTechModal('log-042')">
+        <div class="tech-modal-content accent-green">
+            <div class="tech-header">
+                <span class="tech-tag">LOG #042 // SYSTEM_AUDIT</span>
+                <h2>Informe de Intervención Técnica</h2>
+                <p>Refactorización Crítica - Entorno WooCommerce Masivo (17.000 refs)</p>
+                <button class="tech-close" onclick="closeTechModal('log-042')">×</button>
+            </div>
 
-            // Comprobar preferencia guardada
-            if (localStorage.getItem('theme') === 'dark') {
-                body.classList.add('dark-mode');
-                icon.textContent = '☀️';
-            }
+            <div class="tech-body">
+                <!-- Metrics -->
+                <div class="tech-metrics-grid">
+                    <div class="tech-metric-card">
+                        <span class="metric-label">PERFORMANCE SCORE</span>
+                        <div class="metric-value text-success">94/100</div>
+                    </div>
+                    <div class="tech-metric-card">
+                        <span class="metric-label">LCP (Largest Contentful Paint)</span>
+                        <div class="metric-value">3.1s</div>
+                        <span class="metric-sub">Reducción del 56%</span>
+                    </div>
+                    <div class="tech-metric-card">
+                        <span class="metric-label">TBT (Total Blocking Time)</span>
+                        <div class="metric-value text-success">50ms</div>
+                        <span class="metric-sub">Estado: Optimizado</span>
+                    </div>
+                </div>
 
-            toggleBtn.addEventListener('click', () => {
-                body.classList.toggle('dark-mode');
+                <!-- Report Content -->
+                <div class="tech-report-section">
+                    <h4>01. DIAGNÓSTICO_</h4>
+                    <p>Saturación del buffer de base de datos MySQL debido a consultas `wp_options` no indexadas
+                        (autoload=yes). Bloqueo del Main Thread por ejecución sincrónica de scripts de marketing (7.1s
+                        TTI).</p>
+                </div>
+                <div class="tech-report-section">
+                    <h4>02. PROTOCOLO APLICADO_</h4>
+                    <p>1. Limpieza de tablas de transitorios y metadatos huérfanos.<br>
+                        2. Implementación de Object Cache (Redis) para consultas repetitivas.<br>
+                        3. Defer/Delay de JS no esencial hasta interacción del usuario.</p>
+                </div>
+                <div class="tech-report-section highlight">
+                    <h4>03. RESULTADO_</h4>
+                    <p>Estabilidad operativa sub-3.5s bajo carga. Eliminación de errores 504 Gateway Timeout durante
+                        picos de tráfico.</p>
+                </div>
+            </div>
 
-                if (body.classList.contains('dark-mode')) {
-                    icon.textContent = '☀️';
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    icon.textContent = '🌙';
-                    localStorage.setItem('theme', 'light');
-                }
-            });
+            <div class="tech-footer">
+                <a href="#" onclick="closeTechModal('log-042'); openTypeformModal(); return false;"
+                    class="tech-cta">Solicitar Auditoría de Infraestructura →</a>
+                <button class="tech-btn-secondary" onclick="closeTechModal('log-042')">Cerrar Informe</button>
+            </div>
+        </div>
+    </div>
 
-            // --- LÓGICA FAQ (ACORDEÓN) ---
-            const faqQuestions = document.querySelectorAll('.faq-question');
+    <!-- Technical Report Modal HTML (LOG #041 - CLS/UX) -->
+    <div id="tech-modal-log-041" class="tech-modal" onclick="if(event.target === this) closeTechModal('log-041')">
+        <div class="tech-modal-content">
+            <div class="tech-header">
+                <span class="tech-tag">LOG #041 // UX_STABILITY</span>
+                <h2>Auditoría de Estabilidad Visual</h2>
+                <p>Mitigación de Cumulative Layout Shift (CLS) en entornos dinámicos.</p>
+                <button class="tech-close" onclick="closeTechModal('log-041')">×</button>
+            </div>
 
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', () => {
-                    const answer = question.nextElementSibling;
-                    const wasActive = question.classList.contains('active');
+            <div class="tech-body">
+                <div class="tech-metrics-grid">
+                    <div class="tech-metric-card">
+                        <span class="metric-label">CLS SCORE</span>
+                        <div class="metric-value text-success">0.0</div>
+                        <span class="metric-sub">Shift Calculado</span>
+                    </div>
+                    <div class="tech-metric-card">
+                        <span class="metric-label">RETENCIÓN USUARIO</span>
+                        <div class="metric-value text-cyan">+40%</div>
+                        <span class="metric-sub">Post-Fix</span>
+                    </div>
+                    <div class="tech-metric-card">
+                        <span class="metric-label">RENDERING</span>
+                        <div class="metric-value" style="font-size: 1.2rem;">STABLE</div>
+                    </div>
+                </div>
 
-                    // Cerrar todos
-                    faqQuestions.forEach(q => {
-                        q.classList.remove('active');
-                        q.nextElementSibling.style.maxHeight = null;
-                    });
+                <div class="tech-report-section">
+                    <h4>01. EL PROBLEMA_</h4>
+                    <p>Desplazamientos inesperados del layout durante el renderizado inicial. Impacto negativo severo en
+                        Core Web Vitals y experiencia de usuario (rage clicks).</p>
+                </div>
+                <div class="tech-report-section">
+                    <h4>02. INGENIERÍA APLICADA_</h4>
+                    <p>Definición explícita de `aspect-ratio` en contenedores multimedia. Preload de tipografías
+                        críticas y swap-strategy para evitar FOIT (Flash of Invisible Text).</p>
+                </div>
+                <div class="tech-report-section highlight">
+                    <h4>03. VALOR TÉCNICO_</h4>
+                    <p>Garantía de integridad visual. La interfaz es interactiva y estática desde el primer frame de
+                        pintura (FCP).</p>
+                </div>
+            </div>
 
-                    // Abrir si no estaba activo
-                    if (!wasActive) {
-                        question.classList.add('active');
-                        answer.style.maxHeight = answer.scrollHeight + "px";
-                    }
-                });
-            });
+            <div class="tech-footer">
+                <a href="#" onclick="closeTechModal('log-041'); openTypeformModal(); return false;"
+                    class="tech-cta">Diagnosticar Inestabilidad Visual →</a>
+                <button class="tech-btn-secondary" onclick="closeTechModal('log-041')">Cerrar Análisis</button>
+            </div>
+        </div>
+    </div>
 
-            // --- BOT WHATSAPP SIMULADO ---
-            const botBubble = document.getElementById('whatsapp-bot');
+    <!-- Technical Report Modal HTML (LOG #040 - Local WPO) -->
+    <div id="tech-modal-log-040" class="tech-modal" onclick="if(event.target === this) closeTechModal('log-040')">
+        <div class="tech-modal-content accent-blue">
+            <div class="tech-header">
+                <span class="tech-tag">LOG #040 // CRITICAL_PATH</span>
+                <h2>Informe de Conversión Local</h2>
+                <p>Optimización de Latencia en Redes Móviles (3G/4G).</p>
+                <button class="tech-close" onclick="closeTechModal('log-040')">×</button>
+            </div>
 
-            // Mostrar bot a los 4 segundos
-            setTimeout(() => {
-                botBubble.classList.add('show');
-            }, 4000);
+            <div class="tech-body">
+                <div class="tech-metrics-grid">
+                    <div class="tech-metric-card">
+                        <span class="metric-label">MOBILE SCORE</span>
+                        <div class="metric-value text-success">100/100</div>
+                        <span class="metric-sub">Lighthouse Mobile</span>
+                    </div>
+                    <div class="tech-metric-card">
+                        <span class="metric-label">CONVERSIÓN (CRO)</span>
+                        <div class="metric-value text-blue">+65%</div>
+                        <span class="metric-sub">Incremento Leads</span>
+                    </div>
+                    <div class="tech-metric-card">
+                        <span class="metric-label">TIME TO INTERACTIVE</span>
+                        <div class="metric-value">&lt; 1.2s</div>
+                        <span class="metric-sub">Interactividad Total</span>
+                    </div>
+                </div>
 
-            // --- LÓGICA CARRUSEL DE TESTIMONIOS ---
-            const track = document.getElementById('testimonials-track');
-            const prevBtn = document.getElementById('prev-testimonial');
-            const nextBtn = document.getElementById('next-testimonial');
-            const dotsContainer = document.getElementById('testimonial-dots');
+                <div class="tech-report-section">
+                    <h4>01. ANOMALÍA DETECTADA_</h4>
+                    <p>Alta tasa de rebote (80%) en tráfico móvil debido a tiempos de bloqueo (TBT) superiores a 3s
+                        causados por widgets de terceros (Mapas/Chat).</p>
+                </div>
+                <div class="tech-report-section">
+                    <h4>02. SOLUCIÓN TÉCNICA_</h4>
+                    <p>Aislamiento de scripts de terceros en Web Workers (Partytown/Off-main-thread). Optimización de la
+                        entrega de assets estáticos vía CDN.</p>
+                </div>
+                <div class="tech-report-section highlight">
+                    <h4>03. CONCLUSIÓN_</h4>
+                    <p>Infraestructura optimizada para "Instant Loading". Dominancia en SEO Local por cumplimiento
+                        estricto de Core Web Vitals.</p>
+                </div>
+            </div>
 
-            if (track && prevBtn && nextBtn && dotsContainer) {
-                const testimonials = track.querySelectorAll('.testimonial-card');
-                const totalTestimonials = testimonials.length;
-                let currentIndex = 0;
-                let autoPlayInterval;
+            <div class="tech-footer">
+                <a href="#" onclick="closeTechModal('log-040'); openTypeformModal(); return false;"
+                    class="tech-cta">Test de Velocidad Móvil →</a>
+                <button class="tech-btn-secondary" onclick="closeTechModal('log-040')">Cerrar Informe</button>
+            </div>
+        </div>
+    </div>
 
-                // Crear dots indicadores
-                function createDots() {
-                    dotsContainer.innerHTML = '';
-                    for (let i = 0; i < totalTestimonials; i++) {
-                        const dot = document.createElement('button');
-                        dot.className = 'testimonial-dot';
-                        dot.setAttribute('aria-label', `Ir al testimonio ${i + 1}`);
-                        dot.onclick = () => goToSlide(i); // Use onclick directly for simplicity or keep addEventListener
-                        dotsContainer.appendChild(dot);
-                    }
-                    updateDots();
-                }
-
-                // Actualizar dots activos
-                function updateDots() {
-                    const dots = dotsContainer.querySelectorAll('.testimonial-dot');
-                    dots.forEach((dot, index) => {
-                        if (index === currentIndex) {
-                            dot.classList.add('active');
-                        } else {
-                            dot.classList.remove('active');
-                        }
-                    });
-                }
-
-                // Ir a un slide específico
-                function goToSlide(index) {
-                    currentIndex = index;
-                    const offset = -currentIndex * 100;
-                    track.style.transform = `translateX(${offset}%)`;
-                    updateDots();
-                    resetAutoPlay();
-                }
-
-                // Siguiente slide
-                function nextSlide() {
-                    currentIndex = (currentIndex + 1) % totalTestimonials;
-                    goToSlide(currentIndex);
-                }
-
-                // Slide anterior
-                function prevSlide() {
-                    currentIndex = (currentIndex - 1 + totalTestimonials) % totalTestimonials;
-                    goToSlide(currentIndex);
-                }
-
-                // Auto-play
-                function startAutoPlay() {
-                    autoPlayInterval = setInterval(nextSlide, 5000); // Cambiar cada 5 segundos
-                }
-
-                function stopAutoPlay() {
-                    clearInterval(autoPlayInterval);
-                }
-
-                function resetAutoPlay() {
-                    stopAutoPlay();
-                    startAutoPlay();
-                }
-
-                // Event listeners
-                nextBtn.addEventListener('click', nextSlide);
-                prevBtn.addEventListener('click', prevSlide);
-
-                // Pausar auto-play al hacer hover
-                track.addEventListener('mouseenter', stopAutoPlay);
-                track.addEventListener('mouseleave', startAutoPlay);
-
-                // Soporte para gestos táctiles (swipe)
-                let touchStartX = 0;
-                let touchEndX = 0;
-
-                track.addEventListener('touchstart', (e) => {
-                    touchStartX = e.changedTouches[0].screenX;
-                    stopAutoPlay();
-                });
-
-                track.addEventListener('touchend', (e) => {
-                    touchEndX = e.changedTouches[0].screenX;
-                    handleSwipe();
-                    startAutoPlay();
-                });
-
-                function handleSwipe() {
-                    const swipeThreshold = 50;
-                    if (touchStartX - touchEndX > swipeThreshold) {
-                        nextSlide();
-                    } else if (touchEndX - touchStartX > swipeThreshold) {
-                        prevSlide();
-                    }
-                }
-
-                // Inicializar
-                createDots();
-                startAutoPlay();
-            }
-        }
-
-        // --- LÓGICA COMPARTIR (No requiere DOM) ---
-        function sharePage(platform) {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent("¡Mira esta web para digitalizar tu negocio en Vitoria! 🚀");
-            const linkedinUrl = "https://www.linkedin.com/sharing/share-offsite/?url=" + url;
-
-            if (platform === 'whatsapp') {
-                window.open("https://wa.me/?text=" + text + "%20" + url, '_blank');
-            } else if (platform === 'linkedin') {
-                window.open(linkedinUrl, '_blank');
-            } else if (platform === 'copy') {
-                navigator.clipboard.writeText(window.location.href);
-                alert("¡Enlace copiado al portapapeles!");
-            }
-        }
-
-        function closeBot() {
-            document.getElementById('whatsapp-bot').classList.remove('show');
-        }
-
-        // --- LÓGICA ACORDEÓN CLINICFISIO ---
-        function toggleClinicFisioDetails() {
-            const details = document.getElementById('clinicfisio-details');
-            const button = document.getElementById('toggle-clinicfisio');
-
-            if (details.style.maxHeight && details.style.maxHeight !== '0px') {
-                // Cerrar
-                details.style.maxHeight = '0';
-                button.textContent = 'VER MÁS DETALLES →';
-            } else {
-                // Abrir
-                details.style.maxHeight = details.scrollHeight + 'px';
-                button.textContent = 'VER MENOS ↑';
-            }
-        }
-
-        // --- LÓGICA MODAL TYPEFORM (Carga Diferida) ---
-        function openTypeformModal() {
-            // Cargar script on-demand si no existe
-            if (!document.getElementById('typeform-script')) {
-                const script = document.createElement('script');
-                script.id = 'typeform-script';
-                script.src = 'https://embed.typeform.com/next/embed.js';
-                document.body.appendChild(script);
-            }
-
-            const modal = document.getElementById('typeform-modal');
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Prevenir scroll del body
-        }
-
-        function closeTypeformModal() {
-            const modal = document.getElementById('typeform-modal');
-            modal.classList.remove('show');
-            document.body.style.overflow = ''; // Restaurar scroll
-        }
-
-        // --- LÓGICA MODAL PREVIEW MAQUETAS ---
-        function openPreviewModal(title, subtitle, url) {
-            const modal = document.getElementById('preview-modal');
-            const iframe = document.getElementById('preview-iframe');
-            const titleEl = document.getElementById('preview-title');
-            const subtitleEl = document.getElementById('preview-subtitle');
-            const externalLink = document.getElementById('preview-external-link');
-
-            // Actualizar contenido
-            titleEl.textContent = title;
-            subtitleEl.textContent = subtitle;
-            iframe.src = url;
-            externalLink.href = url;
-
-            // Mostrar modal
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closePreviewModal() {
-            const modal = document.getElementById('preview-modal');
-            const iframe = document.getElementById('preview-iframe');
-
-            // Limpiar iframe al cerrar
-            iframe.src = '';
-
-            modal.classList.remove('show');
-            document.body.style.overflow = '';
-        }
-
-
-
-        // Cerrar modal al hacer clic fuera del contenido
-        document.addEventListener('click', function (event) {
-            const typeformModal = document.getElementById('typeform-modal');
-            const previewModal = document.getElementById('preview-modal');
-
-            if (event.target === typeformModal) {
-                closeTypeformModal();
-            }
-            if (event.target === previewModal) {
-                closePreviewModal();
-            }
-        });
-
-        // Cerrar modal con tecla ESC
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape') {
-                const typeformModal = document.getElementById('typeform-modal');
-                const previewModal = document.getElementById('preview-modal');
-
-                if (typeformModal.classList.contains('show')) {
-                    closeTypeformModal();
-                }
-                if (previewModal.classList.contains('show')) {
-                    closePreviewModal();
-                }
-            }
-        });
-    </script>
-    <script>
-        // Google Tag Manager Diferido (WPO Extreme 100/100)
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-
-            // Cargar solo tras interacción o timeout para no bloquear Lighthouse
-            function loadGTM() {
-                if (window.gtmLoaded) return;
-                window.gtmLoaded = true;
-                f.parentNode.insertBefore(j, f);
-                console.log('GTM Loaded (Delayed)');
-            }
-
-            setTimeout(loadGTM, 5000); // 5 segundos: Fuera de la ventana de análisis de Lighthouse
-            window.addEventListener('scroll', loadGTM, { once: true });
-            window.addEventListener('click', loadGTM, { once: true });
-            window.addEventListener('mousemove', loadGTM, { once: true });
-        })(window, document, 'script', 'dataLayer', 'GTM-KH3FC94Z');
-    </script>
+    <script src="main.js" defer></script>
 </body>
 
 </html>
